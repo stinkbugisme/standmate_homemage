@@ -95,9 +95,78 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第6条（プレミアム会員サブスクリプション）</h2>
+          <h2 className="text-2xl font-bold mb-4">第6条（ユーザー生成コンテンツの管理）</h2>
 
-          <h3 className="text-xl font-semibold mb-3">6.1 プレミアム会員の特典</h3>
+          <h3 className="text-xl font-semibold mb-3">6.1 不適切なコンテンツに対する方針</h3>
+          <p className="mb-4">
+            本サービスは、すべてのユーザーが安全かつ快適に利用できる環境を提供することを最優先としています。
+          </p>
+          <p className="mb-4">
+            <strong>不適切なコンテンツや迷惑行為に対しては、ゼロトレランス（一切の容認をしない）の方針を採用しています。</strong>
+            違反が確認された場合は、警告なしでアカウントを停止・削除します。
+          </p>
+
+          <h3 className="text-xl font-semibold mb-3">6.2 コンテンツの監視とフィルタリング</h3>
+          <p className="mb-4">
+            当方は、本サービスの安全性を確保するため、以下の方法で不適切なコンテンツを監視・フィルタリングします。
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>ユーザーからの通報に基づく人的審査</li>
+            <li>AIによる自動検出（段階的に導入予定）</li>
+            <li>定期的なパトロール</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3">6.3 通報機能</h3>
+          <p className="mb-4">
+            ユーザーは、不適切なコンテンツや迷惑ユーザーを発見した場合、アプリ内の通報機能を使用して当方に報告することができます。
+          </p>
+
+          <div className="bg-gray-50 p-4 rounded mb-4">
+            <p className="font-semibold mb-2">【通報方法】</p>
+            <ul className="list-disc pl-6 space-y-1">
+              <li>ホーム画面のプロフィール詳細右上の「…」メニューから「通報」を選択</li>
+              <li>募集詳細画面右上の「…」メニューから「通報」を選択</li>
+              <li>メッセージ画面右上の「…」メニューから「通報」を選択</li>
+            </ul>
+          </div>
+
+          <p className="mb-4">
+            <strong>通報を受けた内容は、24時間以内に確認し、規約違反と判断した場合は以下の措置を講じます。</strong>
+          </p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>不適切なコンテンツの即時削除</li>
+            <li>違反ユーザーのアカウント停止または永久削除</li>
+            <li>悪質な場合は警察など関係機関への通報</li>
+          </ul>
+
+          <p className="mb-4">
+            なお、虚偽の通報や嫌がらせ目的の通報を繰り返し行った場合、通報者自身がアカウント停止の対象となります。
+          </p>
+
+          <h3 className="text-xl font-semibold mb-3">6.4 ブロック機能</h3>
+          <p className="mb-4">
+            ユーザーは、特定のユーザーをブロックすることで、そのユーザーとの一切の接触を遮断できます。
+          </p>
+
+          <div className="bg-gray-50 p-4 rounded mb-4">
+            <p className="font-semibold mb-2">【ブロック方法】</p>
+            <p>メッセージ画面右上の「…」メニューから「ブロック」を選択</p>
+          </div>
+
+          <p className="mb-4">ブロック後、以下の効果があります。</p>
+          <ul className="list-disc pl-6 space-y-2 mb-4">
+            <li>ブロックしたユーザーからのメッセージを受信しなくなります</li>
+            <li>ブロックしたユーザーの観戦募集が表示されなくなります</li>
+            <li>ブロックしたユーザーがあなたのプロフィールを閲覧できなくなります</li>
+            <li>ブロックしたユーザーとのマッチングが解除されます</li>
+            <li>ブロックは相手に通知されません</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold mb-4">第7条（プレミアム会員サブスクリプション）</h2>
+
+          <h3 className="text-xl font-semibold mb-3">7.1 プレミアム会員の特典</h3>
           <p className="mb-4">プレミアム会員は、以下の特典を利用できます。</p>
           <ul className="list-disc pl-6 space-y-2 mb-4">
             <li>1日のいいねとスキップ回数が30回に増加（無料会員は5回/日）</li>
@@ -106,7 +175,7 @@ export default function TermsOfService() {
             <li>プロフィールを表示する性別の選択が可能</li>
           </ul>
 
-          <h3 className="text-xl font-semibold mb-3">6.2 料金と支払い</h3>
+          <h3 className="text-xl font-semibold mb-3">7.2 料金と支払い</h3>
           <p className="mb-4">
             プレミアム会員の料金は<strong>月額1,000円（税込）</strong>です。
           </p>
@@ -117,7 +186,7 @@ export default function TermsOfService() {
             当方は、決済情報を直接取り扱いません。すべての決済処理はApple Inc.によって管理されます。
           </p>
 
-          <h3 className="text-xl font-semibold mb-3">6.3 自動更新</h3>
+          <h3 className="text-xl font-semibold mb-3">7.3 自動更新</h3>
           <p className="mb-4">
             プレミアム会員のサブスクリプションは<strong>自動更新</strong>されます。
           </p>
@@ -126,7 +195,7 @@ export default function TermsOfService() {
             更新日の24時間以内に、ユーザーのApple IDに自動的に課金されます。
           </p>
 
-          <h3 className="text-xl font-semibold mb-3">6.4 解約（キャンセル）方法</h3>
+          <h3 className="text-xl font-semibold mb-3">7.4 解約（キャンセル）方法</h3>
           <p className="mb-4">
             サブスクリプションの解約は、<strong>App Storeの設定画面から、ユーザー自身で行っていただく必要があります。</strong>
             当方では、ユーザーのサブスクリプションを直接キャンセルすることはできません。
@@ -148,7 +217,7 @@ export default function TermsOfService() {
             サブスクリプションは、現在の購入期間が終了する少なくとも24時間前までにキャンセルしない限り、自動的に更新されます。
           </p>
 
-          <h3 className="text-xl font-semibold mb-3">6.5 返金ポリシー</h3>
+          <h3 className="text-xl font-semibold mb-3">7.5 返金ポリシー</h3>
           <p className="mb-4">
             デジタルコンテンツおよびサブスクリプションサービスの性質上、原則として、一度支払われた料金の返金は行いません。
           </p>
@@ -187,7 +256,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第7条（知的財産権）</h2>
+          <h2 className="text-2xl font-bold mb-4">第8条（知的財産権）</h2>
           <p className="mb-4">
             本サービス（アプリのデザイン、ソースコード、ロゴ、商標等）に関する知的財産権は、すべて当方またはライセンサーに帰属します。
           </p>
@@ -201,7 +270,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第8条（利用制限および登録抹消）</h2>
+          <h2 className="text-2xl font-bold mb-4">第9条（利用制限および登録抹消）</h2>
           <p className="mb-4">
             当方は、ユーザーが以下のいずれかに該当する場合、事前の通知または催告なく、
             当該ユーザーに対して本サービスの利用を一時的に制限し、またはアカウントを削除（登録抹消）することができます。
@@ -224,7 +293,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第9条（免責事項）</h2>
+          <h2 className="text-2xl font-bold mb-4">第10条（免責事項）</h2>
           <p className="mb-4">当方は、以下について一切の責任を負いません。</p>
           <ul className="list-disc pl-6 space-y-2 mb-4">
             <li>本サービスを通じて知り合ったユーザー間のトラブル、紛争、事件・事故</li>
@@ -245,7 +314,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第10条（損害賠償の制限）</h2>
+          <h2 className="text-2xl font-bold mb-4">第11条（損害賠償の制限）</h2>
           <p className="mb-4">
             当方の債務不履行または不法行為によりユーザーに損害が生じた場合、
             当方が賠償する損害の範囲は、当該ユーザーが直近1年間に当方に支払った利用料金の総額を上限とします。
@@ -256,7 +325,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第11条（サービスの変更・終了）</h2>
+          <h2 className="text-2xl font-bold mb-4">第12条（サービスの変更・終了）</h2>
           <p className="mb-4">
             当方は、ユーザーへの事前の通知なく、本サービスの内容を変更、追加、削除することができます。
           </p>
@@ -267,7 +336,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第12条（利用規約の変更）</h2>
+          <h2 className="text-2xl font-bold mb-4">第13条（利用規約の変更）</h2>
           <p className="mb-4">
             当方は、必要と判断した場合、本規約を変更することができます。
           </p>
@@ -284,7 +353,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第13条（個人情報の取扱い）</h2>
+          <h2 className="text-2xl font-bold mb-4">第14条（個人情報の取扱い）</h2>
           <p>
             本サービスにおける個人情報の取扱いについては、当方が別途定める
             <a href="/privacy" className="text-blue-600 hover:underline">
@@ -295,7 +364,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第14条（準拠法・裁判管轄）</h2>
+          <h2 className="text-2xl font-bold mb-4">第15条（準拠法・裁判管轄）</h2>
           <p className="mb-4">
             本規約の解釈にあたっては、日本法を準拠法とします。
           </p>
@@ -305,7 +374,7 @@ export default function TermsOfService() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-bold mb-4">第15条（お問い合わせ）</h2>
+          <h2 className="text-2xl font-bold mb-4">第16条（お問い合わせ）</h2>
           <p className="mb-4">
             本規約に関するご質問、または本サービスに関するお問い合わせは、以下までご連絡ください。
           </p>
