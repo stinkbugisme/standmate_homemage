@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "スタンドメイト - 野球ファン向けマッチングアプリ",
   description: "野球ファン同士が繋がる、友達検索＆観戦マッチングアプリ。同じ球団を応援する仲間を見つけて、一緒に球場に行こう！",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({
