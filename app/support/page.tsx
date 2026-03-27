@@ -37,7 +37,7 @@ export default function SupportPage() {
             <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
               <h3 className="!text-red-500">Q. アカウントを削除したい</h3>
               <p className="!mb-0">
-                A. アカウント削除をご希望の場合は、上記のサポートメールアドレスまでご連絡ください。ご本人確認後、速やかに対応いたします。
+                A. アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。
               </p>
             </div>
 

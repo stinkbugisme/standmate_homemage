@@ -2,79 +2,79 @@ import Link from 'next/link';
 
 export default function LegalNotice() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-white">
       <div className="subpage-container">
         <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-zinc-500 hover:text-red-400 transition-colors text-sm font-medium">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
             ← トップページに戻る
           </Link>
         </div>
 
-        <h1 className="gradient-text">特定商取引法に基づく表記</h1>
+        <h1>特定商取引法に基づく表記</h1>
 
         <section>
-          <div className="info-box !p-0 overflow-hidden rounded-xl">
-            <table>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm md:text-base" style={{ tableLayout: 'fixed' }}>
               <tbody>
                 <tr>
-                  <td>販売業者</td>
+                  <td className="align-top">販売業者</td>
                   <td>中根大輔</td>
                 </tr>
                 <tr>
-                  <td>代表責任者</td>
+                  <td className="align-top">代表責任者</td>
                   <td>中根大輔</td>
                 </tr>
                 <tr>
-                  <td>所在地</td>
-                  <td>〒590-0004 大阪府堺市堺区北清水町3-5-18</td>
+                  <td className="align-top">所在地</td>
+                  <td className="break-words">〒590-0004 大阪府堺市堺区北清水町3-5-18</td>
                 </tr>
                 <tr>
-                  <td>電話番号</td>
+                  <td className="align-top">電話番号</td>
                   <td>070-4400-9411</td>
                 </tr>
                 <tr>
-                  <td>メールアドレス</td>
-                  <td><a href="mailto:support@standmate.app">support@standmate.app</a></td>
+                  <td className="align-top">メールアドレス</td>
+                  <td className="break-all"><a href="mailto:support@standmate.app">support@standmate.app</a></td>
                 </tr>
                 <tr>
-                  <td>運営統括責任者</td>
+                  <td className="align-top">運営統括責任者</td>
                   <td>中根大輔</td>
                 </tr>
                 <tr>
-                  <td>サービス名称</td>
+                  <td className="align-top">サービス名称</td>
                   <td>スタンドメイト</td>
                 </tr>
                 <tr>
-                  <td>販売価格</td>
+                  <td className="align-top">販売価格</td>
                   <td>
                     <strong>プレミアム会員：月額1,000円（税込）</strong><br />
-                    <span className="text-sm text-zinc-500">※価格は予告なく変更される場合がございます。最新の価格はアプリ内の購入画面でご確認ください。</span>
+                    <span className="text-sm text-gray-400">※価格は予告なく変更される場合がございます。最新の価格はアプリ内の購入画面でご確認ください。</span>
                   </td>
                 </tr>
                 <tr>
-                  <td>商品代金以外の必要料金</td>
+                  <td className="align-top">商品代金以外の必要料金</td>
                   <td>インターネット接続料金、通信料金等はお客様のご負担となります。</td>
                 </tr>
                 <tr>
-                  <td>支払方法</td>
+                  <td className="align-top">支払方法</td>
                   <td>
                     App Store経由：Apple ID に登録された決済方法（クレジットカード、デビットカード、App Storeギフトカード等）<br />
-                    <span className="text-sm text-zinc-500">※決済はAppleが処理します。当アプリは決済情報を直接取り扱いません。</span>
+                    <span className="text-sm text-gray-400">※決済はAppleが処理します。当アプリは決済情報を直接取り扱いません。</span>
                   </td>
                 </tr>
                 <tr>
-                  <td>支払時期</td>
+                  <td className="align-top">支払時期</td>
                   <td>
                     サブスクリプション購入時に即時決済されます。<br />
                     自動更新の場合は、更新日の24時間以内に自動的に課金されます。
                   </td>
                 </tr>
                 <tr>
-                  <td>サービスの提供時期</td>
+                  <td className="align-top">サービスの提供時期</td>
                   <td>決済完了後、即時にプレミアム会員機能がご利用いただけます。</td>
                 </tr>
                 <tr>
-                  <td>返品・キャンセルに関する特約</td>
+                  <td className="align-top">返品・キャンセルに関する特約</td>
                   <td>
                     <p className="!mb-3">
                       <strong>■ 原則</strong><br />
@@ -102,7 +102,7 @@ export default function LegalNotice() {
                   </td>
                 </tr>
                 <tr>
-                  <td>サブスクリプションの解約</td>
+                  <td className="align-top">サブスクリプションの解約</td>
                   <td>
                     <p className="!mb-3">
                       サブスクリプションの解約は、App Storeの設定画面から、お客様ご自身で行っていただく必要があります。
@@ -115,18 +115,18 @@ export default function LegalNotice() {
                       4. 「スタンドメイト」を選択<br />
                       5. 「サブスクリプションをキャンセルする」をタップ
                     </p>
-                    <p className="text-sm !text-zinc-500 !mb-0">
+                    <p className="text-sm !text-gray-400 !mb-0">
                       ※解約後も、購入済みの期間が終了するまでプレミアム会員機能をご利用いただけます。<br />
                       ※当アプリの運営者側では、お客様のサブスクリプションを直接キャンセルすることはできません。
                     </p>
                   </td>
                 </tr>
                 <tr>
-                  <td>自動更新について</td>
+                  <td className="align-top">自動更新について</td>
                   <td>
                     プレミアム会員のサブスクリプションは自動更新されます。<br />
                     お客様が解約手続きを行わない限り、購入期間の終了時に自動的に同じ期間で更新され、課金が継続されます。<br />
-                    <span className="text-sm text-zinc-500">※自動更新を停止したい場合は、上記「サブスクリプションの解約」手順に従ってください。</span>
+                    <span className="text-sm text-gray-400">※自動更新を停止したい場合は、上記「サブスクリプションの解約」手順に従ってください。</span>
                   </td>
                 </tr>
               </tbody>
@@ -147,8 +147,8 @@ export default function LegalNotice() {
           </p>
         </section>
 
-        <section className="!mb-0 border-t border-zinc-800/50 pt-8">
-          <p className="text-center !text-zinc-500">制定日：2025年10月14日</p>
+        <section className="!mb-0 border-t border-gray-100 pt-8">
+          <p className="text-center !text-gray-400">制定日：2025年10月14日</p>
         </section>
       </div>
     </div>
