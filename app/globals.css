@@ -2,7 +2,9 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #333333;
+  --accent: #ef4444;
+  --accent-orange: #ff8c00;
 }
 
 @theme inline {
@@ -12,15 +14,218 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, Arial, sans-serif;
+}
+
+/* Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #ef4444, #ff8c00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Feature card */
+.feature-card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  border-color: #ff8c00;
+}
+
+/* Stats */
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+/* CTA button */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+.cta-primary {
+  background: #333;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.cta-primary:hover {
+  background: #111;
+}
+
+.cta-secondary {
+  background: #fff;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.cta-secondary:hover {
+  border-color: #999;
+}
+
+/* Sub-page styles */
+.subpage-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.subpage-container h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.subpage-container h2 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ef4444;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #fef2f2;
+}
+
+.subpage-container h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.subpage-container p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.subpage-container a {
+  color: #ef4444;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+
+.subpage-container a:hover {
+  color: #ff8c00;
+}
+
+.subpage-container section {
+  margin-bottom: 2.5rem;
+}
+
+.subpage-container ul,
+.subpage-container ol {
+  color: #666;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.subpage-container li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.subpage-container strong {
+  color: #333;
+}
+
+.subpage-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.subpage-container td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #666;
+}
+
+.subpage-container td:first-child {
+  font-weight: 600;
+  color: #333;
+  width: 33%;
+  background: #fafafa;
+}
+
+.subpage-container .info-box {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
 }
