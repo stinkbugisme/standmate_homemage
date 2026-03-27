@@ -81,7 +81,7 @@ export default function Home() {
               <p className="text-xs text-gray-500 font-medium">プロ野球</p>
             </div>
             <div className="stat-card">
-              <p className="text-3xl md:text-4xl mb-1">⚾</p>
+              <p className="text-2xl md:text-3xl mb-1">⚾</p>
               <p className="text-xs text-gray-500 font-medium">高校野球</p>
             </div>
             <div className="stat-card">
@@ -225,10 +225,6 @@ export default function Home() {
                 <div className="flex items-center gap-3 text-gray-300 text-sm">
                   <span className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 text-xs flex-shrink-0">✓</span>
                   観戦募集参加 20回/日
-                </div>
-                <div className="flex items-center gap-3 text-gray-300 text-sm">
-                  <span className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 text-xs flex-shrink-0">✓</span>
-                  表示性別の選択
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 text-sm">
                   <span className="w-6 h-6 bg-red-500/20 rounded-full flex items-center justify-center text-red-400 text-xs flex-shrink-0">✓</span>
