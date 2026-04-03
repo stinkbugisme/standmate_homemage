@@ -115,7 +115,7 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-10">
-            <div className="feature-card text-center">
+            <Link href="/howto#search" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <img
                   src="/IMG_3479.PNG"
@@ -127,9 +127,9 @@ export default function Home() {
               <p className="text-gray-500 text-sm leading-relaxed">
                 同じ球団を応援する仲間を見つけよう。プロフィールをスワイプして、気の合う野球ファンとマッチング。
               </p>
-            </div>
+            </Link>
 
-            <div className="feature-card text-center">
+            <Link href="/howto#watch" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <img
                   src="/IMG_3480.PNG"
@@ -141,9 +141,9 @@ export default function Home() {
               <p className="text-gray-500 text-sm leading-relaxed">
                 一緒に球場に行く仲間を募集できる。「一人で観戦」がなくなる、新しい野球体験。
               </p>
-            </div>
+            </Link>
 
-            <div className="feature-card text-center">
+            <Link href="/howto#message" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <img
                   src="/IMG_3482.PNG"
@@ -155,7 +155,7 @@ export default function Home() {
               <p className="text-gray-500 text-sm leading-relaxed">
                 マッチング後はチャットで気軽に交流。観戦の待ち合わせもスムーズに。
               </p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
@@ -295,6 +295,9 @@ export default function Home() {
             </div>
 
             <nav className="flex flex-wrap gap-6 justify-center text-sm">
+              <Link href="/howto" className="text-gray-400 hover:text-white transition-colors">
+                使い方
+              </Link>
               <Link href="/support" className="text-gray-400 hover:text-white transition-colors">
                 サポート・FAQ
               </Link>
