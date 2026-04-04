@@ -1,4 +1,43 @@
+import Image from 'next/image';
 import Link from 'next/link';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "スタンドメイト",
+  applicationCategory: "SocialNetworkingApplication",
+  operatingSystem: "iOS",
+  description:
+    "野球ファン同士が繋がる、友達検索＆観戦マッチングアプリ。同じ球団を応援する仲間を見つけて、一緒に球場に行こう！",
+  url: "https://standmate.jp",
+  image: "https://standmate.jp/icon.png",
+  offers: [
+    {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+      name: "無料プラン",
+    },
+    {
+      "@type": "Offer",
+      price: "1000",
+      priceCurrency: "JPY",
+      name: "プレミアムプラン",
+    },
+  ],
+  installUrl:
+    "https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706",
+  aggregateRating: undefined,
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "スタンドメイト",
+  url: "https://standmate.jp",
+  logo: "https://standmate.jp/icon.png",
+  email: "support@standmate.app",
+};
 
 const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 384 512" fill="currentColor">
@@ -9,11 +48,19 @@ const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/icon.png" alt="スタンドメイト" className="w-9 h-9 rounded-xl" />
+            <Image src="/icon.png" alt="スタンドメイト" width={36} height={36} className="rounded-xl" />
             <span className="font-bold text-lg">スタンドメイト</span>
           </div>
           <div className="flex items-center gap-3">
@@ -35,9 +82,12 @@ export default function Home() {
           {/* Icon */}
           <div className="animate-fade-in-up mb-3">
             <div className="animate-float inline-block">
-              <img
+              <Image
                 src="/icon.png"
                 alt="スタンドメイト"
+                width={128}
+                height={128}
+                priority
                 className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl shadow-xl"
               />
             </div>
@@ -117,9 +167,11 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-10">
             <Link href="/howto#search" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
-                <img
+                <Image
                   src="/IMG_3479.PNG"
-                  alt="友達検索画面"
+                  alt="スタンドメイトの友達検索画面 - 同じ球団を応援する仲間をスワイプで探せる"
+                  width={192}
+                  height={416}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -131,9 +183,11 @@ export default function Home() {
 
             <Link href="/howto#watch" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
-                <img
+                <Image
                   src="/IMG_3480.PNG"
-                  alt="観戦募集画面"
+                  alt="スタンドメイトの観戦募集画面 - 一緒に球場に行く仲間を募集できる"
+                  width={192}
+                  height={416}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -145,9 +199,11 @@ export default function Home() {
 
             <Link href="/howto#message" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
-                <img
+                <Image
                   src="/IMG_3482.PNG"
-                  alt="メッセージ画面"
+                  alt="スタンドメイトのメッセージ画面 - マッチング後にチャットで交流"
+                  width={192}
+                  height={416}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -290,7 +346,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex items-center gap-3">
-              <img src="/icon.png" alt="スタンドメイト" className="w-10 h-10 rounded-xl" />
+              <Image src="/icon.png" alt="スタンドメイト" width={40} height={40} className="rounded-xl" />
               <span className="font-bold text-lg">スタンドメイト</span>
             </div>
 

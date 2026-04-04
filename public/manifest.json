@@ -1,0 +1,17 @@
+{
+  "name": "スタンドメイト - 野球ファン向けマッチングアプリ",
+  "short_name": "スタンドメイト",
+  "description": "野球ファン同士が繋がる、友達検索＆観戦マッチングアプリ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ef4444",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

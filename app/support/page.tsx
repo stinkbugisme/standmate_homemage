@@ -1,8 +1,67 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "サポート・FAQ",
+  description:
+    "スタンドメイトのよくある質問と回答、お問い合わせ方法をご案内します。",
+  alternates: { canonical: "/support" },
+};
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "アカウントを削除したい",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "プレミアム会員の解約方法",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "iOSの「設定」→「Apple ID」→「サブスクリプション」から「スタンドメイト」を選択し、「サブスクリプションをキャンセル」をタップしてください。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "不適切なユーザーを見つけた",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "アプリ内の通報機能をご利用ください。プロフィール詳細画面の右上「…」メニューから「通報」を選択できます。通報内容は24時間以内に確認し、適切な対応を行います。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "マッチングしたユーザーとメッセージができない",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "インターネット接続が正常か確認し、アプリを最新バージョンにアップデートしてから再起動してください。それでも解決しない場合は、サポートまでお問い合わせください。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "購入の復元ができない",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "マイページの「購入を復元」ボタンを押してください。それでも復元できない場合は、購入時のApple IDでログインしているかご確認ください。",
+      },
+    },
+  ],
+};
 
 export default function SupportPage() {
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="subpage-container">
         <div className="mb-8">
           <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">

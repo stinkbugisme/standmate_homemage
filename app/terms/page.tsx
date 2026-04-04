@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "利用規約",
+  description: "スタンドメイトの利用規約です。サービスご利用前にご確認ください。",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsOfService() {
   return (

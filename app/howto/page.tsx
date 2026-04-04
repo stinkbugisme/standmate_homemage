@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
+import Image from 'next/image';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "使い方ガイド",
+  description:
+    "スタンドメイトの使い方を解説。友達検索、観戦募集、メッセージ機能の使い方をステップごとにご紹介します。",
+  alternates: { canonical: "/howto" },
+};
 
 export default function HowToPage() {
   return (
@@ -60,9 +69,11 @@ export default function HowToPage() {
             ホーム画面で野球ファンのプロフィールが表示されます。気になる人に「いいね」を送りましょう。お互いに「いいね」するとマッチング成立です。
           </p>
           <div className="flex justify-center my-6">
-            <img
+            <Image
               src="/IMG_3479.PNG"
-              alt="友達検索画面"
+              alt="スタンドメイトの友達検索画面 - 野球ファンのプロフィールをスワイプ"
+              width={208}
+              height={451}
               className="w-52 h-auto rounded-2xl shadow-lg border border-gray-100"
             />
           </div>
@@ -83,9 +94,11 @@ export default function HowToPage() {
             「観戦」タブから、一緒に野球を観に行く仲間を募集したり、他の人の募集に参加できます。
           </p>
           <div className="flex justify-center my-6">
-            <img
+            <Image
               src="/IMG_3480.PNG"
-              alt="観戦募集画面"
+              alt="スタンドメイトの観戦募集画面 - 一緒に球場に行く仲間を募集"
+              width={208}
+              height={451}
               className="w-52 h-auto rounded-2xl shadow-lg border border-gray-100"
             />
           </div>
@@ -109,9 +122,11 @@ export default function HowToPage() {
             マッチングが成立したら、メッセージでやり取りできます。観戦の待ち合わせや試合の感想など、気軽に交流しましょう。
           </p>
           <div className="flex justify-center my-6">
-            <img
+            <Image
               src="/IMG_3482.PNG"
-              alt="メッセージ画面"
+              alt="スタンドメイトのメッセージ画面 - マッチング後のチャット交流"
+              width={208}
+              height={451}
               className="w-52 h-auto rounded-2xl shadow-lg border border-gray-100"
             />
           </div>

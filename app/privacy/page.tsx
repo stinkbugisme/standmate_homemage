@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー",
+  description:
+    "スタンドメイトのプライバシーポリシーです。個人情報の取り扱いについてご確認ください。",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPolicy() {
   return (
