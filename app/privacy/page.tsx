@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="min-h-screen bg-white">
       <div className="subpage-container">
         <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-zinc-500 hover:text-red-400 transition-colors text-sm font-medium">
+          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
             ← トップページに戻る
           </Link>
         </div>
 
-        <h1 className="gradient-text">プライバシーポリシー</h1>
+        <h1>プライバシーポリシー</h1>
 
         <section>
           <p>
@@ -159,7 +159,7 @@ export default function PrivacyPolicy() {
           <h3>7.1 第三者への委託</h3>
           <p>当方は、本サービスの運営上、以下の第三者サービスに個人データの取扱いを委託しています。委託先に対しては、適切な監督を行い、個人データの安全管理が図られるよう必要な措置を講じています。</p>
           <div className="info-box">
-            <p className="!text-zinc-300 font-semibold !mb-3">委託先一覧：</p>
+            <p className="!text-gray-700 font-semibold !mb-3">委託先一覧：</p>
             <ul className="list-disc space-y-4 !mb-0">
               <li>
                 <strong>Supabase, Inc.（米国）</strong><br />
@@ -206,9 +206,9 @@ export default function PrivacyPolicy() {
           <h3>8.4 請求手続き</h3>
           <p>上記の請求を行う場合は、以下の連絡先までメールにてご連絡ください。</p>
           <div className="info-box">
-            <p className="!text-zinc-300 font-semibold">請求受付窓口：</p>
+            <p className="!text-gray-700 font-semibold">請求受付窓口：</p>
             <p>メールアドレス：<a href="mailto:support@standmate.app">support@standmate.app</a></p>
-            <p className="text-sm !text-zinc-600 !mb-0">
+            <p className="text-sm !text-gray-400 !mb-0">
               件名に「個人情報開示等請求」と明記し、本文にご請求内容および本人確認に必要な情報（登録済みメールアドレス等）を記載してください。
             </p>
           </div>
@@ -234,9 +234,9 @@ export default function PrivacyPolicy() {
           <h2>第10条（苦情の申出先）</h2>
           <p>個人情報の取扱いに関する苦情については、以下の窓口までご連絡ください。</p>
           <div className="info-box">
-            <p className="!text-zinc-300 font-semibold">苦情申出窓口：</p>
+            <p className="!text-gray-700 font-semibold">苦情申出窓口：</p>
             <p>メールアドレス：<a href="mailto:support@standmate.app">support@standmate.app</a></p>
-            <p className="text-sm !text-zinc-600 !mb-0">当方は、苦情について迅速かつ適切に対応いたします。</p>
+            <p className="text-sm !text-gray-400 !mb-0">当方は、苦情について迅速かつ適切に対応いたします。</p>
           </div>
         </section>
 
@@ -253,9 +253,9 @@ export default function PrivacyPolicy() {
           <p>重要な変更がある場合は、アプリ内での通知またはメールにて事前にユーザーにお知らせいたします。</p>
         </section>
 
-        <section className="!mb-0 border-t border-zinc-800/50 pt-8">
-          <p className="text-center !text-zinc-500">制定日：2025年10月14日</p>
-          <p className="text-center text-sm !text-zinc-600">（個人情報保護法 令和4年4月1日施行改正対応版）</p>
+        <section className="!mb-0 border-t border-gray-100 pt-8">
+          <p className="text-center !text-gray-500">制定日：2025年10月14日</p>
+          <p className="text-center text-sm !text-gray-400">（個人情報保護法 令和4年4月1日施行改正対応版）</p>
         </section>
       </div>
     </div>

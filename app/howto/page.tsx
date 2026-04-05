@@ -30,12 +30,13 @@ export default function HowToPage() {
           <p>
             App Storeから「スタンドメイト」をダウンロードしてください。基本機能は無料でご利用いただけます。
           </p>
-          <div className="info-box">
+          <div className="flex justify-center my-4">
             <a
               href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold"
+              style={{ color: '#ffffff', textDecoration: 'none' }}
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transition-all hover:scale-105"
             >
               App Store でダウンロード →
             </a>
@@ -157,7 +158,8 @@ export default function HowToPage() {
             href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transition-all hover:scale-105 no-underline"
+            style={{ color: '#ffffff', textDecoration: 'none' }}
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transition-all hover:scale-105"
           >
             App Store でダウンロード
           </a>
