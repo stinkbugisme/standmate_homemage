@@ -18,6 +18,9 @@ const defaultDescription =
   "野球ファン同士が繋がる、友達検索＆観戦マッチングアプリ。同じ球団を応援する仲間を見つけて、一緒に球場に行こう！";
 
 export const metadata: Metadata = {
+  verification: {
+    google: "U9h-E_RXLVeOTGkxk5Rps_O4cKBRezg00JsCir2s6h4",
+  },
   metadataBase: new URL(siteUrl),
   title: {
     default: "スタンドメイト - 野球ファン向けマッチングアプリ",
