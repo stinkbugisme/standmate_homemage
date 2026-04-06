@@ -34,11 +34,11 @@ export default function LegalNotice() {
                 </tr>
                 <tr>
                   <td className="align-top">所在地</td>
-                  <td className="break-words">〒590-0004 大阪府堺市堺区北清水町3-5-18</td>
+                  <td className="break-words">請求があった場合に遅滞なく開示いたします。</td>
                 </tr>
                 <tr>
                   <td className="align-top">電話番号</td>
-                  <td>070-4400-9411</td>
+                  <td>請求があった場合に遅滞なく開示いたします。</td>
                 </tr>
                 <tr>
                   <td className="align-top">メールアドレス</td>
