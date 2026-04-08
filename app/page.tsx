@@ -56,25 +56,6 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <Image src="/icon.png" alt="スタンドメイト" width={36} height={36} className="rounded-xl" />
-            <span className="font-bold text-lg">スタンドメイト</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex cta-button cta-primary text-sm !py-2 !px-5"
-            >
-              ダウンロード
-            </a>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="pt-20 pb-8 px-4 bg-gradient-to-b from-red-50/80 via-orange-50/40 to-white">
@@ -211,6 +192,16 @@ export default function Home() {
               <p className="text-gray-500 text-sm leading-relaxed">
                 マッチング後はチャットで気軽に交流。観戦の待ち合わせもスムーズに。
               </p>
+            </Link>
+          </div>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/howto"
+              className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-colors text-sm"
+            >
+              使い方を見る
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
         </div>

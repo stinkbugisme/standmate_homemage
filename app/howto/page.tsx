@@ -13,11 +13,6 @@ export default function HowToPage() {
   return (
     <div className="min-h-screen bg-white">
       <div className="subpage-container">
-        <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
-            ← トップページに戻る
-          </Link>
-        </div>
 
         <h1>使い方</h1>
 
@@ -28,18 +23,22 @@ export default function HowToPage() {
             <h2 className="!border-0 !pb-0 !mb-0">アプリをダウンロード</h2>
           </div>
           <p>
-            App Storeから「スタンドメイト」をダウンロードしてください。基本機能は無料でご利用いただけます。
+            iPhoneの方はApp Storeから、Androidの方はGoogle Playから「スタンドメイト」をダウンロードしてください。基本機能は無料でご利用いただけます。
           </p>
           <div className="flex justify-center my-4">
-            <a
-              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#ffffff', textDecoration: 'none' }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transition-all hover:scale-105"
-            >
-              App Store でダウンロード →
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a
+                href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-button cta-primary"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store で公開中
+              </a>
+              <span className="cta-button cta-secondary cursor-default opacity-60">
+                ▶ Google Play 近日公開予定
+              </span>
+            </div>
           </div>
         </section>
 
@@ -54,7 +53,7 @@ export default function HowToPage() {
           </p>
           <ul className="list-disc">
             <li>ニックネーム・年齢・居住地を入力</li>
-            <li>応援している球団を選択</li>
+            <li>応援している球団を選択（複数選択可能）</li>
             <li>自己紹介文を書く</li>
             <li>プロフィール写真を設定（最大5枚）</li>
           </ul>
@@ -93,6 +92,7 @@ export default function HowToPage() {
           </div>
           <p>
             「観戦」タブから、一緒に野球を観に行く仲間を募集したり、他の人の募集に参加できます。
+            チケットが余ったときの譲り先探しや、逆にチケットを探している人との出会い、同じファン同士での飲み会の企画など、観戦以外の交流にも活用できます。
           </p>
           <div className="flex justify-center my-6">
             <Image
@@ -116,7 +116,7 @@ export default function HowToPage() {
         {/* Step 5 */}
         <section id="message">
           <div className="flex items-center gap-3 mb-4">
-            <span className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center text-lg font-black flex-shrink-0">5</span>
+            <span className="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center text-lg font-black flex-shrink-0">5</span>
             <h2 className="!border-0 !pb-0 !mb-0">メッセージで交流</h2>
           </div>
           <p>
@@ -154,15 +154,19 @@ export default function HowToPage() {
 
         {/* CTA */}
         <section className="text-center">
-          <a
-            href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#ffffff', textDecoration: 'none' }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-orange-500 font-bold py-3 px-8 rounded-full shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transition-all hover:scale-105"
-          >
-            App Store でダウンロード
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-button cta-primary"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store で公開中
+            </a>
+            <span className="cta-button cta-secondary cursor-default opacity-60">
+              ▶ Google Play 近日公開予定
+            </span>
+          </div>
         </section>
       </div>
     </div>

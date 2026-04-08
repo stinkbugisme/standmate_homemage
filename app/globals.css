@@ -140,7 +140,7 @@ body {
 .subpage-container {
   max-width: 56rem;
   margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+  padding: 7rem 1.5rem 3rem;
 }
 
 .subpage-container h1 {
@@ -172,14 +172,14 @@ body {
   margin-bottom: 1rem;
 }
 
-.subpage-container a {
+.subpage-container a:not(.cta-button) {
   color: #ef4444;
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
 
-.subpage-container a:hover {
+.subpage-container a:not(.cta-button):hover {
   color: #ff8c00;
 }
 

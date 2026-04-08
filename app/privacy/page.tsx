@@ -12,11 +12,6 @@ export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-white">
       <div className="subpage-container">
-        <div className="mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
-            ← トップページに戻る
-          </Link>
-        </div>
 
         <h1>プライバシーポリシー</h1>
 
