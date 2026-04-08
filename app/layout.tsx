@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -46,7 +47,10 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
     apple: "/icon.png",
   },
   openGraph: {
@@ -90,6 +94,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
