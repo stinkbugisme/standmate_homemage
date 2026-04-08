@@ -115,11 +115,15 @@ export default function HowToPage() {
           </div>
           <div className="info-box">
             <p className="font-semibold !text-gray-700 !mb-2">募集を探す</p>
-            <p className="!mb-0">「探す」タブで募集一覧を確認。気になる募集があれば「確認」ボタンから参加希望を送れます。</p>
+            <p className="!mb-0">「探す」タブで募集一覧を確認。すでにチケットを持っている熱心なファンが募集をかけていることも多いので、チケットの取り方や球場への行き方がわからない初心者でも気軽に参加できます。気になる募集があれば「行きたい！」を押して参加希望を送りましょう。</p>
           </div>
           <div className="info-box mt-3">
             <p className="font-semibold !text-gray-700 !mb-2">募集を作成する</p>
-            <p className="!mb-0">「募集する」タブから、日時・球場・募集内容を入力して観戦仲間を募集できます。</p>
+            <p className="!mb-0">「募集する」タブから、日時・球場・募集内容を入力して観戦仲間を募集できます。「○○球団のファンの方いませんか？」と一緒に観戦に行く仲間を探したり、「同じ球団のファンの方、ご飯行きませんか？」と観戦以外の交流を企画することもできます。</p>
+          </div>
+          <div className="info-box mt-3">
+            <p className="font-semibold !text-gray-700 !mb-2">こんな使い方も</p>
+            <p className="!mb-0">チケットが余ったときの譲り先探しや、逆にチケットを探している人とのマッチングにも便利です。観戦募集は野球を通じた交流の入り口として、さまざまな使い方ができます。</p>
           </div>
         </section>
 

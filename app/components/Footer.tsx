@@ -15,6 +15,9 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap gap-6 justify-center text-sm">
+            <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
+              ブログ
+            </Link>
             <Link href="/howto" className="text-gray-400 hover:text-white transition-colors">
               使い方
             </Link>

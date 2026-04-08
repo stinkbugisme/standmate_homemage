@@ -88,9 +88,6 @@ export const metadata: Metadata = {
     "max-snippet": -1,
     "max-video-preview": -1,
   },
-  other: {
-    "apple-itunes-app": "app-id=6753888706",
-  },
 };
 
 export default function RootLayout({

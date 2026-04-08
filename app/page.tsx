@@ -174,7 +174,7 @@ export default function Home() {
               </div>
               <h3 className="text-lg font-bold mb-3">観戦募集</h3>
               <p className="text-gray-500 text-sm leading-relaxed">
-                一緒に球場に行く仲間を募集できる。「一人で観戦」がなくなる、新しい野球体験。
+                一緒に球場に行く仲間を募集したり、他の人の募集に参加できる。チケットの譲り先探しや、同じ球団のファン同士での飲み会の企画など使い方はいろいろ。
               </p>
             </Link>
 
