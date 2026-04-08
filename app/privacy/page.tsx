@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
                 </tr>
                 <tr>
                   <td>所在地</td>
-                  <td>〒590-0004 大阪府堺市堺区北清水町3-5-18</td>
+                  <td>請求があった場合に遅滞なく開示いたします。</td>
                 </tr>
                 <tr>
                   <td>連絡先</td>
