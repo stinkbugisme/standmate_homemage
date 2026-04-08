@@ -164,10 +164,6 @@ export default function HowToPage() {
             App Store でダウンロード
           </a>
         </section>
-
-        <footer className="border-t border-gray-100 pt-8 mt-12 text-center">
-          <p className="text-gray-400 text-sm">© 2025 スタンドメイト. All rights reserved.</p>
-        </footer>
       </div>
     </div>
   );
