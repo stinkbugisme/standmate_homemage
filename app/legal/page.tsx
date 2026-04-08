@@ -8,9 +8,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "/legal" },
 };
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "ホーム", item: "https://standmate.jp" },
+    { "@type": "ListItem", position: 2, name: "特定商取引法に基づく表記", item: "https://standmate.jp/legal" },
+  ],
+};
+
 export default function LegalNotice() {
   return (
     <div className="min-h-screen bg-white">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="subpage-container">
 
         <h1>特定商取引法に基づく表記</h1>

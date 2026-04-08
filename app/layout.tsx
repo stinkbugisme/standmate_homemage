@@ -81,6 +81,13 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   manifest: "/manifest.json",
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large" as const,
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
   other: {
     "apple-itunes-app": "app-id=6753888706",
   },

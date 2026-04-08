@@ -36,7 +36,7 @@ const organizationJsonLd = {
   name: "スタンドメイト",
   url: "https://standmate.jp",
   logo: "https://standmate.jp/icon.png",
-  email: "support@standmate.app",
+  email: "support@standmate.jp",
 };
 
 const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
