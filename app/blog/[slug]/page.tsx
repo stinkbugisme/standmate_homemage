@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "ホーム", item: "https://standmate.jp" },
-      { "@type": "ListItem", position: 2, name: "ブログ", item: "https://standmate.jp/blog" },
+      { "@type": "ListItem", position: 2, name: "記事", item: "https://standmate.jp/blog" },
       { "@type": "ListItem", position: 3, name: post.title, item: `https://standmate.jp/blog/${post.slug}` },
     ],
   };

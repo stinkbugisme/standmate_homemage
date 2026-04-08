@@ -3,7 +3,7 @@ import Link from "next/link";
 import { posts } from "./posts";
 
 export const metadata: Metadata = {
-  title: "ブログ",
+  title: "記事",
   description:
     "野球観戦の楽しみ方、ファン同士の交流、球場ガイドなど、野球ファンに役立つ情報をお届けします。",
   alternates: { canonical: "/blog" },
@@ -14,7 +14,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "ホーム", item: "https://standmate.jp" },
-    { "@type": "ListItem", position: 2, name: "ブログ", item: "https://standmate.jp/blog" },
+    { "@type": "ListItem", position: 2, name: "記事", item: "https://standmate.jp/blog" },
   ],
 };
 
@@ -23,7 +23,7 @@ export default function BlogPage() {
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="subpage-container">
-        <h1>ブログ</h1>
+        <h1>記事</h1>
         <p className="text-gray-500 mb-8">
           野球観戦の楽しみ方、ファン同士の交流、球場ガイドなど、野球ファンに役立つ情報をお届けします。
         </p>
