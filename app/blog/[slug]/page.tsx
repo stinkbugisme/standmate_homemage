@@ -20,11 +20,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
+    keywords: post.keywords,
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      url: `https://standmate.jp/blog/${post.slug}`,
+      siteName: "スタンドメイト",
+      images: [{ url: "https://standmate.jp/icon.png", width: 512, height: 512, alt: "スタンドメイト" }],
+    },
+    twitter: {
+      card: "summary",
+      title: post.title,
+      description: post.description,
     },
   };
 }
@@ -38,9 +47,42 @@ function renderMarkdown(content: string) {
     const line = lines[i];
 
     if (line.startsWith("### ")) {
-      elements.push(<h3 key={i}>{line.slice(4)}</h3>);
+      elements.push(<h3 key={i} dangerouslySetInnerHTML={{ __html: renderInlineHtml(line.slice(4)) }} />);
     } else if (line.startsWith("## ")) {
       elements.push(<h2 key={i}>{line.slice(3)}</h2>);
+    } else if (line.startsWith("|")) {
+      const tableRows: string[][] = [];
+      while (i < lines.length && lines[i].startsWith("|")) {
+        const cells = lines[i].split("|").slice(1, -1).map((c) => c.trim());
+        tableRows.push(cells);
+        i++;
+      }
+      // Skip separator row (e.g. |---|---|)
+      const header = tableRows[0];
+      const body = tableRows.filter((_, idx) => idx >= 1).filter((row) => !row.every((cell) => /^[-\s]+$/.test(cell)));
+      elements.push(
+        <div key={`table-${i}`} className="overflow-x-auto mb-4" style={{ WebkitOverflowScrolling: "touch" }}>
+          <table>
+            <thead>
+              <tr>
+                {header.map((cell, j) => (
+                  <td key={j} style={{ fontWeight: 700, background: "#f9fafb" }} dangerouslySetInnerHTML={{ __html: renderInlineHtml(cell) }} />
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {body.map((row, ri) => (
+                <tr key={ri}>
+                  {row.map((cell, ci) => (
+                    <td key={ci} dangerouslySetInnerHTML={{ __html: renderInlineHtml(cell) }} />
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+      continue;
     } else if (line.startsWith("- ")) {
       const items: string[] = [];
       while (i < lines.length && lines[i].startsWith("- ")) {
@@ -55,6 +97,22 @@ function renderMarkdown(content: string) {
         </ul>
       );
       continue;
+    } else if (line.trim() === "{{cta-standmate}}") {
+      elements.push(
+        <div key={i} className="flex flex-col sm:flex-row gap-4 justify-center items-center my-6">
+          <a
+            href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cta-button cta-primary"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" /></svg> App Store で公開中
+          </a>
+          <span className="cta-button cta-secondary cursor-default opacity-60">
+            ▶ Google Play 近日公開予定
+          </span>
+        </div>
+      );
     } else if (line.trim() === "") {
       // skip
     } else {
@@ -71,7 +129,10 @@ function renderInline(text: string): React.ReactNode {
 }
 
 function renderInlineHtml(text: string): string {
-  return text.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  return text
+    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="display:inline-block;width:28px;height:28px;border-radius:6px;vertical-align:middle;margin-right:6px" />')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
 
 export default async function BlogPostPage({ params }: Props) {

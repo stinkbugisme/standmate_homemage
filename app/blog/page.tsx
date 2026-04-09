@@ -29,7 +29,7 @@ export default function BlogPage() {
         </p>
 
         <div className="grid gap-6">
-          {posts.map((post) => (
+          {[...posts].sort((a, b) => b.date.localeCompare(a.date)).map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
