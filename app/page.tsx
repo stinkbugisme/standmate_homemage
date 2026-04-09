@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { posts } from './blog/posts';
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -379,11 +380,56 @@ export default function Home() {
             野球ファンが<span className="gradient-text">1人で</span>作っています
           </h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            「一緒に観戦する仲間がほしい」——そんな想いから、野球好きの開発者が1人でスタンドメイトを開発・運営しています。
+            「一緒に観戦する仲間がほしい」——そんな想いから、野球好きの開発者が1人で開発し運営しています。
           </p>
           <p className="text-gray-500 text-sm leading-relaxed">
             大きな会社ではありませんが、だからこそユーザーの声を大切にしながら、野球ファンのためのアプリを日々改善しています。ご意見・ご要望はいつでもお気軽にどうぞ！
           </p>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8">
+            <p className="text-sm font-bold text-red-500 tracking-widest uppercase mb-2">Blog</p>
+            <h2 className="text-3xl md:text-4xl font-black">
+              最新の<span className="gradient-text">記事</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-white border border-gray-200 rounded-2xl p-6 no-underline text-inherit hover:border-red-300 hover:shadow-lg transition-all group block"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-bold text-red-500 bg-red-50 px-2.5 py-1 rounded-full">
+                    {post.category}
+                  </span>
+                  <time className="text-xs text-gray-400">{post.date}</time>
+                </div>
+                <h3 className="text-sm font-bold text-gray-800 mb-2 leading-snug group-hover:text-red-500 transition-colors line-clamp-3">
+                  {post.title}
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                  {post.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition-colors text-sm"
+            >
+              記事一覧を見る
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            </Link>
+          </div>
         </div>
       </section>
 
