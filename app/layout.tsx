@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Footer from "./components/Footer";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import Header from "./components/Header";
+import XPixel from "./components/XPixel";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -107,6 +108,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GoogleAnalytics />
+        <XPixel />
         <Header />
         <main>{children}</main>
         <Footer />
