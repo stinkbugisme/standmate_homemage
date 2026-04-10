@@ -11,7 +11,7 @@ declare global {
 
 export function trackAppStoreClick() {
   if (typeof window !== "undefined" && window.twq) {
-    window.twq("event", "tw-rbug9-rbuga");
+    window.twq("event", "tw-rbug9-rbukj", {});
   }
 }
 
