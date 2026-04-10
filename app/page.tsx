@@ -120,33 +120,34 @@ export default function Home() {
       <section className="pt-20 pb-8 px-4 bg-gradient-to-b from-red-50/80 via-orange-50/40 to-white">
         <div className="max-w-5xl mx-auto text-center">
           {/* Icon */}
-          <div className="animate-fade-in-up mb-3">
-            <div className="animate-float inline-block">
+          <div className="mb-3">
+            <div className="inline-block">
               <Image
                 src="/icon.png"
                 alt="スタンドメイト"
                 width={128}
                 height={128}
                 priority
+                fetchPriority="high"
                 className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl shadow-xl"
               />
             </div>
           </div>
 
           {/* Title */}
-          <h1 className="animate-fade-in-up delay-100 text-4xl md:text-6xl font-black mb-2 tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tight">
             <span className="gradient-text">スタンドメイト</span>
           </h1>
 
-          <p className="animate-fade-in-up delay-200 text-base md:text-xl text-gray-500 mb-1">
+          <p className="text-base md:text-xl text-gray-500 mb-1">
             野球ファン同士が繋がる
           </p>
-          <p className="animate-fade-in-up delay-200 text-lg md:text-2xl font-bold text-gray-700 mb-6">
+          <p className="text-lg md:text-2xl font-bold text-gray-700 mb-6">
             友達検索＆観戦マッチングアプリ
           </p>
 
           {/* Download buttons */}
-          <div className="animate-fade-in-up delay-300 flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
             <a
               href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
               target="_blank"
@@ -212,6 +213,8 @@ export default function Home() {
                   alt="スタンドメイトの友達検索画面 - 同じ球団を応援する仲間をスワイプで探せる"
                   width={192}
                   height={416}
+                  loading="lazy"
+                  quality={75}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -228,6 +231,8 @@ export default function Home() {
                   alt="スタンドメイトの観戦募集画面 - 一緒に球場に行く仲間を募集できる"
                   width={192}
                   height={416}
+                  loading="lazy"
+                  quality={75}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -244,6 +249,8 @@ export default function Home() {
                   alt="スタンドメイトのメッセージ画面 - マッチング後にチャットで交流"
                   width={192}
                   height={416}
+                  loading="lazy"
+                  quality={75}
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
