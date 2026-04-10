@@ -37,7 +37,7 @@ const organizationJsonLd = {
   name: "スタンドメイト",
   url: "https://standmate.jp",
   logo: "https://standmate.jp/icon.png",
-  email: "support@standmate.jp",
+  email: "support@standmate.app",
 };
 
 // icooon-mono.com icons (CC0 / free for commercial use)
@@ -157,7 +157,7 @@ export default function Home() {
               <AppleLogo className="w-5 h-5" /> App Store で公開中
             </a>
             <span className="cta-button cta-secondary text-lg cursor-default opacity-60">
-              ▶ Google Play 近日公開予定
+              ▶ Google Play 5月中にリリース予定
             </span>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function Home() {
               <AppleLogo className="w-5 h-5" /> App Store で公開中
             </a>
             <span className="cta-button cta-secondary text-lg cursor-default opacity-60">
-              ▶ Google Play 近日公開予定
+              ▶ Google Play 5月中にリリース予定
             </span>
           </div>
         </div>
