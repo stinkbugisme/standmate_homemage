@@ -6,12 +6,15 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "スタンドメイト",
+  alternateName: "StandMate",
   applicationCategory: "SocialNetworkingApplication",
+  applicationSubCategory: "SportsApplication",
   operatingSystem: "iOS",
   description:
-    "野球ファン同士が繋がる、友達検索＆観戦マッチングアプリ。同じ球団を応援する仲間を見つけて、一緒に球場に行こう！",
+    "プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで、すべての野球ファンが集まる友達検索＆観戦マッチングアプリ。同じ球団を応援する仲間を見つけて、一緒に球場へ。基本無料、有料プランも月額1,000円。",
   url: "https://standmate.jp",
   image: "https://standmate.jp/icon.png",
+  inLanguage: "ja-JP",
   offers: [
     {
       "@type": "Offer",
@@ -28,7 +31,26 @@ const jsonLd = {
   ],
   installUrl:
     "https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706",
-  aggregateRating: undefined,
+  featureList: [
+    "友達検索（同じ球団を応援するファンをスワイプで探してマッチング）",
+    "観戦募集（一緒に球場へ行く仲間の募集・参加）",
+    "メッセージ（マッチング後のチャット機能）",
+    "プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表対応",
+  ],
+};
+
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "スタンドメイト",
+  url: "https://standmate.jp",
+  inLanguage: "ja-JP",
+  publisher: {
+    "@type": "Organization",
+    name: "スタンドメイト",
+    url: "https://standmate.jp",
+    logo: "https://standmate.jp/icon.png",
+  },
 };
 
 const organizationJsonLd = {
@@ -115,6 +137,10 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
 
       {/* Hero Section */}
       <section className="pt-20 pb-8 px-4 bg-gradient-to-b from-red-50/80 via-orange-50/40 to-white">
@@ -124,7 +150,7 @@ export default function Home() {
             <div className="inline-block">
               <Image
                 src="/icon.png"
-                alt="スタンドメイト"
+                alt="スタンドメイト - 野球ファンの友達・観戦仲間探しマッチングアプリ"
                 width={128}
                 height={128}
                 priority
@@ -137,6 +163,7 @@ export default function Home() {
           {/* Title */}
           <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tight">
             <span className="gradient-text">スタンドメイト</span>
+            <span className="sr-only">｜野球ファンの友達・観戦仲間探しマッチングアプリ</span>
           </h1>
 
           <p className="text-base md:text-xl text-gray-500 mb-1">
