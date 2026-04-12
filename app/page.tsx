@@ -496,19 +496,19 @@ export default function Home() {
                   </div>
                   <svg className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </Link>
-                <a
-                  href="mailto:support@standmate.app"
+                <Link
+                  href="/contact"
                   className="flex items-center gap-4 bg-white/10 hover:bg-white/15 rounded-2xl p-5 transition-all group no-underline"
                 >
                   <span className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MailIcon className="w-6 h-6 text-white" />
                   </span>
                   <div>
-                    <p className="text-white font-bold text-sm mb-0.5">メールで問い合わせ</p>
-                    <p className="text-gray-400 text-xs">support@standmate.app</p>
+                    <p className="text-white font-bold text-sm mb-0.5">フォームで問い合わせ</p>
+                    <p className="text-gray-400 text-xs">お問い合わせフォームへ</p>
                   </div>
                   <svg className="w-4 h-4 text-gray-500 group-hover:text-white ml-auto transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

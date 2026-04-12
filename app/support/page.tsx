@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from 'next/link';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "サポート・FAQ",
@@ -77,13 +77,12 @@ export default function SupportPage() {
         <section>
           <h2>お問い合わせ</h2>
           <p>
-            アプリに関するご質問、不具合の報告、ご要望などがございましたら、以下のメールアドレスまでお気軽にお問い合わせください。
+            アプリに関するご質問、不具合の報告、ご要望などがございましたら、お問い合わせフォームよりお気軽にご連絡ください。
           </p>
-          <div className="info-box flex items-center gap-3">
-            <span className="text-2xl">📧</span>
-            <a href="mailto:support@standmate.app" className="text-lg font-semibold">
-              support@standmate.app
-            </a>
+          <div className="info-box">
+            <Link href="/contact" className="flex items-center gap-3 text-lg font-semibold">
+              📝 お問い合わせフォームへ
+            </Link>
           </div>
           <p className="text-sm !text-gray-400">
             ※ 通常、24時間以内にご返信いたします。週末・祝日を挟む場合は、お時間をいただく場合がございます。

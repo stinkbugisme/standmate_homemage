@@ -21,6 +21,9 @@ export default function Footer() {
             <Link href="/howto" className="text-gray-400 hover:text-white transition-colors">
               使い方
             </Link>
+            <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+              お問い合わせ
+            </Link>
             <Link href="/support" className="text-gray-400 hover:text-white transition-colors">
               サポート・FAQ
             </Link>
