@@ -433,7 +433,15 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            {[...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3).map((post) => (
+            {(() => {
+              const pinnedSlug = "standmate-tanjou-story";
+              const pinned = posts.find((p) => p.slug === pinnedSlug);
+              const rest = [...posts]
+                .filter((p) => p.slug !== pinnedSlug)
+                .sort((a, b) => b.date.localeCompare(a.date))
+                .slice(0, pinned ? 2 : 3);
+              return (pinned ? [pinned, ...rest] : rest);
+            })().map((post) => (
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
