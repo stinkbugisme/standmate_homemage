@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { posts } from "./posts";
+import { categoryGroups } from "./categories";
 
 export const metadata: Metadata = {
   title: "記事",
@@ -24,9 +25,24 @@ export default function BlogPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <div className="subpage-container">
         <h1>記事</h1>
-        <p className="text-gray-500 mb-8">
+        <p className="text-gray-500 mb-6">
           野球観戦の楽しみ方、ファン同士の交流、球場ガイドなど、野球ファンに役立つ情報をお届けします。
         </p>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          <span className="px-4 py-1.5 rounded-full text-sm font-bold bg-red-500 text-white border border-red-500">
+            全て
+          </span>
+          {Object.entries(categoryGroups).map(([s, g]) => (
+            <Link
+              key={s}
+              href={`/blog/category/${s}`}
+              className="px-4 py-1.5 rounded-full text-sm font-bold border border-gray-200 !text-gray-600 hover:border-red-300 !no-underline transition-colors"
+            >
+              {g.shortName}
+            </Link>
+          ))}
+        </div>
 
         <div className="grid gap-6">
           {[...posts]

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { posts } from "./blog/posts";
+import { categoryGroups } from "./blog/categories";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://standmate.jp";
@@ -9,6 +10,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
+  }));
+
+  const categoryEntries = Object.keys(categoryGroups).map((slug) => ({
+    url: `${baseUrl}/blog/category/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
   }));
 
   return [
@@ -60,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.8,
     },
+    ...categoryEntries,
     ...blogEntries,
   ];
 }

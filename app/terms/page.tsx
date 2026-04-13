@@ -211,7 +211,7 @@ export default function TermsOfService() {
           </p>
           <p>
             当方の責に帰すべき事由によりサービスが提供できない場合（重大なバグによる機能不全等）、
-            個別に対応を協議いたしますので、<a href="mailto:support@standmate.app">support@standmate.app</a> までご連絡ください。
+            個別に対応を協議いたしますので、<a href="mailto:info@standmate.jp">info@standmate.jp</a> までご連絡ください。
           </p>
         </section>
 
@@ -296,7 +296,7 @@ export default function TermsOfService() {
             <p><strong>アプリ名：</strong> スタンドメイト</p>
             <p className="!mb-0">
               <strong>メールアドレス：</strong>{' '}
-              <a href="mailto:support@standmate.app">support@standmate.app</a>
+              <a href="mailto:info@standmate.jp">info@standmate.jp</a>
             </p>
           </div>
         </section>

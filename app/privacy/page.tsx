@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
                 </tr>
                 <tr>
                   <td>連絡先</td>
-                  <td><a href="mailto:support@standmate.app">support@standmate.app</a></td>
+                  <td><a href="mailto:info@standmate.jp">info@standmate.jp</a></td>
                 </tr>
               </tbody>
             </table>
@@ -212,7 +212,7 @@ export default function PrivacyPolicy() {
           <p>上記の請求を行う場合は、以下の連絡先までメールにてご連絡ください。</p>
           <div className="info-box">
             <p className="!text-gray-700 font-semibold">請求受付窓口：</p>
-            <p>メールアドレス：<a href="mailto:support@standmate.app">support@standmate.app</a></p>
+            <p>メールアドレス：<a href="mailto:info@standmate.jp">info@standmate.jp</a></p>
             <p className="text-sm !text-gray-400 !mb-0">
               件名に「個人情報開示等請求」と明記し、本文にご請求内容および本人確認に必要な情報（登録済みメールアドレス等）を記載してください。
             </p>
@@ -225,7 +225,7 @@ export default function PrivacyPolicy() {
           <p>ユーザーはいつでもアカウントを削除し、個人データの消去を請求することができます。</p>
           <p>
             アカウント削除をご希望の場合は、アプリ内のお問い合わせフォームまたは
-            <a href="mailto:support@standmate.app">support@standmate.app</a> までご連絡ください。
+            <a href="mailto:info@standmate.jp">info@standmate.jp</a> までご連絡ください。
           </p>
           <p>アカウント削除後、個人データは原則として速やかに（30日以内に）削除されます。ただし、以下の情報については、法令で保管が義務付けられている期間、または紛争解決のために必要な期間、保管することがあります。</p>
           <ul className="list-disc">
@@ -240,7 +240,7 @@ export default function PrivacyPolicy() {
           <p>個人情報の取扱いに関する苦情については、以下の窓口までご連絡ください。</p>
           <div className="info-box">
             <p className="!text-gray-700 font-semibold">苦情申出窓口：</p>
-            <p>メールアドレス：<a href="mailto:support@standmate.app">support@standmate.app</a></p>
+            <p>メールアドレス：<a href="mailto:info@standmate.jp">info@standmate.jp</a></p>
             <p className="text-sm !text-gray-400 !mb-0">当方は、苦情について迅速かつ適切に対応いたします。</p>
           </div>
         </section>

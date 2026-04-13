@@ -47,7 +47,7 @@ export default function LegalNotice() {
                 </tr>
                 <tr>
                   <td className="align-top">メールアドレス</td>
-                  <td className="break-all"><a href="mailto:support@standmate.app">support@standmate.app</a></td>
+                  <td className="break-all"><a href="mailto:info@standmate.jp">info@standmate.jp</a></td>
                 </tr>
                 <tr>
                   <td className="align-top">運営統括責任者</td>
@@ -155,7 +155,7 @@ export default function LegalNotice() {
           </p>
           <p>
             開示請求は、上記メールアドレス（
-            <a href="mailto:support@standmate.app">support@standmate.app</a>
+            <a href="mailto:info@standmate.jp">info@standmate.jp</a>
             ）までご連絡ください。
           </p>
         </section>

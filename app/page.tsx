@@ -59,7 +59,7 @@ const organizationJsonLd = {
   name: "スタンドメイト",
   url: "https://standmate.jp",
   logo: "https://standmate.jp/icon.png",
-  email: "support@standmate.app",
+  email: "info@standmate.jp",
 };
 
 // icooon-mono.com icons (CC0 / free for commercial use)
