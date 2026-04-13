@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { posts, getPost } from "../posts";
+import { posts, getPost, getTeamForSlug, getRelatedPostsByTeam, teams } from "../posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -98,21 +98,7 @@ function renderMarkdown(content: string) {
       );
       continue;
     } else if (line.trim() === "{{cta-standmate}}") {
-      elements.push(
-        <div key={i} className="flex flex-col sm:flex-row gap-4 justify-center items-center my-6">
-          <a
-            href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cta-button cta-primary"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" /></svg> App Store で公開中
-          </a>
-          <span className="cta-button cta-secondary cursor-default opacity-60">
-            ▶ Google Play 5月中にリリース予定
-          </span>
-        </div>
-      );
+      // skip — bottom-of-page CTA already shows download buttons
     } else if (line.trim() === "") {
       // skip
     } else {
@@ -186,6 +172,62 @@ export default async function BlogPostPage({ params }: Props) {
         <h1>{post.title}</h1>
 
         <article>{renderMarkdown(post.content)}</article>
+
+        {(() => {
+          const teamId = getTeamForSlug(post.slug);
+          if (!teamId) return null;
+          const team = teams[teamId];
+          const related = getRelatedPostsByTeam(teamId, post.slug);
+          return (
+            <>
+              <div className="mt-12">
+                <h2 className="text-lg font-bold text-gray-800 mb-4">公式サイト</h2>
+                <a
+                  href={team.officialUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block p-5 rounded-2xl border border-gray-200 bg-white hover:shadow-md transition-shadow no-underline"
+                  style={{ borderLeft: `6px solid ${team.accent}` }}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs text-gray-400 mb-1">{team.shortName} 公式サイト</p>
+                      <p className="font-bold text-gray-800 mb-1">{team.name}</p>
+                      <p className="text-xs text-gray-500 break-all">{team.officialUrl}</p>
+                    </div>
+                    <span className="text-gray-400 text-xl shrink-0">↗</span>
+                  </div>
+                </a>
+              </div>
+
+              {related.length > 0 && (
+                <div className="mt-10">
+                  <h2 className="text-lg font-bold text-gray-800 mb-4">{team.shortName}の関連記事</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {related.map((p) => (
+                      <Link
+                        key={p.slug}
+                        href={`/blog/${p.slug}`}
+                        className="block p-5 rounded-2xl border border-gray-200 bg-white hover:shadow-md transition-shadow no-underline"
+                      >
+                        <span
+                          className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-2"
+                          style={{ background: `${team.accent}1a`, color: team.accent }}
+                        >
+                          {p.category}
+                        </span>
+                        <p className="font-bold text-gray-800 text-sm leading-snug mb-2 line-clamp-2">
+                          {p.title}
+                        </p>
+                        <p className="text-xs text-gray-500 line-clamp-2">{p.description}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          );
+        })()}
 
         <div className="mt-12 p-8 bg-red-50 rounded-2xl text-center">
           <p className="font-bold text-lg text-gray-800 mb-2">野球仲間を見つけよう</p>
