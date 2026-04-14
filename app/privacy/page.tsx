@@ -75,9 +75,11 @@ export default function PrivacyPolicy() {
 
           <h3>2.3 外部サービスとの連携により取得する情報</h3>
           <ul className="list-disc">
-            <li><strong>Apple ID連携</strong>：匿名化されたユーザー識別子（auth_id）</li>
-            <li><strong>App Store購入履歴</strong>：サブスクリプションの購入日時、有効期限、トランザクションID</li>
-            <li><strong>決済情報</strong>：App Store経由の課金情報（当方は決済情報そのものを直接取り扱いません。Apple Inc.が処理します。）</li>
+            <li><strong>Apple ID 連携（iOS 版）</strong>：匿名化されたユーザー識別子（auth_id）</li>
+            <li><strong>Google アカウント連携（Android 版）</strong>：匿名化されたユーザー識別子（auth_id）</li>
+            <li><strong>App Store 購入履歴（iOS 版）</strong>：サブスクリプションの購入日時、有効期限、トランザクション ID</li>
+            <li><strong>Google Play 購入履歴（Android 版）</strong>：サブスクリプションの購入日時、有効期限、購入トークン、注文 ID</li>
+            <li><strong>決済情報</strong>：App Store（iOS 版）または Google Play Billing（Android 版）経由の課金情報（当方は決済情報そのものを直接取り扱いません。Apple Inc. または Google LLC が処理します。）</li>
           </ul>
         </section>
 
@@ -87,7 +89,7 @@ export default function PrivacyPolicy() {
           <ul className="list-disc">
             <li><strong>ユーザーによる直接入力</strong>：アプリ内でのプロフィール登録、編集、メッセージ送信、募集投稿時</li>
             <li><strong>自動収集</strong>：本サービスの利用に伴い、サーバーログとして自動的に記録</li>
-            <li><strong>外部サービスAPI経由</strong>：Supabase Auth（匿名認証）、Apple In-App Purchase API（購入履歴検証）</li>
+            <li><strong>外部サービス API 経由</strong>：Supabase Auth（匿名認証）、Apple In-App Purchase API（iOS 版：購入履歴検証）、Google Play Billing API（Android 版：購入履歴検証）</li>
           </ul>
         </section>
 
@@ -179,10 +181,16 @@ export default function PrivacyPolicy() {
                 <a href="https://expo.dev/privacy" target="_blank" rel="noopener noreferrer" className="text-sm">Expo Privacy Policy</a>
               </li>
               <li>
-                <strong>Apple Inc.（米国）</strong><br />
+                <strong>Apple Inc.（米国）</strong>（iOS 版）<br />
                 委託内容：アプリ内課金処理、購入履歴管理<br />
                 提供される個人データの項目：Apple ID（匿名化）、購入履歴、決済情報<br />
                 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-sm">Apple Privacy Policy</a>
+              </li>
+              <li>
+                <strong>Google LLC（米国）</strong>（Android 版）<br />
+                委託内容：アプリ配信（Google Play）、アプリ内課金処理（Google Play Billing）、購入履歴管理<br />
+                提供される個人データの項目：Google アカウント識別子（匿名化）、購入履歴、購入トークン、決済情報<br />
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sm">Google Privacy Policy</a>
               </li>
             </ul>
           </div>

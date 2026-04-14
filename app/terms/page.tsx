@@ -38,12 +38,20 @@ export default function TermsOfService() {
             ユーザーと当方との間の本サービスの利用に関わる一切の関係に適用されるものとします。
           </p>
           <p>
-            本アプリは、App Store経由で配信されるため、
+            本アプリが App Store 経由で配信される iOS 版については、
             <a href="https://www.apple.com/legal/internet-services/itunes/jp/terms.html" target="_blank" rel="noopener noreferrer">
-              Apple Media Services利用規約
+              Apple Media Services 利用規約
             </a>
-            に含まれるApp Storeの標準エンドユーザーライセンス契約（Standard EULA）も同時に適用されます。
-            本規約とApple EULAの間に矛盾がある場合は、本規約が優先して適用されます。
+            に含まれる App Store の標準エンドユーザーライセンス契約（Standard EULA）も同時に適用されます。
+            本規約と Apple EULA の間に矛盾がある場合は、本規約が優先して適用されます。
+          </p>
+          <p>
+            本アプリが Google Play 経由で配信される Android 版については、
+            <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer">
+              Google Play 利用規約
+            </a>
+            およびデベロッパー配信契約に基づく条件も同時に適用されます。
+            本規約と Google Play の規約との間に矛盾がある場合は、本規約が優先して適用されます。
           </p>
         </section>
 
@@ -175,23 +183,33 @@ export default function TermsOfService() {
 
           <h3>7.2 料金と支払い</h3>
           <p>プレミアム会員の料金は<strong>月額1,000円（税込）</strong>です。</p>
-          <p>支払いは、App Store経由で行われます。決済方法は、ユーザーのApple IDに登録された支払方法（クレジットカード、デビットカード、App Storeギフトカード等）が使用されます。</p>
-          <p>当方は、決済情報を直接取り扱いません。すべての決済処理はApple Inc.によって管理されます。</p>
+          <p>支払いは、iOS 版では App Store 経由、Android 版では Google Play 経由で行われます。決済方法は、iOS 版ではユーザーの Apple ID に登録された支払方法（クレジットカード、デビットカード、App Store ギフトカード等）、Android 版ではユーザーの Google アカウントに登録された支払方法（クレジットカード、デビットカード、キャリア決済、Google Play ギフトコード等）が使用されます。</p>
+          <p>当方は、決済情報を直接取り扱いません。すべての決済処理は Apple Inc. または Google LLC（Google Play Billing）によって管理されます。</p>
 
           <h3>7.3 自動更新</h3>
           <p>プレミアム会員のサブスクリプションは<strong>自動更新</strong>されます。</p>
-          <p>ユーザーが解約手続きを行わない限り、購入期間の終了時に自動的に同じ期間で更新され、課金が継続されます。更新日の24時間以内に、ユーザーのApple IDに自動的に課金されます。</p>
+          <p>ユーザーが解約手続きを行わない限り、購入期間の終了時に自動的に同じ期間で更新され、課金が継続されます。更新日の 24 時間以内に、iOS 版ではユーザーの Apple ID、Android 版ではユーザーの Google アカウントに自動的に課金されます。</p>
 
           <h3>7.4 解約（キャンセル）方法</h3>
-          <p>サブスクリプションの解約は、<strong>App Storeの設定画面から、ユーザー自身で行っていただく必要があります。</strong>当方では、ユーザーのサブスクリプションを直接キャンセルすることはできません。</p>
+          <p>サブスクリプションの解約は、<strong>iOS 版は App Store、Android 版は Google Play の設定画面から、ユーザー自身で行っていただく必要があります。</strong>当方では、ユーザーのサブスクリプションを直接キャンセルすることはできません。</p>
           <div className="info-box">
-            <p className="font-semibold !text-gray-700 !mb-2">【解約手順（iPhone）】</p>
+            <p className="font-semibold !text-gray-700 !mb-2">【解約手順（iPhone / iOS版）】</p>
             <ol className="list-decimal !mb-0">
-              <li>iPhoneの「設定」アプリを開く</li>
-              <li>画面上部のApple ID（氏名）をタップ</li>
+              <li>iPhone の「設定」アプリを開く</li>
+              <li>画面上部の Apple ID（氏名）をタップ</li>
               <li>「サブスクリプション」をタップ</li>
               <li>「スタンドメイト」を選択</li>
               <li>「サブスクリプションをキャンセルする」をタップ</li>
+            </ol>
+          </div>
+          <div className="info-box">
+            <p className="font-semibold !text-gray-700 !mb-2">【解約手順（Android 版）】</p>
+            <ol className="list-decimal !mb-0">
+              <li>「Google Play ストア」アプリを開く</li>
+              <li>画面右上のプロフィールアイコンをタップ</li>
+              <li>「お支払いと定期購入」→「定期購入」をタップ</li>
+              <li>「スタンドメイト」を選択</li>
+              <li>「定期購入を解約」をタップし、画面の指示に従う</li>
             </ol>
           </div>
           <p>解約後も、購入済みの期間が終了するまで、プレミアム会員の特典をご利用いただけます。</p>
@@ -200,14 +218,21 @@ export default function TermsOfService() {
           <h3>7.5 返金ポリシー</h3>
           <p>デジタルコンテンツおよびサブスクリプションサービスの性質上、原則として、一度支払われた料金の返金は行いません。</p>
           <p>
-            ただし、App Store経由で購入されたサブスクリプションの返金処理は、Appleの
-            <a href="https://www.apple.com/legal/internet-services/itunes/jp/terms.html" target="_blank" rel="noopener noreferrer">Apple Media Services利用規約</a>
+            ただし、App Store（iOS 版）経由で購入されたサブスクリプションの返金処理は、Appleの
+            <a href="https://www.apple.com/legal/internet-services/itunes/jp/terms.html" target="_blank" rel="noopener noreferrer">Apple Media Services 利用規約</a>
             に従います。
           </p>
           <p>
-            返金をご希望の場合は、Appleサポート（
+            iOS 版で返金をご希望の場合は、Apple サポート（
             <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener noreferrer">https://reportaproblem.apple.com/</a>
             ）へ直接お問い合わせください。
+          </p>
+          <p>
+            Google Play（Android 版）経由で購入されたサブスクリプションの返金処理は、
+            <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer">Google Play 利用規約</a>
+            に従います。Android 版で返金をご希望の場合は、Google Play ヘルプ（
+            <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener noreferrer">https://support.google.com/googleplay/answer/2479637</a>
+            ）からお手続きください。
           </p>
           <p>
             当方の責に帰すべき事由によりサービスが提供できない場合（重大なバグによる機能不全等）、
@@ -246,7 +271,7 @@ export default function TermsOfService() {
             <li>ユーザーが投稿したコンテンツの内容、正確性、合法性</li>
             <li>本サービスの中断、停止、終了、または内容の変更によって生じた損害</li>
             <li>システム障害、メンテナンス、通信環境の不具合による一時的な利用不可</li>
-            <li>外部サービス（Supabase、Expo、Apple等）の障害による影響</li>
+            <li>外部サービス（Supabase、Expo、Apple、Google 等）の障害による影響</li>
             <li>ユーザーのデバイスの故障、紛失、盗難によるデータの消失</li>
             <li>第三者による不正アクセス、ハッキング、コンピューターウイルス等による被害</li>
           </ul>
