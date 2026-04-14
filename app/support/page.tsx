@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MailIcon } from "../components/Icons";
 
 export const metadata: Metadata = {
   title: "サポート・FAQ",
@@ -80,8 +81,11 @@ export default function SupportPage() {
             アプリに関するご質問、不具合の報告、ご要望などがございましたら、お問い合わせフォームよりお気軽にご連絡ください。
           </p>
           <div className="info-box">
-            <Link href="/contact" className="flex items-center gap-3 text-lg font-semibold">
-              📝 お問い合わせフォームへ
+            <Link href="/contact" className="flex items-center gap-3 text-lg font-semibold no-underline">
+              <span className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MailIcon className="w-5 h-5 text-white" />
+              </span>
+              お問い合わせフォームへ
             </Link>
           </div>
           <p className="text-sm !text-gray-400">
