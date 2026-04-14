@@ -36,6 +36,9 @@ export default function Footer() {
             <Link href="/legal" className="text-gray-400 hover:text-white transition-colors">
               特定商取引法
             </Link>
+            <Link href="/child-safety" className="text-gray-400 hover:text-white transition-colors">
+              児童の安全
+            </Link>
           </nav>
         </div>
 
