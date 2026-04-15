@@ -117,7 +117,13 @@ function renderInline(text: string): React.ReactNode {
 function renderInlineHtml(text: string): string {
   return text
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="display:inline-block;width:28px;height:28px;border-radius:6px;vertical-align:middle;margin-right:6px" />')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, href) => {
+      const isInternal = href.startsWith("/");
+      if (isInternal) {
+        return `<a href="${href}" style="color:#dc2626;text-decoration:underline;text-underline-offset:2px">${label}</a>`;
+      }
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    })
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
 
