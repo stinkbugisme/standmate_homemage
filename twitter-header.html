@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1024px;
+    height: 500px;
+    overflow: hidden;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, Arial, sans-serif;
+  }
+
+  .banner {
+    width: 1024px;
+    height: 500px;
+    background: linear-gradient(135deg, #ef4444 0%, #ff6b35 40%, #ff8c00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .diamond {
+    position: absolute;
+    background: rgba(255,255,255,0.06);
+    transform: rotate(45deg);
+    border-radius: 8px;
+  }
+  .diamond-1 { top: 30px; left: 40px; width: 80px; height: 80px; }
+  .diamond-2 { top: 380px; left: 140px; width: 50px; height: 50px; }
+  .diamond-3 { top: 60px; left: 260px; width: 35px; height: 35px; }
+  .diamond-4 { top: 40px; right: 60px; width: 70px; height: 70px; }
+  .diamond-5 { bottom: 30px; right: 40px; width: 55px; height: 55px; }
+  .diamond-6 { top: 220px; left: 50px; width: 40px; height: 40px; }
+
+  .arc {
+    position: absolute;
+    border: 2px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .arc-1 { width: 500px; height: 500px; top: -180px; left: -120px; }
+  .arc-2 { width: 420px; height: 420px; bottom: -220px; right: -60px; }
+
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    position: relative;
+    z-index: 2;
+    padding: 0 40px;
+  }
+
+  .icon-area {
+    flex-shrink: 0;
+  }
+
+  .app-icon {
+    width: 130px;
+    height: 130px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    border: 3px solid rgba(255,255,255,0.3);
+  }
+
+  .app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+
+  .app-name {
+    font-size: 56px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 3px;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    line-height: 1.1;
+  }
+
+  .tagline {
+    font-size: 19px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    line-height: 1.4;
+  }
+
+  .features {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+  }
+
+  .feature-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 50px;
+    padding: 7px 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .feature-badge .emoji {
+    font-size: 16px;
+  }
+
+  .screenshots {
+    flex-shrink: 0;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .phone-frame {
+    width: 105px;
+    height: 215px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.2);
+    background: #fff;
+  }
+
+  .phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .phone-frame:nth-child(2) {
+    transform: translateY(16px);
+  }
+
+  .bottom-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+  }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="diamond diamond-1"></div>
+  <div class="diamond diamond-2"></div>
+  <div class="diamond diamond-3"></div>
+  <div class="diamond diamond-4"></div>
+  <div class="diamond diamond-5"></div>
+  <div class="diamond diamond-6"></div>
+  <div class="arc arc-1"></div>
+  <div class="arc arc-2"></div>
+
+  <div class="content">
+    <div class="icon-area">
+      <div class="app-icon">
+        <img src="public/icon.png" alt="スタンドメイト">
+      </div>
+    </div>
+
+    <div class="text-area">
+      <div class="app-name">スタンドメイト</div>
+      <div class="tagline">野球ファン同士が繋がる<br>友達検索＆観戦マッチングアプリ</div>
+      <div class="features">
+        <div class="feature-badge"><span class="emoji">🔍</span> 友達検索</div>
+        <div class="feature-badge"><span class="emoji">🏟</span> 観戦募集</div>
+        <div class="feature-badge"><span class="emoji">💬</span> メッセージ</div>
+      </div>
+    </div>
+
+    <div class="screenshots">
+      <div class="phone-frame">
+        <img src="public/IMG_3479.PNG" alt="友達検索画面">
+      </div>
+      <div class="phone-frame">
+        <img src="public/IMG_3480.PNG" alt="観戦募集画面">
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-line"></div>
+</div>
+</body>
+</html>
