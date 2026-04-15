@@ -195,6 +195,8 @@ export const posts: BlogPost[] = [
 
 **「一人観戦から抜け出す」**最初の一歩としては、**野球マッチングアプリの無料プラン**で始めるのが最もハードルが低い選択肢。スタンドメイトなら基本無料で観戦募集が出せるので、まずは試してみてください。
 
+{{cards:yakyu-matching-app-osusume-ranking-2026,yakyu-kansen-tomodachi-tsukurikata,yakyu-fan-tomodachi-shakaijin,yakyu-kansen-doukousha-boshu-guide}}
+
 {{cta-standmate}}
     `,
   },
@@ -337,6 +339,8 @@ export const posts: BlogPost[] = [
 
 2026年、**野球マッチングアプリ**は選択肢が大きく広がりました。**「観戦の仲間を見つけたい」**という用途であれば、**コストパフォーマンスと機能性で「スタンドメイト」が筆頭候補**。まずは無料で始めて、自分に合うかを試してみるのがおすすめです。安全性が気になる方は[マッチングアプリの安全性・危険性を検証](/blog/yakyu-matching-app-anzensei)もあわせてどうぞ。
 
+{{cards:yakyu-matching-app-hikaku,yakyu-matching-app-anzensei,yakyu-matching-app-kuchikomi,yakyu-kansen-nakama-mitsuke-kata}}
+
 {{cta-standmate}}
     `,
   },
@@ -460,6 +464,8 @@ export const posts: BlogPost[] = [
 野球観戦の友達は、**「待っていても増えない」**もの。**SNS→アプリ→ファンクラブ→サークル→バー→募集→継続**の7ステップを順番に実践すれば、必ず仲間が増えます。
 
 最初の一歩として、**スタンドメイト**で**観戦募集**を出してみるところから始めてみてはいかがでしょうか？基本無料で気軽に試せます。
+
+{{cards:yakyu-fan-tomodachi-shakaijin,yakyu-fan-tomodachi-gakusei,yakyu-tomodachi-dekinai-kaiketsu,yakyu-kansen-issho-ni-iku-hito}}
 
 {{cta-standmate}}
     `,
@@ -596,6 +602,8 @@ export const posts: BlogPost[] = [
 野球観戦の募集は、**ジモティー・X・スタンドメイト・つなげーと**の4つが定番。**「無料で気軽に＋野球ファンに特化した環境で探したい」**なら、**スタンドメイトの観戦募集機能（無料・野球ファン専用）**が最もバランスが良い選択肢です。
 
 「今日チケットが余っている」「明日急に観戦に行きたくなった」——そんなときは、スタンドメイトで観戦募集を出してみてください。
+
+{{cards:yakyu-kansen-doukousha-boshu-guide,yakyu-kansen-toujitsu-kyubo,yakyu-kansen-nakama-boshu-keijiban,twitter-x-kansen-boshu-reibun}}
 
 {{cta-standmate}}
     `,
@@ -912,6 +920,8 @@ X（旧Twitter）やInstagramで同じ球団のファンをフォローして交
 社会人は忙しいからこそ、**効率よく仲間を見つけること**が大切です。どの方法も最初の一歩が一番ハードルが高いですが、同じ球団を応援しているという共通点があれば、驚くほどすぐに打ち解けられます。
 
 野球仲間がいれば、仕事のストレスも球場で吹き飛ばせます。転勤や異動で一人ぼっちになってしまった方も、まずは気軽に始められる方法から試してみてください。あなたの街にも、一緒に応援してくれる仲間がきっといます。
+
+{{cards:yakyu-kansen-tomodachi-tsukurikata,yakyu-circle-doukoukai-sagashikata,yakyu-kansen-offkai-guide,senior-yakyu-kansen-nakama}}
     `,
   },
   {
@@ -996,6 +1006,8 @@ XやInstagramで「#○○ファンと繋がりたい」「#野球好きな人�
 学生は社会人に比べて**時間の融通が利きやすく**、友達を作りやすい環境にあります。平日ナイターにも行きやすく、遠征観戦も学割の新幹線や夜行バスを使えば低コストで実現可能。今のうちに野球仲間を作っておけば、社会人になってからも一緒にプロ野球観戦に行ける**一生の友達**になるかもしれません。
 
 同じ球団を応援する仲間がいれば、試合の喜びも悔しさも分かち合えて、野球がもっと楽しくなります。卒業後にそれぞれの地元に戻っても、遠征観戦で再会するなど、野球を通じた繋がりは一生モノ。まずは気になる方法から試してみましょう。
+
+{{cards:yakyu-kansen-tomodachi-tsukurikata,yakyu-circle-doukoukai-sagashikata,yakyu-fan-tomodachi-shakaijin,hajimete-yakyu-kansen-guide}}
     `,
   },
   {
@@ -1179,6 +1191,8 @@ ScoreBook（スコアブック）は、野球ファン専用のマッチング�
 **野球観戦の仲間がほしいなら、最初から野球ファンしかいないアプリを使うのが一番の近道です。**
 
 スタンドメイトなら、同じ球団を応援する仲間をスワイプで探して、「観戦募集」で一緒に球場に行く約束もできます。基本無料で始められるので、まずは試してみてはいかがでしょうか。女性の方は[女性一人でも安心して使える野球観戦マッチング活用法](/blog/josei-hitori-yakyu-matching)も参考に。
+
+{{cards:yakyu-matching-app-osusume-ranking-2026,yakyu-matching-app-anzensei,yakyu-matching-app-kuchikomi,josei-hitori-yakyu-matching}}
     `,
   },
   {
@@ -5533,6 +5547,8 @@ DM or LINEにて詳細相談させてください
 
 大切なのは、**「安全な設計のアプリを選び、自分でも最低限の自衛をする」**こと。この記事の7つの条件を満たすアプリで、安心して観戦仲間を見つけてください。掲示板系を使う場合は[掲示板の使い方と注意点](/blog/yakyu-kansen-nakama-boshu-keijiban)も必読です。
 
+{{cards:yakyu-matching-app-osusume-ranking-2026,yakyu-matching-app-hikaku,josei-hitori-yakyu-matching,yakyu-matching-app-kuchikomi}}
+
 {{cta-standmate}}
     `,
   },
@@ -6581,6 +6597,8 @@ Xでの観戦同行者募集は、**プロフィール整備→ハッシュタ�
 
 **スタンドメイト**は**観戦仲間マッチング特化**で、**初心者〜ガチ勢、女性、遠征、グループ**と**幅広い目的**に対応できる設計。**目的別募集機能**を活用して、**あなたにぴったりの一緒に行く人**を見つけてください。
 
+{{cards:yakyu-kansen-doukousha-boshu-guide,yakyu-kansen-offkai-guide,yakyu-kansen-shotaimen-kaiwa-jutsu,yakyu-kansen-dotakyan-taisaku}}
+
 {{cta-standmate}}
     `,
   },
@@ -6676,6 +6694,8 @@ Xでの観戦同行者募集は、**プロフィール整備→ハッシュタ�
 **野球観戦 同行者募集**は、**緊急度・属性・関係性の深さ**で最適な方法が変わります。**継続的な仲間**なら**野球特化アプリ**、**当日急募**なら**X**、**チケットだけ渡したい**なら**掲示板**——**目的に合わせて使い分け**ましょう。
 
 **スタンドメイト**は、**観戦募集機能**で**日時・球場・座席を指定**して同行者を募集できる**野球ファン専用アプリ**。**同じ球団を応援する仲間**と、**野球という共通の土台**の上で**自然につながれます**。
+
+{{cards:yakyu-kansen-toujitsu-kyubo,yakyu-pair-ticket-amari-katsuyou,yakyu-kansen-dotakyan-taisaku,twitter-x-kansen-boshu-reibun}}
 
 {{cta-standmate}}
     `,

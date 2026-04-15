@@ -99,6 +99,38 @@ function renderMarkdown(content: string) {
       continue;
     } else if (line.trim() === "{{cta-standmate}}") {
       // skip — bottom-of-page CTA already shows download buttons
+    } else if (line.trim().startsWith("{{cards:") && line.trim().endsWith("}}")) {
+      const slugs = line
+        .trim()
+        .slice("{{cards:".length, -"}}".length)
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      const cardPosts = slugs.map((s) => getPost(s)).filter((p): p is NonNullable<ReturnType<typeof getPost>> => !!p);
+      if (cardPosts.length > 0) {
+        elements.push(
+          <div key={`cards-${i}`} className="my-6">
+            <p className="text-sm font-bold text-gray-500 mb-3">関連記事</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {cardPosts.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className="block p-4 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-red-300 transition-all no-underline"
+                >
+                  <span className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-2 bg-red-50 text-red-600">
+                    {p.category}
+                  </span>
+                  <p className="font-bold text-gray-800 text-sm leading-snug mb-2 line-clamp-2">
+                    {p.title}
+                  </p>
+                  <p className="text-xs text-gray-500 line-clamp-2">{p.description}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      }
     } else if (line.trim() === "") {
       // skip
     } else {
