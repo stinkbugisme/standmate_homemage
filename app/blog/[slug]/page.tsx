@@ -181,6 +181,7 @@ export default async function BlogPostPage({ params }: Props) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
+    dateModified: post.updatedDate ?? post.date,
     author: { "@type": "Organization", name: "スタンドメイト" },
     publisher: {
       "@type": "Organization",
@@ -200,11 +201,14 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
           <span className="text-xs font-bold text-red-500 bg-red-50 px-3 py-1 rounded-full">
             {post.category}
           </span>
-          <time className="text-xs text-gray-400">{post.date}</time>
+          <time className="text-xs text-gray-400">公開：{post.date}</time>
+          {post.updatedDate && post.updatedDate !== post.date && (
+            <time className="text-xs text-green-600 font-medium">最終更新：{post.updatedDate}</time>
+          )}
         </div>
 
         <h1>{post.title}</h1>
