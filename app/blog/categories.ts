@@ -24,7 +24,7 @@ export const categoryGroups: Record<CategoryGroupSlug, CategoryGroup> = {
     description: "野球ファン同士の交流、観戦仲間の探し方、ファン活動に関する記事まとめです。",
     metaTitle: "野球ファンのコミュニティ・仲間探し",
     metaDescription: "プロ野球ファン同士の交流方法、観戦仲間の探し方、SNS・コミュニティの活用法を紹介します。",
-    includes: ["仲間探し", "コミュニティ", "ファン活動"],
+    includes: ["仲間探し", "コミュニティ", "ファン活動", "高校野球"],
   },
   "fanclub-event": {
     name: "ファンクラブ・イベント情報",

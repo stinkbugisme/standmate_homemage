@@ -41,15 +41,68 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function renderMarkdown(content: string) {
   const lines = content.trim().split("\n");
   const elements: React.ReactNode[] = [];
+
+  const headingIds: Record<number, string> = {};
+  const tocItems: { id: string; level: 2 | 3; text: string }[] = [];
+  let h2Count = 0;
+  let h3Count = 0;
+  for (let idx = 0; idx < lines.length; idx++) {
+    const ln = lines[idx];
+    if (ln.startsWith("## ")) {
+      h2Count++;
+      h3Count = 0;
+      const id = `section-${h2Count}`;
+      headingIds[idx] = id;
+      tocItems.push({ id, level: 2, text: ln.slice(3).trim() });
+    } else if (ln.startsWith("### ")) {
+      h3Count++;
+      const id = `section-${h2Count}-${h3Count}`;
+      headingIds[idx] = id;
+      tocItems.push({ id, level: 3, text: ln.slice(4).trim().replace(/\*\*/g, "") });
+    }
+  }
+
+  const h2HeadingCount = tocItems.filter((t) => t.level === 2).length;
+  if (h2HeadingCount >= 3) {
+    elements.push(
+      <nav key="toc" className="my-6 p-5 rounded-2xl border border-gray-200 bg-gray-50 not-prose">
+        <p className="text-sm font-bold text-gray-600 mb-3">目次</p>
+        <ol className="space-y-1.5 list-none pl-0 m-0">
+          {tocItems.map((item) => (
+            <li
+              key={item.id}
+              className={item.level === 3 ? "ml-5 text-sm" : "text-sm font-semibold"}
+            >
+              <a href={`#${item.id}`} className="text-red-600 hover:underline no-underline">
+                {item.text}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    );
+  }
+
   let i = 0;
 
   while (i < lines.length) {
     const line = lines[i];
 
     if (line.startsWith("### ")) {
-      elements.push(<h3 key={i} dangerouslySetInnerHTML={{ __html: renderInlineHtml(line.slice(4)) }} />);
+      elements.push(
+        <h3
+          key={i}
+          id={headingIds[i]}
+          style={{ scrollMarginTop: "1rem" }}
+          dangerouslySetInnerHTML={{ __html: renderInlineHtml(line.slice(4)) }}
+        />
+      );
     } else if (line.startsWith("## ")) {
-      elements.push(<h2 key={i}>{line.slice(3)}</h2>);
+      elements.push(
+        <h2 key={i} id={headingIds[i]} style={{ scrollMarginTop: "1rem" }}>
+          {line.slice(3)}
+        </h2>
+      );
     } else if (line.startsWith("|")) {
       const tableRows: string[][] = [];
       while (i < lines.length && lines[i].startsWith("|")) {
