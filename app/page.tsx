@@ -155,7 +155,7 @@ export default function Home() {
             野球ファン同士が繋がる
           </p>
           <p className="text-lg md:text-2xl font-bold text-gray-700 mb-6">
-            友達検索＆観戦マッチングアプリ
+            スタンドメイト - 野球観戦仲間を探そう
           </p>
 
           {/* Download buttons */}
