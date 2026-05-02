@@ -21,9 +21,9 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://standmate.jp";
 const siteName = "スタンドメイト";
 const defaultTitle =
-  "スタンドメイト｜野球観戦の友達・仲間探しマッチングアプリ【無料】";
+  "スタンドメイト｜野球観戦の友達・仲間探しアプリ【無料】";
 const defaultDescription =
-  "プロ野球12球団・高校野球・大学野球・社会人野球のファンが集まる友達検索＆観戦マッチングアプリ『スタンドメイト』。同じ球団を応援する仲間を見つけて、一緒に球場へ。基本無料、有料プランも月額1,000円。";
+  "プロ野球12球団・高校野球・大学野球・社会人野球のファンが集まる友達検索＆観戦仲間探しアプリ『スタンドメイト』。同じ球団を応援する仲間を見つけて、一緒に球場へ。基本無料、有料プランも月額1,000円。";
 
 export const metadata: Metadata = {
   verification: {
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: [
-    "野球 マッチングアプリ",
+    "野球 仲間探しアプリ",
     "野球ファン 友達",
     "野球観戦 仲間",
     "観戦仲間 募集",
     "野球 友達作り",
     "プロ野球 観戦",
     "スタンドメイト",
-    "野球 マッチング",
+    "野球 仲間探し",
     "野球観戦 一人",
     "高校野球 ファン",
     "大学野球 観戦",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         url: "/icon.png",
         width: 512,
         height: 512,
-        alt: "スタンドメイト - 野球ファンの友達・観戦仲間探しマッチングアプリ",
+        alt: "スタンドメイト - 野球ファンの友達・観戦仲間探しアプリ",
       },
     ],
   },

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
 
-export const alt = "スタンドメイト - 野球ファン向けマッチングアプリ";
+export const alt = "スタンドメイト - 野球観戦仲間を探そう";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -49,7 +49,7 @@ export default function OgImage() {
             marginBottom: 8,
           }}
         >
-          野球ファン向けマッチングアプリ
+          野球ファン向け仲間探しアプリ
         </div>
         <div
           style={{
@@ -57,7 +57,7 @@ export default function OgImage() {
             color: "#6b7280",
           }}
         >
-          友達検索 & 観戦マッチング
+          友達検索 & 観戦仲間探し
         </div>
       </div>
     ),
