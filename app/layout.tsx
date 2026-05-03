@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 const siteUrl = "https://standmate.jp";
 const siteName = "スタンドメイト";
 const defaultTitle =
-  "スタンドメイト｜野球観戦の友達・仲間探しアプリ【無料】";
+  "野球観戦の友達・仲間が見つかるアプリ｜スタンドメイト";
 const defaultDescription =
   "プロ野球12球団・高校野球・大学野球・社会人野球のファンが集まる友達検索＆観戦仲間探しアプリ『スタンドメイト』。同じ球団を応援する仲間を見つけて、一緒に球場へ。基本無料、有料プランも月額1,000円。";
 
