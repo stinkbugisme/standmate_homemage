@@ -15,6 +15,9 @@ export default function Footer() {
           </div>
 
           <nav className="flex flex-wrap gap-6 justify-center text-sm">
+            <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+              ホーム
+            </Link>
             <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
               記事
             </Link>

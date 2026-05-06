@@ -159,7 +159,7 @@ export default function Home() {
           </p>
 
           {/* Download buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
+          <div id="download" className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0 scroll-mt-20">
             <a
               href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
               target="_blank"
