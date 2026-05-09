@@ -20,5 +20,12 @@
     "puppeteer": "^24.40.0",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Edge >= 90",
+    "Safari >= 14",
+    "iOS >= 14"
+  ]
 }
