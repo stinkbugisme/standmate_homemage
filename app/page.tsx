@@ -113,6 +113,7 @@ export default function Home() {
                 height={128}
                 priority
                 fetchPriority="high"
+                sizes="(min-width: 768px) 128px, 112px"
                 className="w-28 h-28 md:w-32 md:h-32 mx-auto rounded-3xl shadow-xl"
               />
             </div>
@@ -205,6 +206,7 @@ export default function Home() {
                   height={416}
                   loading="lazy"
                   quality={75}
+                  sizes="192px"
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -223,6 +225,7 @@ export default function Home() {
                   height={416}
                   loading="lazy"
                   quality={75}
+                  sizes="192px"
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
@@ -241,6 +244,7 @@ export default function Home() {
                   height={416}
                   loading="lazy"
                   quality={75}
+                  sizes="192px"
                   className="w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
                 />
               </div>
