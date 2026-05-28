@@ -85,7 +85,7 @@ export default function HowToPage() {
           </p>
           <div className="flex justify-center my-6">
             <Image
-              src="/IMG_3479.PNG"
+              src="/screenshot-home.png"
               alt="スタンドメイトの友達検索画面 - 野球ファンのプロフィールをスワイプ"
               width={208}
               height={451}
@@ -96,6 +96,28 @@ export default function HowToPage() {
             <p className="!mb-1"><strong>「おすすめ」タブ</strong>：あなたに合った野球ファンが表示されます</p>
             <p className="!mb-1"><strong>「相手から」タブ</strong>：あなたに「いいね」してくれた人を確認できます</p>
             <p className="!mb-0"><strong>「絞り込み」</strong>：球団・年齢・地域で絞り込みができます</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 my-6">
+            <div className="flex flex-col items-center">
+              <Image
+                src="/screenshot-filter-region.png"
+                alt="スタンドメイトの絞り込み画面 - 年齢・性別・居住地で絞り込み"
+                width={208}
+                height={451}
+                className="w-40 sm:w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
+              />
+              <p className="text-xs text-gray-500 mt-2">年齢・性別・居住地で絞り込み</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Image
+                src="/screenshot-filter-team.png"
+                alt="スタンドメイトのチーム絞り込み画面 - 好きな球団で絞り込み"
+                width={208}
+                height={451}
+                className="w-40 sm:w-48 h-auto rounded-2xl shadow-lg border border-gray-100"
+              />
+              <p className="text-xs text-gray-500 mt-2">好きな球団で絞り込み</p>
+            </div>
           </div>
         </section>
 
@@ -111,7 +133,7 @@ export default function HowToPage() {
           </p>
           <div className="flex justify-center my-6">
             <Image
-              src="/IMG_3480.PNG"
+              src="/screenshot-watch-search.png"
               alt="スタンドメイトの観戦募集画面 - 一緒に球場に行く仲間を募集"
               width={208}
               height={451}
@@ -122,7 +144,16 @@ export default function HowToPage() {
             <p className="font-semibold !text-gray-700 !mb-2">募集を探す</p>
             <p className="!mb-0">「探す」タブで募集一覧を確認。すでにチケットを持っている熱心なファンが募集をかけていることも多いので、チケットの取り方や球場への行き方がわからない初心者でも気軽に参加できます。気になる募集があれば「行きたい！」を押して参加希望を送りましょう。</p>
           </div>
-          <div className="info-box mt-3">
+          <div className="flex justify-center my-6">
+            <Image
+              src="/screenshot-watch-create.png"
+              alt="スタンドメイトの観戦募集作成画面 - 観戦日・球団・説明を入力して募集"
+              width={208}
+              height={451}
+              className="w-52 h-auto rounded-2xl shadow-lg border border-gray-100"
+            />
+          </div>
+          <div className="info-box">
             <p className="font-semibold !text-gray-700 !mb-2">募集を作成する</p>
             <p className="!mb-0">「募集する」タブから、日時・球場・募集内容を入力して観戦仲間を募集できます。「○○球団のファンの方いませんか？」と一緒に観戦に行く仲間を探したり、「同じ球団のファンの方、ご飯行きませんか？」と観戦以外の交流を企画することもできます。</p>
           </div>
@@ -143,7 +174,7 @@ export default function HowToPage() {
           </p>
           <div className="flex justify-center my-6">
             <Image
-              src="/IMG_3482.PNG"
+              src="/screenshot-message.png"
               alt="スタンドメイトのメッセージ画面 - マッチング後のチャット交流"
               width={208}
               height={451}

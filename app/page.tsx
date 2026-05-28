@@ -200,7 +200,7 @@ export default function Home() {
             <Link href="/howto#search" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <Image
-                  src="/IMG_3479.PNG"
+                  src="/screenshot-home.png"
                   alt="スタンドメイトの友達検索画面 - 同じ球団を応援する仲間をスワイプで探せる"
                   width={192}
                   height={416}
@@ -219,7 +219,7 @@ export default function Home() {
             <Link href="/howto#watch" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <Image
-                  src="/IMG_3480.PNG"
+                  src="/screenshot-watch-search.png"
                   alt="スタンドメイトの観戦募集画面 - 一緒に球場に行く仲間を募集できる"
                   width={192}
                   height={416}
@@ -238,7 +238,7 @@ export default function Home() {
             <Link href="/howto#message" className="feature-card text-center block no-underline text-inherit hover:scale-[1.02] transition-transform">
               <div className="mb-6 flex justify-center">
                 <Image
-                  src="/IMG_3482.PNG"
+                  src="/screenshot-message.png"
                   alt="スタンドメイトのメッセージ画面 - つながった後にチャットで交流"
                   width={192}
                   height={416}
