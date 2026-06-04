@@ -84,6 +84,10 @@ const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
+// 利用者数マイルストーン（節目ごとに更新：次は「2,000人以上」）。
+// 達成型なので減らない数字だけを表示する方針。
+const USER_COUNT_LABEL = "1,000人以上";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -128,9 +132,17 @@ export default function Home() {
           <p className="text-base md:text-xl text-gray-500 mb-1">
             野球ファン同士が繋がる
           </p>
-          <p className="text-lg md:text-2xl font-bold text-gray-700 mb-6">
+          <p className="text-lg md:text-2xl font-bold text-gray-700 mb-5">
             スタンドメイト - 野球観戦仲間を探そう
           </p>
+
+          {/* 利用者数バッジ（社会的証明） */}
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-red-100 text-gray-700 text-sm md:text-base font-bold px-5 py-2 rounded-full shadow-sm">
+              <BaseballIcon className="w-4 h-4 md:w-5 md:h-5 text-red-500" />
+              野球ファン<span className="gradient-text">{USER_COUNT_LABEL}</span>が利用中
+            </span>
+          </div>
 
           {/* Download buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
