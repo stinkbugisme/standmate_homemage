@@ -71,9 +71,13 @@ function renderMarkdown(content: string) {
           {tocItems.map((item) => (
             <li
               key={item.id}
-              className={item.level === 3 ? "ml-5 text-sm" : "text-sm font-semibold"}
+              className={item.level === 3 ? "ml-5 text-sm" : "text-sm font-bold mt-2 first:mt-0"}
             >
-              <a href={`#${item.id}`} className="text-red-600 hover:underline no-underline">
+              <a
+                href={`#${item.id}`}
+                className={`toc-link hover:text-red-600 hover:underline no-underline ${item.level === 3 ? "text-gray-500" : "text-gray-900"}`}
+              >
+                {item.level === 2 && <span className="text-red-500 mr-1.5">▸</span>}
                 {item.text}
               </a>
             </li>
@@ -170,6 +174,44 @@ function renderMarkdown(content: string) {
         </ul>
       );
       continue;
+    } else if (line.trim().startsWith("{{map:") && line.trim().endsWith("}}")) {
+      const raw = line.trim().slice("{{map:".length, -"}}".length);
+      const rawParts = raw.split("|");
+      const mapQuery = rawParts[0].trim();
+      const mapLabel = (rawParts[1] || rawParts[0]).trim();
+      const mapEnc = encodeURIComponent(mapQuery);
+      const mapAddr = (rawParts[2] || "").trim();
+      const mapHours = (rawParts[3] || "").trim();
+      // ピンは住所で1点に確定させる（施設名/チェーン名だと複数ピンになるため）。住所が無ければ店名検索にフォールバック
+      const mapPin = mapAddr.replace(/\s*※.*$/, "").trim() || mapQuery;
+      const mapPinEnc = encodeURIComponent(mapPin);
+      elements.push(
+        <div key={`map-${i}`} className="my-4">
+          <p style={{ fontWeight: 700, color: "#1f2937", fontSize: "1rem", margin: "0 0 0.2rem" }}>{mapLabel}</p>
+          {mapAddr && (
+            <p style={{ fontSize: "0.83rem", color: "#4b5563", margin: "0.1rem 0" }}>
+              <span style={{ fontWeight: 600 }}>住所：</span>{mapAddr}
+            </p>
+          )}
+          {mapHours && (
+            <p style={{ fontSize: "0.83rem", color: "#4b5563", margin: "0.1rem 0" }}>
+              <span style={{ fontWeight: 600 }}>営業時間：</span>{mapHours}
+            </p>
+          )}
+          <iframe
+            title={mapLabel}
+            src={`https://maps.google.com/maps?q=${mapPinEnc}&z=16&output=embed`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{ width: "100%", height: 220, border: 0, borderRadius: 10, display: "block", marginTop: "0.45rem" }}
+          />
+          <p style={{ fontSize: "0.72rem", color: "#9ca3af", margin: "0.25rem 0 0" }}>
+            <a href={`https://www.google.com/maps/search/?api=1&query=${mapEnc}`} target="_blank" rel="noopener noreferrer" style={{ color: "#9ca3af" }}>
+              Googleマップで最新の営業時間・口コミを見る →
+            </a>
+          </p>
+        </div>
+      );
     } else if (line.trim() === "{{cta-standmate}}") {
       // skip — bottom-of-page CTA already shows download buttons
     } else if (line.trim() === "{{install-cta}}") {

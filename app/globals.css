@@ -165,10 +165,14 @@ body {
 }
 
 .subpage-container h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-  color: #333;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 0.85rem;
+  color: #1f2937;
+  padding: 0.1rem 0 0.1rem 0.7rem;
+  border-left: 4px solid #ef4444;
+  line-height: 1.45;
 }
 
 .subpage-container p {
@@ -177,14 +181,14 @@ body {
   margin-bottom: 1rem;
 }
 
-.subpage-container a:not(.cta-button) {
+.subpage-container a:not(.cta-button):not(.toc-link) {
   color: #ef4444;
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: color 0.2s;
 }
 
-.subpage-container a:not(.cta-button):hover {
+.subpage-container a:not(.cta-button):not(.toc-link):hover {
   color: #ff8c00;
 }
 
