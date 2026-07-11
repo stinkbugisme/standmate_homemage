@@ -182,13 +182,14 @@ function renderMarkdown(content: string) {
       const mapEnc = encodeURIComponent(mapQuery);
       const mapAddr = (rawParts[2] || "").trim();
       const mapHours = (rawParts[3] || "").trim();
-      // ピンは住所で1点に確定させる（施設名/チェーン名だと複数ピンになるため）。
-      // さらに番地の後の「建物名・階」を落として番地までに切り詰める（建物名がキーワード扱いで複数ピンになるのを防ぐ）。住所が無ければ店名検索にフォールバック
-      const mapPin =
-        mapAddr
-          .replace(/\s*※.*$/, "")
-          .replace(/([\d丁目番号])\s+.*$/, "$1")
-          .trim() || mapQuery;
+      // ピンを「単一かつ正確」にするため「店名＋番地住所」で検索する。
+      // 店名で店舗を特定し、番地住所で位置を確定。建物名/階はキーワード扱いで複数ピンや誤ピンになるため番地までに切り詰める。
+      const streetAddr = mapAddr
+        .replace(/\s*※.*$/, "")
+        .replace(/([\d丁目番号])\s+.*$/, "$1")
+        .trim();
+      const cleanName = mapLabel.replace(/[（(][^）)]*[）)]/g, "").trim();
+      const mapPin = [cleanName, streetAddr].filter(Boolean).join(" ") || mapQuery;
       const mapPinEnc = encodeURIComponent(mapPin);
       elements.push(
         <div key={`map-${i}`} className="my-4">
