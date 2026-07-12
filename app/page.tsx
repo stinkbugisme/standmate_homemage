@@ -84,9 +84,9 @@ const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
-// 利用者数マイルストーン（節目ごとに更新：次は「2,000人以上」）。
+// 利用者数マイルストーン（節目ごとに更新：次は「3,000人以上」）。
 // 達成型なので減らない数字だけを表示する方針。
-const USER_COUNT_LABEL = "1,000人以上";
+const USER_COUNT_LABEL = "2,000人以上";
 
 export default function Home() {
   return (
