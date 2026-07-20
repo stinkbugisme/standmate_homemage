@@ -130,6 +130,50 @@ body {
   background: #111;
 }
 
+/* 記事下部の固定CTAバー（ロゴ＋アプリ名＋記事ごとの一言＋ボタン） */
+.sticky-cta-name {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-cta-text {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #4b5563;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sticky-cta-btn {
+  flex-shrink: 0;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .sticky-cta-name {
+    font-size: 0.82rem;
+  }
+  .sticky-cta-text {
+    font-size: 0.72rem;
+  }
+  .sticky-cta-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
 .cta-secondary {
   background: #fff;
   color: #333;
@@ -146,6 +190,11 @@ body {
   margin: 0 auto;
   padding: 7rem 1.5rem 3rem;
   overflow-x: hidden;
+}
+
+/* 記事詳細ページはヘッダー非表示のため上余白を詰める（読みやすさ優先） */
+.subpage-container.blog-article {
+  padding-top: 2.5rem;
 }
 
 .subpage-container h1 {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts, getPost, getTeamForSlug, getRelatedPostsByTeam, teams } from "../posts";
@@ -41,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function renderMarkdown(content: string) {
   const lines = content.trim().split("\n");
   const elements: React.ReactNode[] = [];
+  let homeCtaText = "";
 
   const headingIds: Record<number, string> = {};
   const tocItems: { id: string; level: 2 | 3; text: string }[] = [];
@@ -249,6 +251,11 @@ function renderMarkdown(content: string) {
           </div>
         </div>
       );
+    } else if (line.trim().startsWith("{{home-cta:") && line.trim().endsWith("}}")) {
+      // 記事ごとの短い誘導フレーズ(見出し)を捕捉。実表示は画面下部の固定バー(下記)で行う
+      const inner = line.trim().slice("{{home-cta:".length, -"}}".length);
+      const sep = inner.indexOf("|");
+      homeCtaText = (sep >= 0 ? inner.slice(0, sep) : inner).replace(/\*\*/g, "").trim();
     } else if (line.trim().startsWith("{{cards:") && line.trim().endsWith("}}")) {
       const slugs = line
         .trim()
@@ -289,7 +296,7 @@ function renderMarkdown(content: string) {
     i++;
   }
 
-  return elements;
+  return { elements, homeCtaText };
 }
 
 function renderInline(text: string): React.ReactNode {
@@ -314,6 +321,8 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getPost(slug);
 
   if (!post) notFound();
+
+  const { elements: contentElements, homeCtaText } = renderMarkdown(post.content);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -344,12 +353,7 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      <div className="subpage-container">
-        <div className="mb-6">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
-            ← 記事一覧に戻る
-          </Link>
-        </div>
+      <div className="subpage-container blog-article">
 
         <div className="flex items-center gap-3 mb-4 flex-wrap">
           <span className="text-xs font-bold text-red-500 bg-red-50 px-3 py-1 rounded-full">
@@ -363,7 +367,7 @@ export default async function BlogPostPage({ params }: Props) {
 
         <h1>{post.title}</h1>
 
-        <article>{renderMarkdown(post.content)}</article>
+        <article>{contentElements}</article>
 
         {(() => {
           const teamId = getTeamForSlug(post.slug);
@@ -421,29 +425,38 @@ export default async function BlogPostPage({ params }: Props) {
           );
         })()}
 
-        <div className="mt-12 p-8 bg-red-50 rounded-2xl text-center">
-          <p className="font-bold text-lg text-gray-800 mb-2">野球仲間を見つけよう</p>
-          <p className="text-gray-500 text-sm mb-6">
-            スタンドメイトで同じ球団を応援する仲間と繋がろう
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button cta-primary"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg> App Store で公開中
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.stinkbug.standmate"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-button cta-secondary"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24"><path fill="#34A853" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5Z"/><path fill="#4285F4" d="M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12Z"/><path fill="#FBBC04" d="M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81Z"/><path fill="#EA4335" d="M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg> Google Play で公開中
-            </a>
+        <div className="mt-10 pt-6 border-t border-gray-100">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
+            ← 記事一覧に戻る
+          </Link>
+        </div>
+      </div>
+
+      {/* 画面下部に常時固定のCTAバー。ロゴ＋アプリ名＋記事ごとの一言＋トップページへのボタン(?ct=blog-footerで計測) */}
+      <div style={{ height: "100px" }} aria-hidden />
+      <div
+        style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 50,
+          background: "#ffffff",
+          borderTop: "1px solid #f0d5d5",
+          boxShadow: "0 -4px 16px rgba(0,0,0,0.08)",
+          padding: "12px 16px",
+          paddingBottom: "calc(12px + env(safe-area-inset-bottom))",
+        }}
+      >
+        <div style={{ maxWidth: "720px", margin: "0 auto", display: "flex", alignItems: "center", gap: "12px" }}>
+          <Image src="/icon.png" alt="スタンドメイト" width={44} height={44} className="rounded-xl flex-shrink-0" />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p className="sticky-cta-name">スタンドメイト</p>
+            <p className="sticky-cta-text">{homeCtaText || "野球観戦の仲間、見つけよう"}</p>
           </div>
+          <a href="/?ct=blog-footer" className="cta-button cta-primary sticky-cta-btn">
+            探してみる →
+          </a>
         </div>
       </div>
     </div>

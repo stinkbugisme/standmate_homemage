@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+  // 記事詳細ページ(/blog/<slug>)は読みやすさ優先でヘッダーを非表示。
+  // ホームへの導線は記事下部の固定バー＋「記事一覧に戻る」で確保している。
+  // 記事一覧(/blog)やその他のページでは通常どおり表示する。
+  if (/^\/blog\/[^/]+$/.test(pathname)) return null;
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-2">
