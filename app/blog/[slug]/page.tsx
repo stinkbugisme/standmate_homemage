@@ -184,14 +184,16 @@ function renderMarkdown(content: string) {
       const mapEnc = encodeURIComponent(mapQuery);
       const mapAddr = (rawParts[2] || "").trim();
       const mapHours = (rawParts[3] || "").trim();
-      // ピンを「単一かつ正確」にするため「店名＋番地住所」で検索する。
-      // 店名で店舗を特定し、番地住所で位置を確定。建物名/階はキーワード扱いで複数ピンや誤ピンになるため番地までに切り詰める。
+      // 埋め込み地図のピンを必ず1つにするため、番地住所"だけ"で引く。
+      // 番地までの住所は1点にジオコーディングされるが、店名を混ぜると「検索」扱いになり
+      // 類似店舗が複数ピンで出ることがあるため、店名は入れない（店名検索は下部リンク側で担保）。
+      // 建物名/階・注記(※)は番地以降を切り捨てて除去する。
       const streetAddr = mapAddr
         .replace(/\s*※.*$/, "")
         .replace(/([\d丁目番号])\s+.*$/, "$1")
         .trim();
       const cleanName = mapLabel.replace(/[（(][^）)]*[）)]/g, "").trim();
-      const mapPin = [cleanName, streetAddr].filter(Boolean).join(" ") || mapQuery;
+      const mapPin = streetAddr || cleanName || mapQuery;
       const mapPinEnc = encodeURIComponent(mapPin);
       elements.push(
         <div key={`map-${i}`} className="my-4">
