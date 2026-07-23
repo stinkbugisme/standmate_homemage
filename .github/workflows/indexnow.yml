@@ -1,0 +1,21 @@
+name: Submit sitemap to IndexNow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Wait for Vercel deploy to finish
+        run: sleep 90
+
+      - name: Submit sitemap URLs to IndexNow
+        run: node scripts/submit-indexnow.mjs
