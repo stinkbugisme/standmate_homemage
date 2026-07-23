@@ -1,38 +1,36 @@
 # standmate.jp
-# 方針: AIの「学習」は拒否 / AIの「検索・引用」は許可（Gemini含む）
-# 引用系ボットをブロックするとChatGPT等の回答に載らなくなるため、必ず許可のままにする。
+# 方針: AIの「学習」「検索・引用」ともにすべて許可（2026-07-23変更）
 
 User-agent: *
-Content-Signal: search=yes, ai-train=no, use=reference
+Content-Signal: search=yes, ai-train=yes, use=reference
 Allow: /
 
-# --- 学習専用クローラー（許可しても引用・流入は増えないためブロック） ---
+# --- 学習クローラー ---
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: Bytespider
-Disallow: /
+Allow: /
 
 User-agent: Amazonbot
-Disallow: /
+Allow: /
 
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
 
 User-agent: meta-externalagent
-Disallow: /
+Allow: /
 
-# --- 検索・引用クローラー（ここから流入が来る。許可を維持） ---
+# --- 検索・引用クローラー ---
 User-agent: Googlebot
 Allow: /
 
-# Geminiアプリのグラウンディング（引用）に必要。Google検索の掲載・順位には影響しない。
 User-agent: Google-Extended
 Allow: /
 
