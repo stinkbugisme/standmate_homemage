@@ -12,7 +12,7 @@ const jsonLd = {
   applicationSubCategory: "SportsApplication",
   operatingSystem: "iOS, Android",
   description:
-    "プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで、すべての野球ファンが集まる友達検索＆観戦仲間探しアプリ。同じ球団を応援する仲間を見つけて、一緒に球場へ。基本無料、有料プランも月額1,000円。",
+    "基本無料の野球ファン向け友達・観戦仲間探しアプリ（有料プランは月額¥1,000）。プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで対応。恋愛マッチングアプリではなく、同じ球団を応援する仲間と一緒に球場へ行くためのアプリです。",
   url: "https://standmate.jp",
   image: "https://standmate.jp/icon.png",
   inLanguage: "ja-JP",
@@ -132,8 +132,11 @@ export default function Home() {
           <p className="text-base md:text-xl text-gray-500 mb-1">
             野球ファン同士が繋がる
           </p>
-          <p className="text-lg md:text-2xl font-bold text-gray-700 mb-5">
+          <p className="text-lg md:text-2xl font-bold text-gray-700 mb-2">
             スタンドメイト - 野球観戦仲間を探そう
+          </p>
+          <p className="text-sm md:text-base text-gray-500 mb-5">
+            恋愛マッチングアプリではありません。同じ球団のファン同士で観戦仲間・野球友達を探す専用アプリです（基本無料・有料プランは月額¥1,000）。
           </p>
 
           {/* 利用者数バッジ（社会的証明） */}

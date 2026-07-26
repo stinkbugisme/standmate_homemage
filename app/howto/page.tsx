@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: "使い方ガイド",
   description:
-    "スタンドメイトの使い方を解説。友達検索、観戦募集、メッセージ機能の使い方をステップごとにご紹介します。",
+    "基本無料（有料プランは月額¥1,000）のスタンドメイトの使い方を解説。友達検索、観戦募集、メッセージ機能の使い方をステップごとにご紹介します。",
   alternates: { canonical: "/howto" },
 };
 
