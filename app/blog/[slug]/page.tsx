@@ -129,6 +129,35 @@ function renderMarkdown(content: string) {
           dangerouslySetInnerHTML={{ __html: renderInlineHtml(line) }}
         />
       );
+    } else if (line.trim().startsWith("> ")) {
+      // 引用・注記ブロック。公式規定の原文引用や「⚠️」「📌」などの注意書きに使う
+      const quoteLines: string[] = [];
+      while (i < lines.length && lines[i].trim().startsWith("> ")) {
+        quoteLines.push(lines[i].trim().slice(2));
+        i++;
+      }
+      elements.push(
+        <blockquote
+          key={`quote-${i}`}
+          style={{
+            margin: "1rem 0 1.5rem",
+            padding: "0.9rem 1rem",
+            borderLeft: "4px solid #d1d5db",
+            background: "#f9fafb",
+            borderRadius: "0 0.5rem 0.5rem 0",
+            color: "#374151",
+          }}
+        >
+          {quoteLines.map((q, qi) => (
+            <p
+              key={qi}
+              style={{ margin: qi === 0 ? 0 : "0.5rem 0 0" }}
+              dangerouslySetInnerHTML={{ __html: renderInlineHtml(q) }}
+            />
+          ))}
+        </blockquote>
+      );
+      continue;
     } else if (line.startsWith("|")) {
       const tableRows: string[][] = [];
       while (i < lines.length && lines[i].startsWith("|")) {
