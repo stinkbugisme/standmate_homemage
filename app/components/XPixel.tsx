@@ -19,7 +19,7 @@ export default function XPixel() {
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest(
-        'a[href*="apps.apple.com"]'
+        'a[href*="apps.apple.com"], a[href*="play.google.com"]'
       );
       if (target) {
         trackAppStoreClick();
