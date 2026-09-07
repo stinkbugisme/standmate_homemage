@@ -262,9 +262,9 @@ function renderMarkdown(content: string) {
           </p>
           <p className="text-gray-500 text-sm mb-4">野球観戦の同行者を探そう（iOS / Android 対応）</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            {/* 本文中CTA。最下部CTAとクリックを区別して計測するため識別パラメータを付与している */}
+            {/* 本文中CTA。App Storeはキャンペーンリンク(pt=プロバイダID・ct=blog)でApp Analyticsに「blog」として帰属させる */}
             <a
-              href="https://apps.apple.com/jp/app/id6753888706?ct=blog-inline"
+              href="https://apps.apple.com/jp/app/apple-store/id6753888706?pt=128208511&ct=blog&mt=8"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button cta-primary"

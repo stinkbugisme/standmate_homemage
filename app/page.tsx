@@ -150,7 +150,7 @@ export default function Home() {
           {/* Download buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-0">
             <a
-              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
+              href="https://apps.apple.com/jp/app/apple-store/id6753888706?pt=128208511&ct=top&mt=8"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button cta-primary text-lg"
@@ -369,7 +369,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://apps.apple.com/jp/app/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%83%A1%E3%82%A4%E3%83%88/id6753888706"
+              href="https://apps.apple.com/jp/app/apple-store/id6753888706?pt=128208511&ct=top&mt=8"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button cta-primary text-lg"
