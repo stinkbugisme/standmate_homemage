@@ -12,7 +12,7 @@ const jsonLd = {
   applicationSubCategory: "SportsApplication",
   operatingSystem: "iOS, Android",
   description:
-    "基本無料の野球ファン向け友達・観戦仲間探しアプリ（有料プランは月額¥1,000）。プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで対応。恋愛マッチングアプリではなく、同じ球団を応援する仲間と一緒に球場へ行くためのアプリです。",
+    "基本無料の野球ファン向け友達・観戦仲間探しアプリ（有料プランは月額¥1,000）。プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで対応。同じ球団を応援する仲間と一緒に球場へ行くためのアプリです。",
   url: "https://standmate.jp",
   image: "https://standmate.jp/icon.png",
   inLanguage: "ja-JP",
