@@ -103,9 +103,9 @@ const FEATURES = [
 
 // 料金(アプリのプレミアム画面 PLANS と同じ)。1年プランは 2027/1/1 から
 const PRICES = [
-  { name: "無料", price: "¥0", note: "基本機能が使える" },
-  { name: "1ヶ月プラン", price: "¥1,000", note: "/月（税込）", highlight: true },
-  { name: "1年プラン", price: "¥10,000", note: "/年・2027年1月から", badge: "2ヶ月分おトク" },
+  { name: "無料", price: "¥0", note: ["基本機能が", "使える"] },
+  { name: "1ヶ月プラン", price: "¥1,000", note: ["/月（税込）"], highlight: true },
+  { name: "1年プラン", price: "¥10,000", note: ["/年・", "2027年1月から"], badge: "2ヶ月分おトク" },
 ];
 
 // 1日に使える回数・時間(2026年の設定。2027/1/1 からの改定は表の下に注記)
@@ -337,7 +337,7 @@ export default function Home() {
                 )}
                 <p className={`text-xs md:text-sm font-bold mb-1 ${p.highlight ? "text-brand-200" : "text-gray-500"}`}>{p.name}</p>
                 <p className="text-xl md:text-3xl font-black leading-tight">{p.price}</p>
-                <p className={`text-[10px] md:text-xs mt-1 ${p.highlight ? "text-brand-200" : "text-gray-400"}`}><Phrase>{p.note}</Phrase></p>
+                <p className={`text-[10px] md:text-xs mt-1 ${p.highlight ? "text-brand-200" : "text-gray-400"}`}>{p.note.map((n, i) => <span key={i} className="inline-block whitespace-nowrap">{n}</span>)}</p>
               </div>
             ))}
           </div>
