@@ -191,7 +191,7 @@ export default function Home() {
               <Phrase>野球観戦仲間を探そう</Phrase>
             </p>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-4 max-w-md mx-auto md:mx-0">
-              <Phrase>同じ球団のファン同士で、観戦仲間・野球友達を探す専用アプリです。基本無料（有料プランは月額¥1,000）。</Phrase>
+              <Phrase>同じ球団のファン同士で、観戦仲間・野球友達を探す専用アプリです。基本無料</Phrase><wbr /><span className="whitespace-nowrap">（有料プランは月額¥1,000）。</span>
             </p>
             <a
               href="#plans"
