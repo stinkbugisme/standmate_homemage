@@ -5,6 +5,7 @@ import { useState, type FormEvent } from "react";
 const CONTACT_CATEGORIES = [
   "アプリに関するご質問",
   "不具合の報告",
+  "通報・トラブル（迷惑行為・なりすまし等）",
   "ご要望・機能リクエスト",
   "プレミアム会員について",
   "その他",
@@ -42,7 +43,7 @@ export default function ContactPage() {
       <div className="min-h-screen bg-white">
         <div className="subpage-container">
           <div className="text-center py-16">
-            <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 bg-gradient-to-br from-brand-500 to-brand-900 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
@@ -90,7 +91,7 @@ export default function ContactPage() {
               name="name"
               required
               placeholder="山田 太郎"
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-gray-700"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all text-gray-700"
             />
           </div>
 
@@ -105,7 +106,7 @@ export default function ContactPage() {
               name="email"
               required
               placeholder="example@email.com"
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-gray-700"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all text-gray-700"
             />
           </div>
 
@@ -119,7 +120,7 @@ export default function ContactPage() {
               name="category"
               required
               defaultValue=""
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-gray-700 bg-white"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all text-gray-700 bg-white"
             >
               <option value="" disabled>選択してください</option>
               {CONTACT_CATEGORIES.map((cat) => (
@@ -139,7 +140,7 @@ export default function ContactPage() {
               required
               rows={6}
               placeholder="お問い合わせ内容をご記入ください"
-              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500/30 focus:border-red-500 transition-all text-gray-700 resize-vertical"
+              className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-all text-gray-700 resize-vertical"
             />
           </div>
 

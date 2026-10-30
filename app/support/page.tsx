@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Phrase from "../components/Phrase";
 import { MailIcon, WarningIcon, DocumentIcon, LockIcon, ScaleIcon } from "../components/Icons";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ const faqJsonLd = {
       name: "プレミアム会員の解約方法",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "iOSの「設定」→「Apple ID」→「サブスクリプション」から「スタンドメイト」を選択し、「サブスクリプションをキャンセル」をタップしてください。",
+        text: "iPhoneの「設定」アプリ →（一番上の）自分の名前 →「サブスクリプション」→「スタンドメイト」→「サブスクリプションをキャンセル」の順に進んでください。Androidの場合は「Google Play ストア」アプリ → 右上のプロフィールアイコン →「お支払いと定期購入」→「定期購入」→「スタンドメイト」→「定期購入を解約」の順に進んでください。解約後も、購入済みの期間が終わるまではプレミアム会員の機能を使えます。",
       },
     },
     {
@@ -34,7 +35,7 @@ const faqJsonLd = {
       name: "不適切なユーザーを見つけた",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "アプリ内の通報機能をご利用ください。プロフィール詳細画面の右上「…」メニューから「通報」を選択できます。アプリ内通報が使えない場合は info@standmate.jp までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。",
+        text: "アプリ内の通報機能をご利用ください。相手のプロフィール、トーク画面、募集の詳細画面の右上「…」メニューから「通報する」を選べます。通報した相手は自動でブロックされます。アプリ内通報が使えない場合は info@standmate.jp までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。",
       },
     },
     {
@@ -66,7 +67,63 @@ const faqJsonLd = {
       name: "購入の復元ができない",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "マイページの「購入を復元」ボタンを押してください。それでも復元できない場合は、購入時のApple IDでログインしているかご確認ください。",
+        text: "プレミアム会員の画面にある「購入を復元」ボタンを押してください。それでも復元できない場合は、購入したときと同じApple ID（iPhone）またはGoogleアカウント（Android）でストアにログインしているかご確認ください。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "通話がつながらない、相手に声が届かない",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "はじめて通話するときに「マイクの使用」を許可していないと、相手に声が届きません。iPhoneは「設定」→「スタンドメイト」→「マイク」、Androidは「設定」→「アプリ」→「スタンドメイト」→「権限」→「マイク」から許可してください。あわせて、電波の良い場所で、アプリを最新バージョンにしてお試しください。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "通話できる時間と、元に戻るタイミングは？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "通話は、かけた人の1日の通話時間を使います。通話時間は毎朝3時に元に戻ります。2026年12月31日までは特別期間で、無料会員もプレミアム会員も1日60分使えます。2027年1月1日からは、無料会員が1日15分、プレミアム会員が1日90分になります。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "だれと通話できますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "トークができる相手と通話できます（マッチした相手、観戦募集で参加が決まった相手）。トーク画面の右上の電話マークからかけられます。電話番号を相手に教える必要はありません。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "「通話で観戦」とは？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "観戦募集の種類のひとつで、はなれた場所から、通話しながら一緒に試合を観る募集です。球場に行けない日でも、同じ球団のファンと一緒に応援できます。参加したいときは「通話したい！」を押します。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "トークで写真や動画は送れますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "送れます。トーク画面から、写真や動画を選んで送信できます。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "1年プランはいつから使えますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "1年プラン（10,000円・税込）は2027年1月1日から提供します。1ヶ月プラン（1,000円・税込）の12ヶ月分より2,000円おトクです。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "2027年から無料で使える回数は変わりますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "2027年1月1日から、1日に使える回数・時間が変わります。無料会員は、いいね・スキップ3回、行きたい！1回、通話15分。プレミアム会員は、いいね・スキップ30回、行きたい！無制限、通話90分です。",
       },
     },
   ],
@@ -102,13 +159,13 @@ export default function SupportPage() {
               <strong>ユーザー間の金銭授受・チケット売買を仲介する機能は提供していません</strong>。
               観戦募集を通じて知り合った相手との取引は、すべて<strong>ユーザーご自身の責任</strong>で行っていただくことになります。
             </p>
-            <p className="!text-gray-700 font-semibold !mb-2">よくある詐欺の手口（国民生活センターからも注意喚起されています）</p>
+            <p className="!text-gray-700 font-semibold !mb-2"><Phrase>{"よくある詐欺の手口（国民生活センターからも注意喚起されています）"}</Phrase></p>
             <ul className="list-disc !text-gray-700">
               <li>SNSやアプリで「チケットを譲る」と持ちかけられ、PayPay送金や銀行振込で<strong>先払い</strong>した後、相手と連絡が取れなくなる</li>
               <li>本人確認書類（マイナンバーカード・免許証）の<strong>画像</strong>を見せられて信用したが、画像は偽造・流用されたものだった</li>
-              <li>受け取ったチケットが偽造・無効で、当日入場できない</li>
+              <li><Phrase>{"受け取ったチケットが偽造・無効で、当日入場できない"}</Phrase></li>
             </ul>
-            <p className="!text-gray-700 font-semibold !mb-2">安全にご利用いただくためのポイント</p>
+            <p className="!text-gray-700 font-semibold !mb-2"><Phrase>{"安全にご利用いただくためのポイント"}</Phrase></p>
             <ul className="list-disc !text-gray-700 !mb-0">
               <li>チケットの入手は、チケットぴあ・ローソンチケット・e+・球団公式サイト・公式トレード機能など<strong>正規ルート</strong>を最優先で</li>
               <li>個人間でやり取りする場合は、<strong>先払い送金は避け</strong>、当日の現物確認後の支払いを検討</li>
@@ -124,20 +181,16 @@ export default function SupportPage() {
         {/* Contact */}
         <section>
           <h2>お問い合わせ</h2>
-          <p>
-            アプリに関するご質問、不具合の報告、ご要望などがございましたら、お問い合わせフォームよりお気軽にご連絡ください。
-          </p>
+          <p><Phrase>{"アプリに関するご質問、不具合の報告、ご要望などがございましたら、お問い合わせフォームよりお気軽にご連絡ください。"}</Phrase></p>
           <div className="info-box">
             <Link href="/contact" className="flex items-center gap-3 text-lg font-semibold no-underline">
-              <span className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="w-10 h-10 bg-gradient-to-br from-brand-500 to-brand-900 rounded-lg flex items-center justify-center flex-shrink-0">
                 <MailIcon className="w-5 h-5 text-white" />
               </span>
               お問い合わせフォームへ
             </Link>
           </div>
-          <p className="text-sm !text-gray-400">
-            ※ 通常、24時間以内にご返信いたします。週末・祝日を挟む場合は、お時間をいただく場合がございます。
-          </p>
+          <p className="text-sm !text-gray-400"><Phrase>{"※ 通常、24時間以内にご返信いたします。週末・祝日を挟む場合は、お時間をいただく場合がございます。"}</Phrase></p>
         </section>
 
         {/* FAQ */}
@@ -145,48 +198,48 @@ export default function SupportPage() {
           <h2>よくある質問（FAQ）</h2>
 
           <div className="space-y-4">
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. アカウントを削除したい</h3>
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. アカウントを削除したい"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. プレミアム会員の解約方法"}</Phrase></h3>
               <p className="!mb-0">
-                A. アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。
+                A. <strong>iPhone</strong>：iPhoneの「設定」アプリ →（一番上の）自分の名前 →「サブスクリプション」→「スタンドメイト」→「サブスクリプションをキャンセル」の順に進んでください。
+              </p>
+              <p className="!mb-0 mt-2">
+                <strong>Android</strong>：「Google Play ストア」アプリ → 右上のプロフィールアイコン →「お支払いと定期購入」→「定期購入」→「スタンドメイト」→「定期購入を解約」の順に進んでください。
+              </p>
+              <p className="!mb-0 mt-2 text-sm !text-gray-500"><Phrase>{"解約後も、購入済みの期間が終わるまではプレミアム会員の機能を使えます。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 不適切なユーザーを見つけた"}</Phrase></h3>
+              <p className="!mb-0">
+                A. アプリ内の通報機能をご利用ください。相手のプロフィール、トーク画面、募集の詳細画面の右上「…」メニューから「通報する」を選べます。通報した相手は自動でブロックされます。アプリ内通報が使えない場合は <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。
               </p>
             </div>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. プレミアム会員の解約方法</h3>
-              <p className="!mb-0">
-                A. iOSの「設定」→「Apple ID」→「サブスクリプション」から「スタンドメイト」を選択し、「サブスクリプションをキャンセル」をタップしてください。
-              </p>
-            </div>
-
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. 不適切なユーザーを見つけた</h3>
-              <p className="!mb-0">
-                A. アプリ内の通報機能をご利用ください。プロフィール詳細画面の右上「…」メニューから「通報」を選択できます。アプリ内通報が使えない場合は <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。
-              </p>
-            </div>
-
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. チケット譲渡でトラブルに遭わないためには？（先払い詐欺への注意）</h3>
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. チケット譲渡でトラブルに遭わないためには？（先払い詐欺への注意）"}</Phrase></h3>
               <p>
                 A. スタンドメイトはユーザー間の金銭授受・チケット売買を<strong>仲介していません</strong>。
                 観戦募集を通じて知り合った相手との取引はご自身の責任で行っていただきます。
               </p>
-              <p className="!mb-2 font-semibold">【推奨】</p>
+              <p className="!mb-2 font-semibold"><Phrase>{"【推奨】"}</Phrase></p>
               <ul className="list-disc">
                 <li>チケットぴあ・ローソンチケット・e+・球団公式サイト・公式トレード機能など<strong>正規ルート</strong>の利用を最優先</li>
                 <li>やむを得ず個人間で譲り受ける場合、<strong>PayPay送金や銀行振込による先払いは避ける</strong></li>
-                <li>球場入場ゲート前など、当日の現物確認後に支払う方法を検討</li>
+                <li><Phrase>{"球場入場ゲート前など、当日の現物確認後に支払う方法を検討"}</Phrase></li>
                 <li>本人確認書類の<strong>画像</strong>を見せられても信用しない（偽造・流用の可能性あり）</li>
               </ul>
-              <p className="!mb-0 text-sm !text-gray-500">
-                国民生活センターも、SNSを介した個人間チケット取引で「代金支払後に連絡が取れなくなる」「チケットが届かない」等の相談が繰り返し寄せられていると注意喚起しています。
-              </p>
+              <p className="!mb-0 text-sm !text-gray-500"><Phrase>{"国民生活センターも、SNSを介した個人間チケット取引で「代金支払後に連絡が取れなくなる」「チケットが届かない」等の相談が繰り返し寄せられていると注意喚起しています。"}</Phrase></p>
             </div>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. チケット詐欺などの金銭トラブルに遭ってしまった</h3>
-              <p>A. 以下の順でご対応ください。</p>
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. チケット詐欺などの金銭トラブルに遭ってしまった"}</Phrase></h3>
+              <p><Phrase>{"A. 以下の順でご対応ください。"}</Phrase></p>
               <ol className="list-decimal">
                 <li>
                   <strong>利用した決済サービス（PayPay等）のサポートに被害報告</strong>
@@ -210,24 +263,55 @@ export default function SupportPage() {
               </p>
             </div>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. マッチングしたユーザーとメッセージができない</h3>
-              <p>A. 以下をご確認ください：</p>
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. マッチングしたユーザーとメッセージができない"}</Phrase></h3>
+              <p><Phrase>{"A. 以下をご確認ください："}</Phrase></p>
               <ul className="list-disc">
-                <li>インターネット接続が正常か確認</li>
-                <li>アプリを最新バージョンにアップデート</li>
-                <li>アプリを再起動</li>
+                <li><Phrase>{"インターネット接続が正常か確認"}</Phrase></li>
+                <li><Phrase>{"アプリを最新バージョンにアップデート"}</Phrase></li>
+                <li><Phrase>{"アプリを再起動"}</Phrase></li>
               </ul>
-              <p className="!mb-0">
-                それでも解決しない場合は、サポートまでお問い合わせください。
-              </p>
+              <p className="!mb-0"><Phrase>{"それでも解決しない場合は、サポートまでお問い合わせください。"}</Phrase></p>
             </div>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-orange-200 transition-colors">
-              <h3 className="!text-red-500">Q. 購入の復元ができない</h3>
-              <p className="!mb-0">
-                A. マイページの「購入を復元」ボタンを押してください。それでも復元できない場合は、購入時のApple IDでログインしているかご確認ください。
-              </p>
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 購入の復元ができない"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. プレミアム会員の画面にある「購入を復元」ボタンを押してください。それでも復元できない場合は、購入したときと同じApple ID（iPhone）またはGoogleアカウント（Android）でストアにログインしているかご確認ください。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 通話がつながらない、相手に声が届かない"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. はじめて通話するときに「マイクの使用」を許可していないと、相手に声が届きません。iPhoneは「設定」→「スタンドメイト」→「マイク」、Androidは「設定」→「アプリ」→「スタンドメイト」→「権限」→「マイク」から許可してください。あわせて、電波の良い場所で、アプリを最新バージョンにしてお試しください。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 通話できる時間と、元に戻るタイミングは？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 通話は、かけた人の1日の通話時間を使います。通話時間は毎朝3時に元に戻ります。2026年12月31日までは特別期間で、無料会員もプレミアム会員も1日60分使えます。2027年1月1日からは、無料会員が1日15分、プレミアム会員が1日90分になります。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. だれと通話できますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. トークができる相手と通話できます（マッチした相手、観戦募集で参加が決まった相手）。トーク画面の右上の電話マークからかけられます。電話番号を相手に教える必要はありません。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 「通話で観戦」とは？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 観戦募集の種類のひとつで、はなれた場所から、通話しながら一緒に試合を観る募集です。球場に行けない日でも、同じ球団のファンと一緒に応援できます。参加したいときは「通話したい！」を押します。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. トークで写真や動画は送れますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 送れます。トーク画面から、写真や動画を選んで送信できます。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 1年プランはいつから使えますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 1年プラン（10,000円・税込）は2027年1月1日から提供します。1ヶ月プラン（1,000円・税込）の12ヶ月分より2,000円おトクです。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 2027年から無料で使える回数は変わりますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 2027年1月1日から、1日に使える回数・時間が変わります。無料会員は、いいね・スキップ3回、行きたい！1回、通話15分。プレミアム会員は、いいね・スキップ30回、行きたい！無制限、通話90分です。"}</Phrase></p>
             </div>
           </div>
         </section>
@@ -236,15 +320,15 @@ export default function SupportPage() {
         <section>
           <h2>関連リンク</h2>
           <div className="flex flex-col gap-3">
-            <Link href="/terms" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-orange-200 hover:bg-orange-50/30 no-underline">
+            <Link href="/terms" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-brand-200 hover:bg-brand-50/30 no-underline">
               <DocumentIcon className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <span className="!text-gray-700">利用規約</span>
             </Link>
-            <Link href="/privacy" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-orange-200 hover:bg-orange-50/30 no-underline">
+            <Link href="/privacy" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-brand-200 hover:bg-brand-50/30 no-underline">
               <LockIcon className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <span className="!text-gray-700">プライバシーポリシー</span>
             </Link>
-            <Link href="/legal" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-orange-200 hover:bg-orange-50/30 no-underline">
+            <Link href="/legal" className="border border-gray-100 rounded-xl px-6 py-4 flex items-center gap-3 transition-all hover:border-brand-200 hover:bg-brand-50/30 no-underline">
               <ScaleIcon className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <span className="!text-gray-700">特定商取引法に基づく表記</span>
             </Link>

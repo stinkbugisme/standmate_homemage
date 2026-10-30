@@ -77,20 +77,11 @@ export const metadata: Metadata = {
     siteName,
     title: defaultTitle,
     description: defaultDescription,
-    images: [
-      {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "スタンドメイト - 野球ファンの友達・観戦仲間探しアプリ",
-      },
-    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: defaultTitle,
     description: defaultDescription,
-    images: ["/icon.png"],
   },
   alternates: {
     canonical: siteUrl,

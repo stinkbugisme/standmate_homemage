@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts, getPost, getTeamForSlug, getRelatedPostsByTeam, teams } from "../posts";
+import Phrase, { phraseHtml } from "../../components/Phrase";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -29,10 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       url: `https://standmate.jp/blog/${post.slug}`,
       siteName: "スタンドメイト",
-      images: [{ url: "https://standmate.jp/icon.png", width: 512, height: 512, alt: "スタンドメイト" }],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: post.title,
       description: post.description,
     },
@@ -77,9 +77,9 @@ function renderMarkdown(content: string) {
             >
               <a
                 href={`#${item.id}`}
-                className={`toc-link hover:text-red-600 hover:underline no-underline ${item.level === 3 ? "text-gray-500" : "text-gray-900"}`}
+                className={`toc-link hover:text-brand-600 hover:underline no-underline ${item.level === 3 ? "text-gray-500" : "text-gray-900"}`}
               >
-                {item.level === 2 && <span className="text-red-500 mr-1.5">▸</span>}
+                {item.level === 2 && <span className="text-brand-500 mr-1.5">▸</span>}
                 {item.text}
               </a>
             </li>
@@ -102,14 +102,14 @@ function renderMarkdown(content: string) {
           key={i}
           id={headingIds[i]}
           style={{ scrollMarginTop: "1rem" }}
-          dangerouslySetInnerHTML={{ __html: renderInlineHtml(line.slice(4)) }}
+          dangerouslySetInnerHTML={{ __html: renderText(line.slice(4)) }}
         />
       );
     } else if (line.startsWith("## ")) {
       faqMode = false;
       elements.push(
         <h2 key={i} id={headingIds[i]} style={{ scrollMarginTop: "1rem" }}>
-          {line.slice(3)}
+          <Phrase>{line.slice(3)}</Phrase>
         </h2>
       );
     } else if (line.trim().startsWith("**Q")) {
@@ -118,15 +118,15 @@ function renderMarkdown(content: string) {
         <p
           key={i}
           style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #eee", fontWeight: 700, color: "#1f2937" }}
-          dangerouslySetInnerHTML={{ __html: renderInlineHtml(line) }}
+          dangerouslySetInnerHTML={{ __html: renderText(line) }}
         />
       );
     } else if (faqMode && line.trim().startsWith("A.")) {
       elements.push(
         <p
           key={i}
-          style={{ margin: "0.4rem 0 1.5rem", paddingLeft: "0.9rem", borderLeft: "3px solid #fca5a5", color: "#4b5563" }}
-          dangerouslySetInnerHTML={{ __html: renderInlineHtml(line) }}
+          style={{ margin: "0.4rem 0 1.5rem", paddingLeft: "0.9rem", borderLeft: "3px solid #9fd8fb", color: "#4b5563" }}
+          dangerouslySetInnerHTML={{ __html: renderText(line) }}
         />
       );
     } else if (line.trim().startsWith("> ")) {
@@ -152,7 +152,7 @@ function renderMarkdown(content: string) {
             <p
               key={qi}
               style={{ margin: qi === 0 ? 0 : "0.5rem 0 0" }}
-              dangerouslySetInnerHTML={{ __html: renderInlineHtml(q) }}
+              dangerouslySetInnerHTML={{ __html: renderText(q) }}
             />
           ))}
         </blockquote>
@@ -255,7 +255,7 @@ function renderMarkdown(content: string) {
       // skip — bottom-of-page CTA already shows download buttons
     } else if (line.trim() === "{{install-cta}}") {
       elements.push(
-        <div key={i} className="my-6 p-5 bg-red-50 rounded-2xl text-center">
+        <div key={i} className="my-6 p-5 bg-brand-50 rounded-2xl text-center">
           <p className="font-bold text-gray-800 mb-1">
             <img src="/icon-baseball.svg" alt="" width={22} height={22} style={{ display: "inline-block", verticalAlign: "middle", marginRight: 8, marginTop: -2 }} />
             スタンドメイトを無料インストール
@@ -304,9 +304,9 @@ function renderMarkdown(content: string) {
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="block p-4 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-red-300 transition-all no-underline"
+                  className="block p-4 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-brand-300 transition-all no-underline"
                 >
-                  <span className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-2 bg-red-50 text-red-600">
+                  <span className="inline-block text-xs font-bold px-2 py-0.5 rounded-full mb-2 bg-brand-50 text-brand-600">
                     {p.category}
                   </span>
                   <p className="font-bold text-gray-800 text-sm leading-snug mb-2 line-clamp-2">
@@ -322,7 +322,7 @@ function renderMarkdown(content: string) {
     } else if (line.trim() === "") {
       // skip
     } else {
-      elements.push(<p key={i} dangerouslySetInnerHTML={{ __html: renderInlineHtml(line) }} />);
+      elements.push(<p key={i} dangerouslySetInnerHTML={{ __html: renderText(line) }} />);
     }
     i++;
   }
@@ -331,7 +331,12 @@ function renderMarkdown(content: string) {
 }
 
 function renderInline(text: string): React.ReactNode {
-  return <span dangerouslySetInnerHTML={{ __html: renderInlineHtml(text) }} />;
+  return <span dangerouslySetInnerHTML={{ __html: renderText(text) }} />;
+}
+
+// 本文の文章は文節の途中で改行しないようにする(表のセルは幅が狭いので renderInlineHtml のまま)
+function renderText(text: string): string {
+  return phraseHtml(renderInlineHtml(text));
 }
 
 function renderInlineHtml(text: string): string {
@@ -340,7 +345,7 @@ function renderInlineHtml(text: string): string {
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, href) => {
       const isInternal = href.startsWith("/");
       if (isInternal) {
-        return `<a href="${href}" style="color:#dc2626;text-decoration:underline;text-underline-offset:2px">${label}</a>`;
+        return `<a href="${href}" style="color:#0e86d9;text-decoration:underline;text-underline-offset:2px">${label}</a>`;
       }
       return `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
     })
@@ -387,7 +392,7 @@ export default async function BlogPostPage({ params }: Props) {
       <div className="subpage-container blog-article">
 
         <div className="flex items-center gap-3 mb-4 flex-wrap">
-          <span className="text-xs font-bold text-red-500 bg-red-50 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold text-brand-500 bg-brand-50 px-3 py-1 rounded-full">
             {post.category}
           </span>
           <time className="text-xs text-gray-400">公開：{post.date}</time>
@@ -396,7 +401,7 @@ export default async function BlogPostPage({ params }: Props) {
           )}
         </div>
 
-        <h1>{post.title}</h1>
+        <h1><Phrase>{post.title}</Phrase></h1>
 
         <article>{contentElements}</article>
 
@@ -457,7 +462,7 @@ export default async function BlogPostPage({ params }: Props) {
         })()}
 
         <div className="mt-10 pt-6 border-t border-gray-100">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors text-sm font-medium">
+          <Link href="/blog" className="inline-flex items-center gap-2 !text-gray-400 hover:!text-brand-500 !no-underline transition-colors text-sm font-medium">
             ← 記事一覧に戻る
           </Link>
         </div>
@@ -473,7 +478,7 @@ export default async function BlogPostPage({ params }: Props) {
           bottom: 0,
           zIndex: 50,
           background: "#ffffff",
-          borderTop: "1px solid #f0d5d5",
+          borderTop: "1px solid #cfe6f7",
           boxShadow: "0 -4px 16px rgba(0,0,0,0.08)",
           padding: "12px 16px",
           paddingBottom: "calc(12px + env(safe-area-inset-bottom))",

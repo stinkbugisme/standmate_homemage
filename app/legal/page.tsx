@@ -60,7 +60,8 @@ export default function LegalNotice() {
                 <tr>
                   <td className="align-top">販売価格</td>
                   <td>
-                    <strong>プレミアム会員：月額1,000円（税込）</strong><br />
+                    <strong>プレミアム会員 1ヶ月プラン：1,000円（税込）</strong><br />
+                    <strong>プレミアム会員 1年プラン：10,000円（税込）</strong>（2027年1月1日から提供）<br />
                     <span className="text-sm text-gray-400">※価格は予告なく変更される場合がございます。最新の価格はアプリ内の購入画面でご確認ください。</span>
                   </td>
                 </tr>
@@ -184,6 +185,7 @@ export default function LegalNotice() {
 
         <section className="!mb-0 border-t border-gray-100 pt-8">
           <p className="text-center !text-gray-400">制定日：2025年10月14日</p>
+          <p className="text-center !text-gray-400">改定日：2026年10月30日（販売価格に1年プランを追加）</p>
         </section>
       </div>
     </div>

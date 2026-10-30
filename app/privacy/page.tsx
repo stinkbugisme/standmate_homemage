@@ -64,7 +64,16 @@ export default function PrivacyPolicy() {
             <li><strong>プロフィール情報</strong>：ニックネーム、性別、年齢、居住地（都道府県）、好きな球団、自己紹介文</li>
             <li><strong>画像データ</strong>：メイン写真およびサブ写真（最大5枚）</li>
             <li><strong>利用情報</strong>：いいね履歴、スキップ履歴、マッチング履歴、メッセージ内容、観戦募集の投稿内容および参加希望履歴</li>
+            <li><strong>メッセージで送信する写真・動画</strong>：トーク画面で送信された画像データおよび動画データ</li>
+            <li><strong>通話記録</strong>：音声通話の発信者・着信者、発信・応答・終了の日時、通話時間、通話の終了理由（相手が終了した、時間切れ、不在など）</li>
           </ul>
+          <div className="info-box">
+            <p className="!text-gray-700 font-semibold !mb-2">音声通話の音声について</p>
+            <p className="!mb-0">
+              通話の音声は、通話中に限り当方の通話サーバーを経由して相手に届けられます。<strong>当方は通話の音声を録音・保存しません</strong>。
+              通話記録には音声の内容は含まれません。
+            </p>
+          </div>
 
           <h3>2.2 自動的に取得される情報</h3>
           <ul className="list-disc">
@@ -73,7 +82,13 @@ export default function PrivacyPolicy() {
             <li><strong>プッシュ通知トークン</strong>：Expoが発行するプッシュ通知用トークン</li>
           </ul>
 
-          <h3>2.3 外部サービスとの連携により取得する情報</h3>
+          <h3>2.3 端末の機能へのアクセス</h3>
+          <ul className="list-disc">
+            <li><strong>マイク</strong>：音声通話の際に、ユーザーの許可を得たうえで使用します。通話中以外は使用しません。マイクの使用を許可しない場合でも、音声通話以外の機能はご利用いただけます。</li>
+            <li><strong>写真・カメラ</strong>：プロフィール写真の登録や、メッセージで写真・動画を送信する際に、ユーザーが選択したもののみを取得します。</li>
+          </ul>
+
+          <h3>2.4 外部サービスとの連携により取得する情報</h3>
           <ul className="list-disc">
             <li><strong>Apple ID 連携（iOS 版）</strong>：匿名化されたユーザー識別子（auth_id）</li>
             <li><strong>Google アカウント連携（Android 版）</strong>：匿名化されたユーザー識別子（auth_id）</li>
@@ -100,7 +115,8 @@ export default function PrivacyPolicy() {
             <li>本サービスの提供、維持、保護および改善</li>
             <li>ユーザー認証およびアカウント管理</li>
             <li>マッチング機能の提供（いいね、スキップ、相互マッチング）</li>
-            <li>メッセージ機能の提供</li>
+            <li>メッセージ機能の提供（写真・動画の送信を含む）</li>
+            <li>音声通話機能の提供および1日の通話時間の管理</li>
             <li>観戦募集機能の提供</li>
             <li>プレミアム会員機能の提供および管理</li>
             <li>サブスクリプション料金の請求および決済処理の管理</li>
@@ -118,6 +134,7 @@ export default function PrivacyPolicy() {
           <p>ユーザーの個人データは、<strong>Supabase, Inc.（米国）</strong>が提供するデータベースおよびストレージサービスに保管されます。</p>
           <p>Supabaseは、ISO 27001認証を取得しており、業界標準のセキュリティ対策（データの暗号化、アクセス制御、監査ログ）を実施しています。</p>
           <p>当方は、Supabaseとの間で適切なデータ処理契約を締結し、個人データの安全管理について合意しています。</p>
+          <p>音声通話の中継には、<strong>さくらインターネット株式会社（日本）</strong>のサーバー上で当方が運用する通話サーバーを使用します。通話の音声は暗号化された通信で中継され、サーバーに保存されることはありません。</p>
         </section>
 
         <section>
@@ -173,6 +190,12 @@ export default function PrivacyPolicy() {
                 委託内容：データベースおよびストレージサービスの提供<br />
                 提供される個人データの項目：第2条に記載の全ての個人データ<br />
                 <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer" className="text-sm">Supabase Privacy Policy</a>
+              </li>
+              <li>
+                <strong>さくらインターネット株式会社（日本）</strong><br />
+                委託内容：音声通話を中継するサーバーの提供<br />
+                提供される個人データの項目：通話中の音声（中継のみ・保存なし）、通話の接続に必要なユーザー識別子および IP アドレス<br />
+                <a href="https://www.sakura.ad.jp/corporate/privacy/" target="_blank" rel="noopener noreferrer" className="text-sm">さくらインターネット 個人情報保護方針</a>
               </li>
               <li>
                 <strong>Expo (by Vercel Inc.)（米国）</strong><br />
@@ -232,10 +255,9 @@ export default function PrivacyPolicy() {
           <h2>第9条（アカウントの削除および個人データの消去）</h2>
           <p>ユーザーはいつでもアカウントを削除し、個人データの消去を請求することができます。</p>
           <p>
-            アカウント削除をご希望の場合は、アプリ内のお問い合わせフォームまたは
+            アカウントは、アプリのマイページ一番下の「アカウントを削除」からご自身で削除できます。アプリから削除できない場合は、アプリ内のお問い合わせフォームまたは
             <a href="mailto:info@standmate.jp">info@standmate.jp</a> までご連絡ください。
-          </p>
-          <p>アカウント削除後、個人データは原則として速やかに（30日以内に）削除されます。ただし、以下の情報については、法令で保管が義務付けられている期間、または紛争解決のために必要な期間、保管することがあります。</p>
+          </p>          <p>アカウント削除後、個人データは原則として速やかに（30日以内に）削除されます。ただし、以下の情報については、法令で保管が義務付けられている期間、または紛争解決のために必要な期間、保管することがあります。</p>
           <ul className="list-disc">
             <li>課金履歴、取引記録：消費税法、会社法等に基づき最長7年間</li>
             <li>通信ログ：電気通信事業法に基づき一定期間</li>
@@ -268,6 +290,7 @@ export default function PrivacyPolicy() {
 
         <section className="!mb-0 border-t border-gray-100 pt-8">
           <p className="text-center !text-gray-500">制定日：2025年10月14日</p>
+          <p className="text-center !text-gray-500">改定日：2026年10月30日（音声通話、メッセージでの写真・動画送信、さくらインターネットへの委託、アプリからのアカウント削除に対応）</p>
           <p className="text-center text-sm !text-gray-400">（個人情報保護法 令和4年4月1日施行改正対応版）</p>
         </section>
       </div>
