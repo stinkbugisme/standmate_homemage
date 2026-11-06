@@ -34,10 +34,10 @@ def ask(key, q):
 def main():
     key = get_key()
     if not key: sys.exit("OPENAI_API_KEY が見つかりません")
-    qs = [l.strip() for l in open(os.path.join(HERE, "questions.txt"), encoding="utf-8")
+    qs = [l.strip() for l in open(os.path.join(HERE, os.environ.get("QFILE", "questions.txt")), encoding="utf-8")
           if l.strip() and not l.startswith("#")]
     if len(sys.argv) > 1: qs = qs[: int(sys.argv[1])]
-    out = os.path.join(HERE, f"results_{datetime.date.today():%Y%m%d}.csv")
+    out = os.path.join(HERE, f"results_{datetime.date.today():%Y%m%d}{os.environ.get('QTAG', '')}.csv")
     tin = tout = 0
     with open(out, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.writer(f)
