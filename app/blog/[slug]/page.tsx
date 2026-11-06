@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts, getPost, getTeamForSlug, getRelatedPostsByTeam, teams } from "../posts";
 import Phrase, { phraseHtml } from "../../components/Phrase";
+import { iconizeHtml } from "../../components/emojiIcons";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -80,7 +81,7 @@ function renderMarkdown(content: string) {
                 className={`toc-link hover:text-brand-600 hover:underline no-underline ${item.level === 3 ? "text-gray-500" : "text-gray-900"}`}
               >
                 {item.level === 2 && <span className="text-brand-500 mr-1.5">▸</span>}
-                {item.text}
+                <span dangerouslySetInnerHTML={{ __html: iconizeHtml(item.text) }} />
               </a>
             </li>
           ))}
@@ -109,7 +110,7 @@ function renderMarkdown(content: string) {
       faqMode = false;
       elements.push(
         <h2 key={i} id={headingIds[i]} style={{ scrollMarginTop: "1rem" }}>
-          <Phrase>{line.slice(3)}</Phrase>
+          <span dangerouslySetInnerHTML={{ __html: renderText(line.slice(3)) }} />
         </h2>
       );
     } else if (line.trim().startsWith("**Q")) {
@@ -174,7 +175,7 @@ function renderMarkdown(content: string) {
             <thead>
               <tr>
                 {header.map((cell, j) => (
-                  <td key={j} style={{ fontWeight: 700, background: "#f9fafb" }} dangerouslySetInnerHTML={{ __html: renderInlineHtml(cell) }} />
+                  <td key={j} style={{ fontWeight: 700, background: "#f9fafb" }} dangerouslySetInnerHTML={{ __html: iconizeHtml(renderInlineHtml(cell)) }} />
                 ))}
               </tr>
             </thead>
@@ -182,7 +183,7 @@ function renderMarkdown(content: string) {
               {body.map((row, ri) => (
                 <tr key={ri}>
                   {row.map((cell, ci) => (
-                    <td key={ci} dangerouslySetInnerHTML={{ __html: renderInlineHtml(cell) }} />
+                    <td key={ci} dangerouslySetInnerHTML={{ __html: iconizeHtml(renderInlineHtml(cell)) }} />
                   ))}
                 </tr>
               ))}
@@ -336,7 +337,7 @@ function renderInline(text: string): React.ReactNode {
 
 // 本文の文章は文節の途中で改行しないようにする(表のセルは幅が狭いので renderInlineHtml のまま)
 function renderText(text: string): string {
-  return phraseHtml(renderInlineHtml(text));
+  return phraseHtml(iconizeHtml(renderInlineHtml(text)));
 }
 
 function renderInlineHtml(text: string): string {
