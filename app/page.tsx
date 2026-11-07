@@ -112,7 +112,7 @@ const PRICES = [
 const PLAN_ROWS: { label: string; free: string; premium: string; limited?: boolean }[] = [
   { label: "いいね・スキップ", free: "5回", premium: "30回" },
   { label: "行きたい！（観戦募集への参加）", free: "3回", premium: "20回" },
-  { label: "音声通話", free: "60分", premium: "60分", limited: true },
+  { label: "音声通話", free: "3時間", premium: "3時間", limited: true },
   { label: "表示する性別を選ぶ", free: "—", premium: "◯" },
 ];
 
@@ -197,8 +197,8 @@ export default function Home() {
               href="#plans"
               className="!no-underline inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-900 text-xs md:text-sm font-bold pl-1.5 pr-3.5 py-1.5 rounded-full mb-7 hover:bg-amber-100 transition-colors"
             >
-              <span className="bg-amber-500 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-full">12/31まで</span>
-              <Phrase>無料会員も音声通話が1日60分</Phrase>
+              <span className="bg-amber-500 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-full">延長</span>
+              <Phrase>無料会員も音声通話が1日3時間</Phrase>
               <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
             </a>
 
@@ -304,22 +304,22 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <SectionHeader en="Plans" title="料金プラン" lead="基本機能はすべて無料。もっと使いたい人はプレミアムへ。" />
 
-          {/* 年内限定: 無料会員の通話60分 */}
+          {/* 通話時間の延長: 無料会員も1日3時間 */}
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-amber-950 p-5 md:p-7 mb-8 shadow-md">
             <p className="inline-block bg-white text-amber-700 text-xs md:text-sm font-black px-3 py-1 rounded-full mb-3">
-              期間限定・2026年12月31日まで
+              通話時間を延長しました
             </p>
             <p className="text-xl md:text-3xl font-black leading-snug mb-3">
               <Phrase>無料会員も、音声通話が</Phrase>
-              <span className="whitespace-nowrap">1日<span className="text-4xl md:text-6xl mx-1">60</span>分</span>
+              <span className="whitespace-nowrap">1日<span className="text-4xl md:text-6xl mx-1">3</span>時間</span>
             </p>
             <p className="text-sm md:text-base font-bold leading-relaxed">
-              <Phrase>いまはプレミアムと同じ時間を、無料のまま使えます。2027年1月1日からは、無料会員の通話は1日15分になります。</Phrase>
+              <Phrase>2027年1月1日からも、無料会員は1日3時間のまま使えます。プレミアム会員は、同じ日から1日10時間（無料の約3倍）になります。</Phrase>
             </p>
             <div className="mt-4 inline-flex items-center gap-3 bg-white/80 rounded-xl px-4 py-2 text-sm font-bold">
-              <span>いま <span className="text-lg font-black">60分</span></span>
+              <span>無料 <span className="text-lg font-black">3時間</span></span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-              <span className="text-amber-800/70">2027年から <span className="text-lg font-black">15分</span></span>
+              <span className="text-amber-800/70">2027年からのプレミアム <span className="text-lg font-black">10時間</span></span>
             </div>
           </div>
 
@@ -360,7 +360,7 @@ export default function Home() {
                       {r.limited ? (
                         <>
                           <span className="font-black text-amber-700">{r.free}</span>
-                          <span className="block text-[10px] font-bold text-amber-700">12/31まで</span>
+                          <span className="block text-[10px] font-bold text-amber-700">2027年も同じ</span>
                         </>
                       ) : (
                         r.free
@@ -373,7 +373,7 @@ export default function Home() {
             </table>
           </div>
           <p className="text-xs text-gray-500 leading-relaxed mt-4">
-            <Phrase>※ 2027年1月1日から、無料は いいね・スキップ3回／行きたい！1回／通話15分、プレミアムは いいね・スキップ30回／行きたい！無制限／通話90分になります。</Phrase>
+            <Phrase>※ 2027年1月1日から、無料は いいね・スキップ3回／行きたい！1回／通話3時間、プレミアムは いいね・スキップ30回／行きたい！無制限／通話10時間になります。</Phrase>
           </p>
         </div>
       </section>
