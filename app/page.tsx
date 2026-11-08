@@ -139,6 +139,17 @@ const { props: heroShot } = getImageProps({
   sizes: "260px",
 });
 
+
+// トップのよくある質問(AI の回答や検索で拾われやすいよう、質問と同じ言い方で短く答える)
+const TOP_FAQ: { q: string; a: string }[] = [
+  { q: "野球ファン向けのマッチングアプリはありますか？", a: "スタンドメイトは、野球観戦の友達・仲間を探すための野球ファン向けマッチングアプリです。プロ野球12球団のほか、高校野球・大学野球・社会人野球のファンも使えます。恋人探しではなく、一緒に観戦する仲間を探すためのアプリです。" },
+  { q: "無料で使えますか？", a: "基本機能は無料です。もっと使いたい人向けに、プレミアム会員(月額¥1,000)があります。2027年1月1日からは1年プラン(¥10,000)も選べます。" },
+  { q: "同じ球団のファンや、近くに住んでいる人を探せますか？", a: "探せます。球団・年齢・性別・住んでいる地域で相手を絞り込めるので、地元のファンや遠征先のファンも見つけられます。" },
+  { q: "チケットが1枚余ったとき、一緒に行く人を探せますか？", a: "観戦募集を出せば、同じ試合に行きたい人を探せます。チケットの売り買いはアプリでは仲介していないので、余ったチケットを手放したいときは、球団やチケットサイトの公式のリセール・トレード機能を使ってください。" },
+  { q: "離れた場所から、通話しながら一緒に試合を観られますか？", a: "観られます。観戦募集の種類で「通話で観戦」を選ぶと、別々の場所にいるファン同士が通話しながら同じ試合を観られます。電話番号を教える必要はありません。" },
+  { q: "知らない人と会うのが不安です。安全対策はありますか？", a: "会う前にトークでやり取りし、アプリ内の通話で声を聞いておけます。通話は、お互いに1通以上メッセージを送ってからでないとできません。困った相手は、プロフィールやトーク画面の「…」メニューから通報・ブロックできます。" },
+];
+
 export default function Home() {
   preload(heroShot.src, {
     as: "image",
@@ -160,6 +171,11 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: TOP_FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })) }) }}
       />
 
       {/* Hero Section */}
@@ -379,6 +395,22 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
+      {/* よくある質問 */}
+      <section id="faq" className="scroll-mt-20 py-14 md:py-20 px-4 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader en="FAQ" title="よくある質問" />
+          <div className="space-y-3">
+            {TOP_FAQ.map((f) => (
+              <div key={f.q} className="rounded-2xl border border-gray-200 p-4 md:p-5">
+                <h3 className="font-bold text-brand-900 mb-2"><Phrase>{"Q. " + f.q}</Phrase></h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm mt-6"><a href="/support" className="text-brand-600 font-bold">ほかの質問はサポートページへ</a></p>
+        </div>
+      </section>
+
       <section id="download" className="scroll-mt-16 py-14 md:py-20 px-4 bg-brand-900 text-white relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-brand-500/30 rounded-full blur-3xl" />
         <div className="relative max-w-3xl mx-auto text-center">
