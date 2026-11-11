@@ -143,10 +143,16 @@ const { props: heroShot } = getImageProps({
 // トップのよくある質問(AI の回答や検索で拾われやすいよう、質問と同じ言い方で短く答える)
 const TOP_FAQ: { q: string; a: string }[] = [
   { q: "野球ファン向けのマッチングアプリはありますか？", a: "スタンドメイトは、野球観戦の友達・仲間を探すための野球ファン向けマッチングアプリです。プロ野球12球団のほか、高校野球・大学野球・社会人野球のファンも使えます。恋人探しではなく、一緒に観戦する仲間を探すためのアプリです。" },
-  { q: "無料で使えますか？", a: "基本機能は無料です。もっと使いたい人向けに、プレミアム会員(月額¥1,000)があります。2027年1月1日からは1年プラン(¥10,000)も選べます。" },
+  { q: "無料で使えますか？", a: "基本機能は無料です。もっと使いたい人向けに、プレミアム会員(月額¥1,000)があります。2027年1月1日からは1年プラン(¥10,000)も選べます。iPhoneとAndroidのどちらでも使えて、18歳以上の人が利用できます。" },
   { q: "同じ球団のファンや、近くに住んでいる人を探せますか？", a: "探せます。球団・年齢・性別・住んでいる地域で相手を絞り込めるので、地元のファンや遠征先のファンも見つけられます。" },
   { q: "チケットが1枚余ったとき、一緒に行く人を探せますか？", a: "観戦募集を出せば、同じ試合に行きたい人を探せます。チケットの売り買いはアプリでは仲介していないので、余ったチケットを手放したいときは、球団やチケットサイトの公式のリセール・トレード機能を使ってください。" },
   { q: "離れた場所から、通話しながら一緒に試合を観られますか？", a: "観られます。観戦募集の種類で「通話で観戦」を選ぶと、別々の場所にいるファン同士が通話しながら同じ試合を観られます。電話番号を教える必要はありません。" },
+  { q: "野球観戦に行く友達がいません。社会人になってからでも作れますか？", a: "作れます。観戦募集を出すか、球団・年齢・地域で相手を絞り込んで探せば、学校や職場とは関係なく、同じように野球を観たい人とつながれます。" },
+  { q: "一人で野球観戦に行くのは寂しいですか？", a: "一人でも観戦は楽しめますが、誰かと行きたい日は、その試合の観戦募集を出して一緒に行く人を探せます。" },
+  { q: "応援している球団が違う人とも友達になれますか？", a: "なれます。球団で絞り込むかどうかは自分で決められるので、同じ球団のファンに限らず、他球団のファンとも知り合えます。" },
+  { q: "女性が一人で使っても大丈夫ですか？", a: "プレミアム会員になると、プロフィールや募集を表示する相手の性別を選べるので、同性の友達だけを探すこともできます。困った相手は通報・ブロックできます。" },
+  { q: "デートや恋人探しのためのアプリですか？", a: "違います。スタンドメイトは、一緒に野球を観る友達・仲間を探すためのアプリです。" },
+  { q: "高校野球・大学野球・独立リーグにも使えますか？", a: "使えます。プロ野球12球団のほか、高校野球・大学野球・社会人野球・独立リーグ・日本代表の試合にも対応しています。" },
   { q: "知らない人と会うのが不安です。安全対策はありますか？", a: "会う前にトークでやり取りし、アプリ内の通話で声を聞いておけます。通話は、お互いに1通以上メッセージを送ってからでないとできません。困った相手は、プロフィールやトーク画面の「…」メニューから通報・ブロックできます。" },
 ];
 
@@ -401,10 +407,14 @@ export default function Home() {
           <SectionHeader en="FAQ" title="よくある質問" />
           <div className="space-y-3">
             {TOP_FAQ.map((f) => (
-              <div key={f.q} className="rounded-2xl border border-gray-200 p-4 md:p-5">
-                <h3 className="font-bold text-brand-900 mb-2"><Phrase>{"Q. " + f.q}</Phrase></h3>
-                <p className="text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
-              </div>
+              <details key={f.q} className="group rounded-2xl border border-gray-200">
+                <summary className="flex cursor-pointer list-none items-start gap-3 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
+                  <h3 className="flex-1 font-bold text-brand-900"><Phrase>{"Q. " + f.q}</Phrase></h3>
+                  <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                  <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+                </summary>
+                <p className="px-4 pb-4 md:px-5 md:pb-5 -mt-1 text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
+              </details>
             ))}
           </div>
           <p className="text-center text-sm mt-6"><a href="/support" className="text-brand-600 font-bold">ほかの質問はサポートページへ</a></p>
