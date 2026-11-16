@@ -130,12 +130,12 @@ const USER_COUNT_LABEL = "3,000人以上";
 
 const BLANK_GIF = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
-// ヒーローのアプリ画面(PC幅でだけ表示)。スマホで読み込まないよう、先読みは PC 幅のときだけにする
+// ヒーローのアプリ画面(PC幅でだけ表示。元画像は Play ストア写真 play_01_3000.png)。スマホで読み込まないよう、先読みは PC 幅のときだけにする
 const { props: heroShot } = getImageProps({
-  src: "/features/feature-01.webp",
-  alt: "スタンドメイトの友達検索の画面 - 好きな球団が同じ人から順に表示",
+  src: "/hero-app.webp",
+  alt: "スタンドメイトの友達検索の画面 - 同じ推しの野球仲間が見つかる。登録者数3,000人突破",
   width: 600,
-  height: 1304,
+  height: 1200,
   sizes: "260px",
 });
 
