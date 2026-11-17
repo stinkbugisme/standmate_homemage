@@ -5,11 +5,11 @@ import { categoryGroups, getCategoryGroupForCategory, type CategoryGroupSlug } f
 // 固定ページの最終更新日。ページの中身を変えたらここも更新する
 // (new Date() にすると、内容が同じでも毎回「今日更新」と伝えてしまう)
 const PAGE_UPDATED = {
-  home: "2026-11-07",
-  howto: "2026-11-07",
+  home: "2026-11-17",
+  howto: "2026-11-17",
   contact: "2026-10-30",
-  support: "2026-11-07",
-  terms: "2026-11-07",
+  support: "2026-11-17",
+  terms: "2026-11-17",
   privacy: "2026-10-30",
   legal: "2026-10-30",
   childSafety: "2026-04-14",
