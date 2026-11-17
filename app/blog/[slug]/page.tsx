@@ -353,6 +353,33 @@ function renderInlineHtml(text: string): string {
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
 }
 
+
+// 記事の「よくある質問」節(## …よくある質問… の見出しから次の ## まで)の
+// 「**Q. 質問**」と次の行の「A. 答え」を FAQPage の構造化データにする。
+// 本文に見える Q&A と同じ文だけを入れる(本文にない Q&A は入れない)。
+function extractFaq(content: string): { q: string; a: string }[] {
+  const lines = content.split(/\r?\n/);
+  const start = lines.findIndex((l) => /^##\s.*よくある質問/.test(l));
+  if (start < 0) return [];
+  const plain = (t: string) =>
+    t
+      .replace(/\{\{[^}]*\}\}/g, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/\*\*/g, "")
+      .trim();
+  const out: { q: string; a: string }[] = [];
+  for (let i = start + 1; i < lines.length; i++) {
+    const l = lines[i].trim();
+    if (/^##\s/.test(l)) break;
+    const qm = l.match(/^\*\*Q[.．]\s*(.+?)\*\*$/);
+    if (!qm) continue;
+    const next = (lines[i + 1] ?? "").trim();
+    const am = next.match(/^A[.．]\s*(.+)$/);
+    if (am) out.push({ q: plain(qm[1]), a: plain(am[1]) });
+  }
+  return out;
+}
+
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
@@ -386,9 +413,19 @@ export default async function BlogPostPage({ params }: Props) {
     },
   };
 
+  const faq = extractFaq(post.content);
+  const faqJsonLd = faq.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+      }
+    : null;
+
   return (
     <div className="min-h-screen bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <div className="subpage-container blog-article">
 
