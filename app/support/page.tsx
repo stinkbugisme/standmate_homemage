@@ -126,6 +126,38 @@ const faqJsonLd = {
         text: "無料会員の回数・時間は変わりません。これからも、いいね・スキップ5回、行きたい！3回、通話3時間です。プレミアム会員は、2026年12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。いいね・スキップは30回のままです。",
       },
     },
+    {
+      "@type": "Question",
+      name: "本人確認はありますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "初めて会う人と観戦するのは安全ですか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "スタンドメイトでは、会う前にトークと通話で相手の様子を確かめられます。トークができるのは、マッチした相手と、観戦募集で参加を承認した相手だけです。通話は、お互いに1通以上メッセージを送ってからでないとできません。現在地は表示されません。相手に見えるのは、本人が選んだ住んでいる地域だけです。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "女性ひとりでも使えますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックでき、相手には知らされません。",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "通報やブロックをしたら、相手に知られますか？",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "知らされません。通報すると、その相手は自動でブロックされ、運営が24時間以内に内容を確認します。ブロックは、トーク画面・プロフィール・募集の画面の「…」メニューか、メッセージ一覧の長押しからできます。",
+      },
+    },
   ],
 };
 
@@ -312,6 +344,26 @@ export default function SupportPage() {
             <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
               <h3 className="!text-brand-500"><Phrase>{"Q. 2027年から無料で使える回数は変わりますか？"}</Phrase></h3>
               <p className="!mb-0"><Phrase>{"A. 無料会員の回数・時間は変わりません。これからも、いいね・スキップ5回、行きたい！3回、通話3時間です。プレミアム会員は、2026年12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。いいね・スキップは30回のままです。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 本人確認はありますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 初めて会う人と観戦するのは安全ですか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. スタンドメイトでは、会う前にトークと通話で相手の様子を確かめられます。トークができるのは、マッチした相手と、観戦募集で参加を承認した相手だけです。通話は、お互いに1通以上メッセージを送ってからでないとできません。現在地は表示されません。相手に見えるのは、本人が選んだ住んでいる地域だけです。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 女性ひとりでも使えますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックでき、相手には知らされません。"}</Phrase></p>
+            </div>
+
+            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
+              <h3 className="!text-brand-500"><Phrase>{"Q. 通報やブロックをしたら、相手に知られますか？"}</Phrase></h3>
+              <p className="!mb-0"><Phrase>{"A. 知らされません。通報すると、その相手は自動でブロックされ、運営が24時間以内に内容を確認します。ブロックは、トーク画面・プロフィール・募集の画面の「…」メニューか、メッセージ一覧の長押しからできます。"}</Phrase></p>
             </div>
           </div>
         </section>
