@@ -359,7 +359,8 @@ function renderInlineHtml(text: string): string {
 // 本文に見える Q&A と同じ文だけを入れる(本文にない Q&A は入れない)。
 function extractFaq(content: string): { q: string; a: string }[] {
   const lines = content.split(/\r?\n/);
-  const start = lines.findIndex((l) => /^##\s.*よくある質問/.test(l));
+  let start = lines.findIndex((l) => /^##\s.*よくある質問/.test(l));
+  if (start < 0) start = lines.findIndex((l) => /^##\s.*(Q&A|FAQ)/.test(l));
   if (start < 0) return [];
   const plain = (t: string) =>
     t
