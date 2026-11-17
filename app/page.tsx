@@ -108,7 +108,7 @@ const PRICES = [
   { name: "1年プラン", price: "¥10,000", note: ["/年・", "2027年1月から"], badge: "2ヶ月分おトク" },
 ];
 
-// 1日に使える回数・時間(2026年の設定。2027/1/1 からの改定は表の下に注記)
+// 1日に使える回数・時間(現在の設定。12月のアプリ更新でプレミアムの行きたい！無制限・通話10時間に変わる予定=表の下に注記)
 const PLAN_ROWS: { label: string; free: string; premium: string; limited?: boolean }[] = [
   { label: "いいね・スキップ", free: "5回", premium: "30回" },
   { label: "行きたい！（観戦募集への参加）", free: "3回", premium: "20回" },
@@ -336,7 +336,7 @@ export default function Home() {
               <span className="whitespace-nowrap">1日<span className="text-4xl md:text-6xl mx-1">3</span>時間</span>
             </p>
             <p className="text-sm md:text-base font-bold leading-relaxed">
-              <Phrase>2027年1月1日からも、無料会員は1日3時間のまま使えます。プレミアム会員は、同じ日から1日10時間（無料の約3倍）になります。</Phrase>
+              <Phrase>無料会員は、これからも1日3時間使えます。プレミアム会員は、12月に予定しているアプリの更新から1日10時間（無料の約3倍）になります。</Phrase>
             </p>
             <div className="mt-4 inline-flex items-center gap-3 bg-white/80 rounded-xl px-4 py-2 text-sm font-bold">
               <span>無料 <span className="text-lg font-black">3時間</span></span>
@@ -395,7 +395,7 @@ export default function Home() {
             </table>
           </div>
           <p className="text-xs text-gray-500 leading-relaxed mt-4">
-            <Phrase>※ 2027年1月1日から、無料は いいね・スキップ3回／行きたい！1回／通話3時間、プレミアムは いいね・スキップ30回／行きたい！無制限／通話10時間になります。</Phrase>
+            <Phrase>※ 無料会員の回数・時間はこれからも変わりません。プレミアム会員は、12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。</Phrase>
           </p>
         </div>
       </section>
