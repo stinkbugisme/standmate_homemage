@@ -223,6 +223,10 @@ export default function HowToPage() {
               </p>
             </div>
           </div>
+          <p className="mt-6 text-sm text-gray-600">
+            <Phrase>使い方で分からないことは、サポートページのよくある質問にまとめています。</Phrase>
+            <Link href="/support" className="text-brand-600 font-bold underline underline-offset-2 ml-1">よくある質問を見る</Link>
+          </p>
         </section>
 
         {/* CTA */}
