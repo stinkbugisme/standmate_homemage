@@ -109,10 +109,10 @@ const PRICES = [
 ];
 
 // 1日に使える回数・時間(現在の設定。12月のアプリ更新でプレミアムの行きたい！無制限・通話10時間に変わる予定=表の下に注記)
-const PLAN_ROWS: { label: string; free: string; premium: string; limited?: boolean }[] = [
+const PLAN_ROWS: { label: string; free: string; premium: string; premiumNote?: string }[] = [
   { label: "いいね・スキップ", free: "5回", premium: "30回" },
   { label: "行きたい！（観戦募集への参加）", free: "3回", premium: "20回" },
-  { label: "音声通話", free: "3時間", premium: "3時間", limited: true },
+  { label: "音声通話", free: "3時間", premium: "3時間" },
   { label: "表示する性別を選ぶ", free: "—", premium: "◯" },
 ];
 
@@ -140,20 +140,60 @@ const { props: heroShot } = getImageProps({
 });
 
 
-// トップのよくある質問(AI の回答や検索で拾われやすいよう、質問と同じ言い方で短く答える)
-const TOP_FAQ: { q: string; a: string }[] = [
-  { q: "野球ファン向けのマッチングアプリはありますか？", a: "スタンドメイトは、野球観戦の友達・仲間を探すための、野球ファン向けのマッチングアプリです。プロ野球12球団のほか、高校野球・大学野球・社会人野球・独立リーグのファンも使えます。登録者は3,000人以上で、恋人探しではなく、一緒に観戦する仲間を探すためのアプリです。" },
-  { q: "無料で使えますか？", a: "スタンドメイトは無料で使えます。無料会員でも、いいね・スキップは1日5回、観戦募集への「行きたい！」は1日3回、音声通話は1日3時間使えます。もっと使いたい人向けにプレミアム会員(月額¥1,000)があり、2027年1月1日からは1年プラン(¥10,000)も選べます。iPhoneとAndroidのどちらでも使えて、18歳以上の人が利用できます。" },
-  { q: "同じ球団のファンや、近くに住んでいる人を探せますか？", a: "探せます。スタンドメイトでは、好きな球団が同じ人から順に表示されます。球団・年齢・性別・住んでいる地域で絞り込むこともできるので、地元のファンや遠征先のファンも見つけられます。" },
-  { q: "チケットが1枚余ったとき、一緒に行く人を探せますか？", a: "探せます。スタンドメイトの観戦募集に日時・球場・席を書いて出せば、同じ試合に行きたい人を探せます。チケットの売り買いはアプリでは仲介していないので、余ったチケットを手放したいときは、球団やチケットサイトの公式のリセール・トレード機能を使ってください。" },
-  { q: "離れた場所から、通話しながら一緒に試合を観られますか？", a: "観られます。スタンドメイトの観戦募集で種類に「通話で観戦」を選ぶと、別々の場所にいるファン同士が通話しながら同じ試合を観られます。電話番号を教える必要はありません。" },
-  { q: "野球観戦に行く友達がいません。社会人になってからでも作れますか？", a: "作れます。スタンドメイトでは、観戦募集を出すか、球団・年齢・地域で相手を絞り込んで探せるので、学校や職場とは関係なく、同じように野球を観たい人とつながれます。" },
-  { q: "一人で野球観戦に行くのは寂しいですか？", a: "一人でも観戦は楽しめます。誰かと行きたい日は、スタンドメイトでその試合の観戦募集を出せば、一緒に行く人を探せます。" },
-  { q: "応援している球団が違う人とも友達になれますか？", a: "なれます。スタンドメイトでは、球団で絞り込むかどうかを自分で決められるので、同じ球団のファンに限らず、他球団のファンとも知り合えます。" },
-  { q: "女性が一人で使っても大丈夫ですか？", a: "使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックできます。" },
-  { q: "デートや恋人探しのためのアプリですか？", a: "違います。スタンドメイトは、恋人探しではなく、一緒に野球を観る友達・仲間を探すためのアプリです。" },
-  { q: "高校野球・大学野球・独立リーグにも使えますか？", a: "使えます。スタンドメイトは、プロ野球12球団のほか、高校野球・大学野球・社会人野球・独立リーグ・日本代表の試合にも対応しています。" },
-  { q: "知らない人と会うのが不安です。安全対策はありますか？", a: "会う前にトークでやり取りし、アプリ内の通話で声を聞いておけます。通話は、お互いに1通以上メッセージを送ってからでないとできません。困った相手は、プロフィールやトーク画面の「…」メニューから通報・ブロックできます。" },
+// トップのよくある質問(AI の回答や検索で拾われやすいよう、質問と同じ言い方で短く答える)。
+// c は画面の区分けの見出し。並び順のまま、同じ c が続く所を1つの区分けとして出す(構造化データには入れない)。
+// 答えはサポート・使い方・規約に書いてある事実だけで作る。
+const TOP_FAQ: { c: string; q: string; a: string }[] = [
+  { c: "スタンドメイトについて", q: "野球ファン向けのマッチングアプリはありますか？", a: "スタンドメイトは、野球観戦の友達・仲間を探すための、野球ファン向けのマッチングアプリです。プロ野球12球団のほか、高校野球・大学野球・社会人野球・独立リーグのファンも使えます。登録者は3,000人以上で、恋人探しではなく、一緒に観戦する仲間を探すためのアプリです。" },
+  { c: "スタンドメイトについて", q: "デートや恋人探しのためのアプリですか？", a: "違います。スタンドメイトは、恋人探しではなく、一緒に野球を観る友達・仲間を探すためのアプリです。" },
+  { c: "スタンドメイトについて", q: "高校野球・大学野球・独立リーグにも使えますか？", a: "使えます。スタンドメイトは、プロ野球12球団のほか、高校野球・大学野球・社会人野球・独立リーグ・日本代表の試合にも対応しています。" },
+  { c: "スタンドメイトについて", q: "iPhoneとAndroidのどちらでも使えますか？", a: "使えます。iPhoneはApp Store、AndroidはGoogle Playから「スタンドメイト」をダウンロードしてください。基本機能は無料で使えます。" },
+  { c: "スタンドメイトについて", q: "何歳から使えますか？", a: "18歳以上の人が使えます。年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。" },
+  { c: "スタンドメイトについて", q: "登録には何が必要ですか？", a: "AppleまたはGoogleのアカウントで登録します。登録したら、ニックネーム・好きな球団・自己紹介などのプロフィールを設定します。" },
+
+  { c: "料金", q: "無料で使えますか？", a: "スタンドメイトは無料で使えます。無料会員でも、いいね・スキップは1日5回、観戦募集への「行きたい！」は1日3回、音声通話は1日3時間使えます。もっと使いたい人向けにプレミアム会員(月額¥1,000)があり、2027年1月1日からは1年プラン(¥10,000)も選べます。iPhoneとAndroidのどちらでも使えて、18歳以上の人が利用できます。" },
+  { c: "料金", q: "プレミアム会員になると何が変わりますか？", a: "月額¥1,000で、いいね・スキップが1日30回、「行きたい！」が1日20回に増え、プロフィールや募集を見せる相手の性別も選べます。" },
+  { c: "料金", q: "1年プランはいつから使えますか？", a: "1年プラン(¥10,000・税込)は2027年1月1日から使えます。1ヶ月プラン(¥1,000・税込)の12ヶ月分より¥2,000おトクです。" },
+  { c: "料金", q: "2027年から無料で使える回数は変わりますか？", a: "変わりません。無料会員は、これからも、いいね・スキップ5回、「行きたい！」3回、通話3時間です。" },
+  { c: "料金", q: "プレミアム会員にはどこから登録できますか？", a: "アプリのマイページから登録できます。" },
+
+  { c: "仲間の探し方", q: "同じ球団のファンや、近くに住んでいる人を探せますか？", a: "探せます。スタンドメイトでは、好きな球団が同じ人から順に表示されます。球団・年齢・性別・住んでいる地域で絞り込むこともできるので、地元のファンや遠征先のファンも見つけられます。" },
+  { c: "仲間の探し方", q: "応援している球団が違う人とも友達になれますか？", a: "なれます。スタンドメイトでは、球団で絞り込むかどうかを自分で決められるので、同じ球団のファンに限らず、他球団のファンとも知り合えます。" },
+  { c: "仲間の探し方", q: "野球観戦に行く友達がいません。社会人になってからでも作れますか？", a: "作れます。スタンドメイトでは、観戦募集を出すか、球団・年齢・地域で相手を絞り込んで探せるので、学校や職場とは関係なく、同じように野球を観たい人とつながれます。" },
+  { c: "仲間の探し方", q: "マッチングはどうすれば成立しますか？", a: "ホーム画面で気になる人に「いいね」を送り、お互いに「いいね」するとマッチング成立です。マッチすると、トークでやり取りできるようになります。" },
+  { c: "仲間の探し方", q: "好きな球団は複数選べますか？", a: "選べます。プロフィールで、応援している球団を複数選べます。" },
+  { c: "仲間の探し方", q: "プロフィールに写真は何枚載せられますか？", a: "最大5枚です。写真があると、相手に雰囲気が伝わりやすくなります。相手のプロフィールには「あなたとの共通点」が表示されるので、話のきっかけも見つけやすくなります。" },
+
+  { c: "観戦募集", q: "チケットが1枚余ったとき、一緒に行く人を探せますか？", a: "探せます。スタンドメイトの観戦募集に日時・球場・席を書いて出せば、同じ試合に行きたい人を探せます。チケットの売り買いはアプリでは仲介していないので、余ったチケットを手放したいときは、球団やチケットサイトの公式のリセール・トレード機能を使ってください。" },
+  { c: "観戦募集", q: "一人で野球観戦に行くのは寂しいですか？", a: "一人でも観戦は楽しめます。誰かと行きたい日は、スタンドメイトでその試合の観戦募集を出せば、一緒に行く人を探せます。" },
+  { c: "観戦募集", q: "観戦募集にはどんな種類がありますか？", a: "3種類あります。球場で一緒に観る「現地観戦」、別々の場所から通話しながら一緒に観る「通話で観戦」、スポーツバー・飲み会・グッズの買い物などの「交流・その他」です。" },
+  { c: "観戦募集", q: "観戦募集はどうやって出しますか？", a: "「観戦」タブから、日時・球場・席・募集内容を入力して出せます。観戦募集の投稿は、無料会員でも回数に制限がありません。" },
+  { c: "観戦募集", q: "ほかの人の観戦募集に参加するには？", a: "気になる募集の「行きたい！」(通話で観戦なら「通話したい！」)を押して、参加希望を送ります。参加が決まると、募集した人とトークでやり取りできます。チケットを持っているファンが募集していることも多いので、初めての球場でも参加しやすくなっています。" },
+  { c: "観戦募集", q: "スポーツバーやご飯会の仲間も募集できますか？", a: "できます。観戦募集の種類で「交流・その他」を選ぶと、スポーツバー・飲み会・グッズの買い物などの仲間を募集できます。ファン同士のご飯会を企画することもできます。" },
+
+  { c: "トークと通話", q: "離れた場所から、通話しながら一緒に試合を観られますか？", a: "観られます。スタンドメイトの観戦募集で種類に「通話で観戦」を選ぶと、別々の場所にいるファン同士が通話しながら同じ試合を観られます。電話番号を教える必要はありません。" },
+  { c: "トークと通話", q: "だれと通話できますか？", a: "トークができる相手と通話できます。マッチした相手と、観戦募集で参加が決まった相手です。ただし、お互いに1通以上メッセージを送ってからでないと通話できません。" },
+  { c: "トークと通話", q: "通話するのに電話番号は必要ですか？", a: "必要ありません。トーク画面の右上の電話マークからかけられるので、電話番号を相手に教えずに話せます。" },
+  { c: "トークと通話", q: "通話できる時間と、元に戻るタイミングは？", a: "通話は、かけた人の1日の通話時間を使います。通話時間は毎朝3時に元に戻ります。無料会員もプレミアム会員も、1日3時間使えます。" },
+  { c: "トークと通話", q: "通話がつながらない、相手に声が届かないときは？", a: "はじめて通話するときに「マイクの使用」を許可していないと、相手に声が届きません。iPhoneは「設定」→「スタンドメイト」→「マイク」、Androidは「設定」→「アプリ」→「スタンドメイト」→「権限」→「マイク」から許可してください。あわせて、電波の良い場所で、アプリを最新バージョンにして試してください。" },
+  { c: "トークと通話", q: "トークで写真や動画は送れますか？", a: "送れます。トーク画面から、写真や動画を選んで送れます。球場の景色やグッズの写真を見せ合うこともできます。" },
+  { c: "トークと通話", q: "マッチしたのにメッセージが送れないときは？", a: "インターネットにつながっているかを確かめ、アプリを最新バージョンにしてから再起動してください。それでも直らないときは、サポートページのお問い合わせフォームから連絡してください。" },
+
+  { c: "安全", q: "知らない人と会うのが不安です。安全対策はありますか？", a: "会う前にトークでやり取りし、アプリ内の通話で声を聞いておけます。通話は、お互いに1通以上メッセージを送ってからでないとできません。困った相手は、プロフィールやトーク画面の「…」メニューから通報・ブロックできます。" },
+  { c: "安全", q: "女性が一人で使っても大丈夫ですか？", a: "使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックできます。" },
+  { c: "安全", q: "本人確認はありますか？", a: "身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。" },
+  { c: "安全", q: "初めて会う人と観戦するのは安全ですか？", a: "会う前に、トークと通話で相手の様子を確かめられます。トークができるのは、マッチした相手と、観戦募集で参加を承認した相手だけです。現在地は表示されず、相手に見えるのは本人が選んだ住んでいる地域だけです。" },
+  { c: "安全", q: "不適切なユーザーを見つけたらどうすればいいですか？", a: "アプリ内の通報機能を使ってください。相手のプロフィール、トーク画面、募集の詳細画面の右上の「…」メニューから「通報する」を選べます。通報した相手は自動でブロックされ、運営が24時間以内に内容を確認します。アプリから通報できないときは、info@standmate.jp にメールで知らせてください。" },
+  { c: "安全", q: "通報やブロックをしたら、相手に知られますか？", a: "知らされません。ブロックは、トーク画面・プロフィール・募集の画面の「…」メニューか、メッセージ一覧の長押しからできます。ブロックした相手には、あなたのプロフィールが表示されなくなります。" },
+
+  { c: "チケット", q: "アプリでチケットの売り買いはできますか？", a: "できません。スタンドメイトは、ユーザー間のお金のやり取りやチケットの売買を仲介していません。チケットは、チケットぴあ・ローソンチケット・e+・球団公式サイト・公式トレード機能などの正規のルートで手に入れてください。" },
+  { c: "チケット", q: "個人からチケットを譲ってもらうときの注意点は？", a: "PayPay送金や銀行振込での「先払い」は避け、球場の入場ゲート前などで当日にチケットを確かめてから払うようにしてください。本人確認書類の画像を見せられても、本人である証明にはなりません。偽造や流用のおそれがあります。" },
+  { c: "チケット", q: "チケット詐欺などのお金のトラブルに遭ったら？", a: "まず、使った決済サービス(PayPayなど)のサポートに被害を報告してください。次に、最寄りの警察(サイバー犯罪相談窓口)か110番、消費者ホットライン188に相談してください。運営には、info@standmate.jp かアプリの通報機能から、相手のニックネーム・日時・証拠の画像を添えて知らせてください。規約に基づき、永久停止などの措置を取ります。お金の返還や取り戻しは、運営ではできません。" },
+
+  { c: "アカウントと支払い", q: "プレミアム会員を解約するには？", a: "iPhoneは「設定」アプリ →自分の名前 →「サブスクリプション」→「スタンドメイト」→「サブスクリプションをキャンセル」の順に進みます。Androidは「Google Play ストア」アプリ →右上のプロフィールアイコン →「お支払いと定期購入」→「定期購入」→「スタンドメイト」→「定期購入を解約」です。解約後も、購入済みの期間が終わるまではプレミアム会員の機能を使えます。" },
+  { c: "アカウントと支払い", q: "購入の復元ができないときは？", a: "プレミアム会員の画面にある「購入を復元」ボタンを押してください。それでも復元できないときは、購入したときと同じApple ID(iPhone)またはGoogleアカウント(Android)でストアにログインしているかを確かめてください。" },
+  { c: "アカウントと支払い", q: "アカウントを削除するには？", a: "アプリのマイページを開き、一番下の「アカウントを削除」を押すと削除できます。" },
+  { c: "アカウントと支払い", q: "問い合わせはどこからできますか？", a: "サポートページのお問い合わせフォームから送れます。通常24時間以内に返信します。週末・祝日を挟むときは、時間がかかることがあります。" },
 ];
 
 export default function Home() {
@@ -212,17 +252,9 @@ export default function Home() {
             <p className="text-xl md:text-2xl font-bold text-brand-900 mb-3">
               <Phrase>野球観戦仲間を探そう</Phrase>
             </p>
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-4 max-w-md mx-auto md:mx-0">
+            <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
               <Phrase>同じ球団のファン同士で、観戦仲間・野球友達を探す専用アプリです。基本無料</Phrase><wbr /><span className="whitespace-nowrap">（有料プランは月額¥1,000）。</span>
             </p>
-            <a
-              href="#plans"
-              className="!no-underline inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-900 text-xs md:text-sm font-bold pl-1.5 pr-3.5 py-1.5 rounded-full mb-7 hover:bg-amber-100 transition-colors"
-            >
-              <span className="bg-amber-500 text-white text-[10px] md:text-xs px-2 py-0.5 rounded-full">延長</span>
-              <Phrase>無料会員も音声通話が1日3時間</Phrase>
-              <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-            </a>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
             <a
@@ -326,25 +358,6 @@ export default function Home() {
         <div className="max-w-3xl mx-auto">
           <SectionHeader en="Plans" title="料金プラン" lead="基本機能はすべて無料。もっと使いたい人はプレミアムへ。" />
 
-          {/* 通話時間の延長: 無料会員も1日3時間 */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-amber-950 p-5 md:p-7 mb-8 shadow-md">
-            <p className="inline-block bg-white text-amber-700 text-xs md:text-sm font-black px-3 py-1 rounded-full mb-3">
-              通話時間を延長しました
-            </p>
-            <p className="text-xl md:text-3xl font-black leading-snug mb-3">
-              <Phrase>無料会員も、音声通話が</Phrase>
-              <span className="whitespace-nowrap">1日<span className="text-4xl md:text-6xl mx-1">3</span>時間</span>
-            </p>
-            <p className="text-sm md:text-base font-bold leading-relaxed">
-              <Phrase>無料会員は、これからも1日3時間使えます。プレミアム会員は、12月に予定しているアプリの更新から1日10時間（無料の約3倍）になります。</Phrase>
-            </p>
-            <div className="mt-4 inline-flex items-center gap-3 bg-white/80 rounded-xl px-4 py-2 text-sm font-bold">
-              <span>無料 <span className="text-lg font-black">3時間</span></span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
-              <span className="text-amber-800/70">2027年からのプレミアム <span className="text-lg font-black">10時間</span></span>
-            </div>
-          </div>
-
           {/* 料金 */}
           <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
             {PRICES.map((p) => (
@@ -376,19 +389,13 @@ export default function Home() {
               </thead>
               <tbody>
                 {PLAN_ROWS.map((r) => (
-                  <tr key={r.label} className={`border-t border-gray-100 ${r.limited ? "bg-amber-50" : ""}`}>
+                  <tr key={r.label} className="border-t border-gray-100">
                     <td className="px-4 py-3 font-bold text-gray-700"><Phrase>{r.label}</Phrase></td>
-                    <td className="px-2 py-3 text-center text-gray-600">
-                      {r.limited ? (
-                        <>
-                          <span className="font-black text-amber-700">{r.free}</span>
-                          <span className="block text-[10px] font-bold text-amber-700">2027年も同じ</span>
-                        </>
-                      ) : (
-                        r.free
-                      )}
+                    <td className="px-2 py-3 text-center text-gray-600">{r.free}</td>
+                    <td className="px-2 py-3 text-center font-black text-brand-600">
+                      {r.premium}
+                      {r.premiumNote && <span className="block text-[10px] font-bold text-gray-500">{r.premiumNote}</span>}
                     </td>
-                    <td className="px-2 py-3 text-center font-black text-brand-600">{r.premium}</td>
                   </tr>
                 ))}
               </tbody>
@@ -405,16 +412,28 @@ export default function Home() {
       <section id="faq" className="scroll-mt-20 py-14 md:py-20 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <SectionHeader en="FAQ" title="よくある質問" />
-          <div className="space-y-3">
-            {TOP_FAQ.map((f) => (
-              <details key={f.q} className="group rounded-2xl border border-gray-200">
-                <summary className="flex cursor-pointer list-none items-start gap-3 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
-                  <h3 className="flex-1 font-bold text-brand-900"><Phrase>{"Q. " + f.q}</Phrase></h3>
-                  <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
-                  <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
-                </summary>
-                <p className="px-4 pb-4 md:px-5 md:pb-5 -mt-1 text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
-              </details>
+          <div className="space-y-8">
+            {TOP_FAQ.reduce<{ c: string; items: typeof TOP_FAQ }[]>((groups, f) => {
+              const last = groups[groups.length - 1];
+              if (last && last.c === f.c) last.items.push(f);
+              else groups.push({ c: f.c, items: [f] });
+              return groups;
+            }, []).map((g) => (
+              <div key={g.c}>
+                <p className="text-sm md:text-base font-black text-brand-600 mb-3">{g.c}</p>
+                <div className="space-y-3">
+                  {g.items.map((f) => (
+                    <details key={f.q} className="group rounded-2xl border border-gray-200">
+                      <summary className="flex cursor-pointer list-none items-start gap-3 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
+                        <h3 className="flex-1 font-bold text-brand-900"><Phrase>{"Q. " + f.q}</Phrase></h3>
+                        <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                        <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+                      </summary>
+                      <p className="px-4 pb-4 md:px-5 md:pb-5 -mt-1 text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
+                    </details>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
           <p className="text-center text-sm mt-6"><a href="/support" className="text-brand-600 font-bold">ほかの質問はサポートページへ</a></p>
