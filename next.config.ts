@@ -52,6 +52,11 @@ const nextConfig: NextConfig = {
         destination: "/blog/yakyu-ouen-board-app",
         permanent: true,
       },
+      ...["kanto", "kansai", "kyushu", "touhoku"].map((area) => ({
+        source: `/blog/${area}-yakyu-kansen-nakama`,
+        destination: "/blog/chiiki-betsu-yakyu-kansen-nakama",
+        permanent: true,
+      })),
     ];
   },
 };

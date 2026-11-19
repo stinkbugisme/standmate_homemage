@@ -113,6 +113,28 @@ function renderMarkdown(content: string) {
           <span dangerouslySetInnerHTML={{ __html: renderText(line.slice(3)) }} />
         </h2>
       );
+    } else if (line.trim().startsWith("**Q") && (lines[i + 1] ?? "").trim().startsWith("A.")) {
+      // Q&A はトップページと同じ開閉式(<details>)。閉じていても答えは HTML に入るので、
+      // 検索エンジンや AI のクローラーは答えまで読める
+      const answer = lines[i + 1].trim().replace(/^A\.\s*/, "");
+      elements.push(
+        <details key={i} className="group not-prose my-3 rounded-2xl border border-gray-200">
+          <summary className="flex cursor-pointer list-none items-start gap-3 p-4 [&::-webkit-details-marker]:hidden">
+            <span
+              className="flex-1 font-bold text-gray-800"
+              dangerouslySetInnerHTML={{ __html: renderText(line.trim().replace(/^\*\*(.+)\*\*$/, "$1")) }}
+            />
+            <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+            <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+          </summary>
+          <p
+            className="px-4 pb-4 -mt-1 text-gray-600 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: renderText(answer) }}
+          />
+        </details>
+      );
+      i += 2;
+      continue;
     } else if (line.trim().startsWith("**Q")) {
       faqMode = true;
       elements.push(
