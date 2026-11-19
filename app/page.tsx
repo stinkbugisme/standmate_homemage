@@ -387,7 +387,13 @@ export default function Home() {
               <tbody>
                 {PLAN_ROWS.map((r) => (
                   <tr key={r.label} className="border-t border-gray-100">
-                    <td className="px-4 py-3 font-bold text-gray-700"><Phrase>{r.label}</Phrase></td>
+                    <td className="px-4 py-3 font-bold text-gray-700">
+                      {/* かっこ書きは「行きたい！（」のように開きかっこだけが行末に残らないよう、ひとかたまり(inline-block)で出す */}
+                      {(() => {
+                        const [main, note] = r.label.split("（");
+                        return note ? <><Phrase>{main}</Phrase><span className="inline-block">（<Phrase>{note}</Phrase></span></> : <Phrase>{r.label}</Phrase>;
+                      })()}
+                    </td>
                     <td className="px-2 py-3 text-center text-gray-600">{r.free}</td>
                     <td className="px-2 py-3 text-center font-black text-brand-600">
                       {r.premium}
