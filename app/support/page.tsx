@@ -230,141 +230,249 @@ export default function SupportPage() {
           <h2>よくある質問（FAQ）</h2>
 
           <div className="space-y-4">
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. アカウントを削除したい"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. アカウントを削除したい"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. アプリを開いてマイページを開き、一番下の「アカウントを削除」を押すとアカウントを削除できます。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. プレミアム会員の解約方法"}</Phrase></h3>
-              <p className="!mb-0">
-                A. <strong>iPhone</strong>：iPhoneの「設定」アプリ →（一番上の）自分の名前 →「サブスクリプション」→「スタンドメイト」→「サブスクリプションをキャンセル」の順に進んでください。
-              </p>
-              <p className="!mb-0 mt-2">
-                <strong>Android</strong>：「Google Play ストア」アプリ → 右上のプロフィールアイコン →「お支払いと定期購入」→「定期購入」→「スタンドメイト」→「定期購入を解約」の順に進んでください。
-              </p>
-              <p className="!mb-0 mt-2 text-sm !text-gray-500"><Phrase>{"解約後も、購入済みの期間が終わるまではプレミアム会員の機能を使えます。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. プレミアム会員の解約方法"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0">
+                  A. <strong>iPhone</strong>：iPhoneの「設定」アプリ →（一番上の）自分の名前 →「サブスクリプション」→「スタンドメイト」→「サブスクリプションをキャンセル」の順に進んでください。
+                </p>
+                <p className="!mb-0 mt-2">
+                  <strong>Android</strong>：「Google Play ストア」アプリ → 右上のプロフィールアイコン →「お支払いと定期購入」→「定期購入」→「スタンドメイト」→「定期購入を解約」の順に進んでください。
+                </p>
+                <p className="!mb-0 mt-2 text-sm !text-gray-500"><Phrase>{"解約後も、購入済みの期間が終わるまではプレミアム会員の機能を使えます。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 不適切なユーザーを見つけた"}</Phrase></h3>
-              <p className="!mb-0">
-                A. アプリ内の通報機能をご利用ください。相手のプロフィール、トーク画面、募集の詳細画面の右上「…」メニューから「通報する」を選べます。通報した相手は自動でブロックされます。アプリ内通報が使えない場合は <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。
-              </p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 不適切なユーザーを見つけた"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0">
+                  A. アプリ内の通報機能をご利用ください。相手のプロフィール、トーク画面、募集の詳細画面の右上「…」メニューから「通報する」を選べます。通報した相手は自動でブロックされます。アプリ内通報が使えない場合は <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> までメールでもご報告いただけます。通報内容は24時間以内に確認し、適切な対応を行います。
+                </p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. チケット譲渡でトラブルに遭わないためには？（先払い詐欺への注意）"}</Phrase></h3>
-              <p>
-                A. スタンドメイトはユーザー間の金銭授受・チケット売買を<strong>仲介していません</strong>。
-                観戦募集を通じて知り合った相手との取引はご自身の責任で行っていただきます。
-              </p>
-              <p className="!mb-2 font-semibold"><Phrase>{"【推奨】"}</Phrase></p>
-              <ul className="list-disc">
-                <li>チケットぴあ・ローソンチケット・e+・球団公式サイト・公式トレード機能など<strong>正規ルート</strong>の利用を最優先</li>
-                <li>やむを得ず個人間で譲り受ける場合、<strong>PayPay送金や銀行振込による先払いは避ける</strong></li>
-                <li><Phrase>{"球場入場ゲート前など、当日の現物確認後に支払う方法を検討"}</Phrase></li>
-                <li>本人確認書類の<strong>画像</strong>を見せられても信用しない（偽造・流用の可能性あり）</li>
-              </ul>
-              <p className="!mb-0 text-sm !text-gray-500"><Phrase>{"国民生活センターも、SNSを介した個人間チケット取引で「代金支払後に連絡が取れなくなる」「チケットが届かない」等の相談が繰り返し寄せられていると注意喚起しています。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. チケット譲渡でトラブルに遭わないためには？（先払い詐欺への注意）"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p>
+                  A. スタンドメイトはユーザー間の金銭授受・チケット売買を<strong>仲介していません</strong>。
+                  観戦募集を通じて知り合った相手との取引はご自身の責任で行っていただきます。
+                </p>
+                <p className="!mb-2 font-semibold"><Phrase>{"【推奨】"}</Phrase></p>
+                <ul className="list-disc">
+                  <li>チケットぴあ・ローソンチケット・e+・球団公式サイト・公式トレード機能など<strong>正規ルート</strong>の利用を最優先</li>
+                  <li>やむを得ず個人間で譲り受ける場合、<strong>PayPay送金や銀行振込による先払いは避ける</strong></li>
+                  <li><Phrase>{"球場入場ゲート前など、当日の現物確認後に支払う方法を検討"}</Phrase></li>
+                  <li>本人確認書類の<strong>画像</strong>を見せられても信用しない（偽造・流用の可能性あり）</li>
+                </ul>
+                <p className="!mb-0 text-sm !text-gray-500"><Phrase>{"国民生活センターも、SNSを介した個人間チケット取引で「代金支払後に連絡が取れなくなる」「チケットが届かない」等の相談が繰り返し寄せられていると注意喚起しています。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. チケット詐欺などの金銭トラブルに遭ってしまった"}</Phrase></h3>
-              <p><Phrase>{"A. 以下の順でご対応ください。"}</Phrase></p>
-              <ol className="list-decimal">
-                <li>
-                  <strong>利用した決済サービス（PayPay等）のサポートに被害報告</strong>
-                  ：不正利用報告により、相手アカウントへの措置や調査が行われる場合があります。
-                </li>
-                <li>
-                  <strong>警察への相談</strong>
-                  ：最寄りの警察署またはサイバー犯罪相談窓口、緊急時は110番。被害届の提出をご検討ください。
-                </li>
-                <li>
-                  <strong>消費者ホットライン「188」</strong>
-                  ：最寄りの消費生活センター等をご案内する国民生活センターの電話窓口です。
-                </li>
-                <li>
-                  <strong>スタンドメイト運営への通報</strong>
-                  ：アプリ内通報機能、または <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> まで、対象ユーザーのニックネーム・発生日時・状況・証拠画像（スクリーンショット等）を添えてご連絡ください。規約違反と判断した場合、該当アカウントに永久停止等の措置を行います。
-                </li>
-              </ol>
-              <p className="!mb-0 text-sm !text-gray-500">
-                ※ 被害金銭の返還・取り戻しは運営の業務範囲外となります。あらかじめご了承ください。詳細は<Link href="/terms">利用規約 第10条</Link>をご確認ください。
-              </p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. チケット詐欺などの金銭トラブルに遭ってしまった"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p><Phrase>{"A. 以下の順でご対応ください。"}</Phrase></p>
+                <ol className="list-decimal">
+                  <li>
+                    <strong>利用した決済サービス（PayPay等）のサポートに被害報告</strong>
+                    ：不正利用報告により、相手アカウントへの措置や調査が行われる場合があります。
+                  </li>
+                  <li>
+                    <strong>警察への相談</strong>
+                    ：最寄りの警察署またはサイバー犯罪相談窓口、緊急時は110番。被害届の提出をご検討ください。
+                  </li>
+                  <li>
+                    <strong>消費者ホットライン「188」</strong>
+                    ：最寄りの消費生活センター等をご案内する国民生活センターの電話窓口です。
+                  </li>
+                  <li>
+                    <strong>スタンドメイト運営への通報</strong>
+                    ：アプリ内通報機能、または <a href="mailto:info@standmate.jp?subject=%E9%80%9A%E5%A0%B1">info@standmate.jp</a> まで、対象ユーザーのニックネーム・発生日時・状況・証拠画像（スクリーンショット等）を添えてご連絡ください。規約違反と判断した場合、該当アカウントに永久停止等の措置を行います。
+                  </li>
+                </ol>
+                <p className="!mb-0 text-sm !text-gray-500">
+                  ※ 被害金銭の返還・取り戻しは運営の業務範囲外となります。あらかじめご了承ください。詳細は<Link href="/terms">利用規約 第10条</Link>をご確認ください。
+                </p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. マッチングしたユーザーとメッセージができない"}</Phrase></h3>
-              <p><Phrase>{"A. 以下をご確認ください："}</Phrase></p>
-              <ul className="list-disc">
-                <li><Phrase>{"インターネット接続が正常か確認"}</Phrase></li>
-                <li><Phrase>{"アプリを最新バージョンにアップデート"}</Phrase></li>
-                <li><Phrase>{"アプリを再起動"}</Phrase></li>
-              </ul>
-              <p className="!mb-0"><Phrase>{"それでも解決しない場合は、サポートまでお問い合わせください。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. マッチングしたユーザーとメッセージができない"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p><Phrase>{"A. 以下をご確認ください："}</Phrase></p>
+                <ul className="list-disc">
+                  <li><Phrase>{"インターネット接続が正常か確認"}</Phrase></li>
+                  <li><Phrase>{"アプリを最新バージョンにアップデート"}</Phrase></li>
+                  <li><Phrase>{"アプリを再起動"}</Phrase></li>
+                </ul>
+                <p className="!mb-0"><Phrase>{"それでも解決しない場合は、サポートまでお問い合わせください。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 購入の復元ができない"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. プレミアム会員の画面にある「購入を復元」ボタンを押してください。それでも復元できない場合は、購入したときと同じApple ID（iPhone）またはGoogleアカウント（Android）でストアにログインしているかご確認ください。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 購入の復元ができない"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. プレミアム会員の画面にある「購入を復元」ボタンを押してください。それでも復元できない場合は、購入したときと同じApple ID（iPhone）またはGoogleアカウント（Android）でストアにログインしているかご確認ください。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 通話がつながらない、相手に声が届かない"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. はじめて通話するときに「マイクの使用」を許可していないと、相手に声が届きません。iPhoneは「設定」→「スタンドメイト」→「マイク」、Androidは「設定」→「アプリ」→「スタンドメイト」→「権限」→「マイク」から許可してください。あわせて、電波の良い場所で、アプリを最新バージョンにしてお試しください。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 通話がつながらない、相手に声が届かない"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. はじめて通話するときに「マイクの使用」を許可していないと、相手に声が届きません。iPhoneは「設定」→「スタンドメイト」→「マイク」、Androidは「設定」→「アプリ」→「スタンドメイト」→「権限」→「マイク」から許可してください。あわせて、電波の良い場所で、アプリを最新バージョンにしてお試しください。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 通話できる時間と、元に戻るタイミングは？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 通話は、かけた人の1日の通話時間を使います。通話時間は毎朝3時に元に戻ります。無料会員は1日3時間使えます。プレミアム会員は、2026年12月に予定しているアプリの更新から1日10時間になります（それまでは1日3時間）。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 通話できる時間と、元に戻るタイミングは？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 通話は、かけた人の1日の通話時間を使います。通話時間は毎朝3時に元に戻ります。無料会員は1日3時間使えます。プレミアム会員は、2026年12月に予定しているアプリの更新から1日10時間になります（それまでは1日3時間）。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. だれと通話できますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. トークができる相手と通話できます（マッチした相手、観戦募集で参加が決まった相手）。ただし、お互いに1通以上メッセージを送ってからでないと通話できません。トーク画面の右上の電話マークからかけられます。電話番号を相手に教える必要はありません。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. だれと通話できますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. トークができる相手と通話できます（マッチした相手、観戦募集で参加が決まった相手）。ただし、お互いに1通以上メッセージを送ってからでないと通話できません。トーク画面の右上の電話マークからかけられます。電話番号を相手に教える必要はありません。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 「通話で観戦」とは？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 観戦募集の種類のひとつで、はなれた場所から、通話しながら一緒に試合を観る募集です。球場に行けない日でも、同じ球団のファンと一緒に応援できます。参加したいときは「通話したい！」を押します。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 「通話で観戦」とは？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 観戦募集の種類のひとつで、はなれた場所から、通話しながら一緒に試合を観る募集です。球場に行けない日でも、同じ球団のファンと一緒に応援できます。参加したいときは「通話したい！」を押します。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. トークで写真や動画は送れますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 送れます。トーク画面から、写真や動画を選んで送信できます。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. トークで写真や動画は送れますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 送れます。トーク画面から、写真や動画を選んで送信できます。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 1年プランはいつから使えますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 1年プラン（10,000円・税込）は2027年1月1日から提供します。1ヶ月プラン（1,000円・税込）の12ヶ月分より2,000円おトクです。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 1年プランはいつから使えますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 1年プラン（10,000円・税込）は2027年1月1日から提供します。1ヶ月プラン（1,000円・税込）の12ヶ月分より2,000円おトクです。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 2027年から無料で使える回数は変わりますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 無料会員の回数・時間は変わりません。これからも、いいね・スキップ5回、行きたい！3回、通話3時間です。プレミアム会員は、2026年12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。いいね・スキップは30回のままです。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 2027年から無料で使える回数は変わりますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 無料会員の回数・時間は変わりません。これからも、いいね・スキップ5回、行きたい！3回、通話3時間です。プレミアム会員は、2026年12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。いいね・スキップは30回のままです。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 本人確認はありますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 本人確認はありますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 初めて会う人と観戦するのは安全ですか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. スタンドメイトでは、会う前にトークと通話で相手の様子を確かめられます。トークができるのは、マッチした相手と、観戦募集で参加を承認した相手だけです。通話は、お互いに1通以上メッセージを送ってからでないとできません。現在地は表示されません。相手に見えるのは、本人が選んだ住んでいる地域だけです。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 初めて会う人と観戦するのは安全ですか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. スタンドメイトでは、会う前にトークと通話で相手の様子を確かめられます。トークができるのは、マッチした相手と、観戦募集で参加を承認した相手だけです。通話は、お互いに1通以上メッセージを送ってからでないとできません。現在地は表示されません。相手に見えるのは、本人が選んだ住んでいる地域だけです。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 女性ひとりでも使えますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックでき、相手には知らされません。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 女性ひとりでも使えますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 使えます。スタンドメイトでは、ホームの絞り込みで相手の性別を選べるので、同性の友達だけを探せます。プレミアム会員(月額¥1,000)になると、自分のプロフィールを見せる相手も男性のみ・女性のみから選べます。困った相手は通報・ブロックでき、相手には知らされません。"}</Phrase></p>
+              </div>
+            </details>
 
-            <div className="border border-gray-100 rounded-xl p-6 hover:border-brand-200 transition-colors">
-              <h3 className="!text-brand-500"><Phrase>{"Q. 通報やブロックをしたら、相手に知られますか？"}</Phrase></h3>
-              <p className="!mb-0"><Phrase>{"A. 知らされません。通報すると、その相手は自動でブロックされ、運営が24時間以内に内容を確認します。ブロックは、トーク画面・プロフィール・募集の画面の「…」メニューか、メッセージ一覧の長押しからできます。"}</Phrase></p>
-            </div>
+            <details className="group border border-gray-100 rounded-xl hover:border-brand-200 transition-colors">
+              <summary className="flex cursor-pointer list-none items-start gap-3 p-6 [&::-webkit-details-marker]:hidden">
+                <h3 className="!text-brand-500 !my-0 flex-1"><Phrase>{"Q. 通報やブロックをしたら、相手に知られますか？"}</Phrase></h3>
+                <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+              </summary>
+              <div className="px-6 pb-6 -mt-2">
+                <p className="!mb-0"><Phrase>{"A. 知らされません。通報すると、その相手は自動でブロックされ、運営が24時間以内に内容を確認します。ブロックは、トーク画面・プロフィール・募集の画面の「…」メニューか、メッセージ一覧の長押しからできます。"}</Phrase></p>
+              </div>
+            </details>
           </div>
         </section>
 
