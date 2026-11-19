@@ -131,7 +131,7 @@ const faqJsonLd = {
       name: "本人確認はありますか？",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。",
+        text: "スタンドメイトには、身分証を提出する本人確認はありません。登録はiPhoneならApple、AndroidならGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。",
       },
     },
     {
@@ -437,7 +437,7 @@ export default function SupportPage() {
                 <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
               </summary>
               <div className="px-6 pb-6 -mt-2">
-                <p className="!mb-0"><Phrase>{"A. スタンドメイトには、身分証を提出する本人確認はありません。登録はAppleまたはGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。"}</Phrase></p>
+                <p className="!mb-0"><Phrase>{"A. スタンドメイトには、身分証を提出する本人確認はありません。登録はiPhoneならApple、AndroidならGoogleのアカウントで行い、年齢はプロフィールで18〜80歳の中から選ぶので、17歳以下は選べません。18歳未満と思われる人を見つけたら、通報の理由「子どもの安全に関わる問題」から運営に知らせてください。"}</Phrase></p>
               </div>
             </details>
 
