@@ -218,7 +218,7 @@ export default function HowToPage() {
             <div className="border border-gray-200 rounded-2xl p-5">
               <h3 className="font-bold text-brand-600 mb-2">プレミアム会員</h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                月額¥1,000で、いいね・スキップが1日30回、行きたい！が1日20回に増え、プロフィールや募集を表示する相手の性別も選べます。マイページから登録できます。
+                月額¥1,000で、いいね・スキップが1日30回、行きたい！が1日20回に増え、プロフィールや募集を男性だけ・女性だけに見せることもできます。観戦の絞り込みで男性の募集・女性の募集だけを表示でき、自分の募集が観戦タブの一番上の「PICK UP」に出ることもあります。マイページから登録できます。
                 <Link href="/#plans" className="text-brand-600 font-bold underline underline-offset-2 ml-1">料金プランを見る</Link>
               </p>
             </div>
