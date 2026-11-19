@@ -402,7 +402,7 @@ export default function Home() {
             </table>
           </div>
           <p className="text-xs text-gray-500 leading-relaxed mt-4">
-            <Phrase>※ 無料会員の回数・時間はこれからも変わりません。プレミアム会員は、12月に予定しているアプリの更新から、行きたい！が無制限、通話が1日10時間になります。</Phrase>
+            <Phrase>※ 無料会員の回数・時間はこれからも変わりません。</Phrase>
           </p>
         </div>
       </section>
