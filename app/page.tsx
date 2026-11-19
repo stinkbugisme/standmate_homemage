@@ -93,10 +93,10 @@ const AppleLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
 const FEATURES = [
   { title: "友達検索", text: "好きな球団が同じ人から順に表示。同じ推しの野球仲間が見つかります。", href: "/howto#search" },
   { title: "プロフィール", text: "好きな球団や住んでいる地域など、共通点がひと目でわかります。", href: "/howto#profile" },
-  { title: "観戦募集", text: "一緒に球場へ行く仲間を募集。現地観戦のほか、通話で観戦や交流の募集もできます。", href: "/howto#watch", isNew: true },
+  { title: "観戦募集", text: "一緒に球場へ行く仲間を募集。現地観戦のほか、通話で観戦や交流の募集もできます。", href: "/howto#watch" },
   { title: "募集の詳細", text: "日時・球場・席をまとめて伝えられるので、気軽に誘えます。", href: "/howto#watch" },
   { title: "トーク", text: "マッチしたらメッセージで話せます。写真や動画も送り合えます。", href: "/howto#message" },
-  { title: "アプリ内通話", text: "アプリの中で音声通話。電話番号を教えなくても話せます。", href: "/howto#call", isNew: true },
+  { title: "アプリ内通話", text: "アプリの中で音声通話。電話番号を教えなくても話せます。", href: "/howto#call" },
   { title: "絞り込み検索", text: "球団・年齢・性別・住んでいる地域で、相手を絞って探せます。", href: "/howto#search" },
   { title: "通報・ブロック", text: "気になる相手は通報・ブロックできるので、安心して使えます。", href: "/support" },
 ];
@@ -328,11 +328,6 @@ export default function Home() {
                     sizes="(min-width: 768px) 240px, 58vw"
                     className="w-full h-auto rounded-2xl shadow-md group-hover:shadow-lg transition-shadow"
                   />
-                  {f.isNew && (
-                    <span className="absolute top-2 right-2 bg-white text-brand-600 text-[10px] md:text-xs font-black px-2 py-0.5 rounded-full shadow">
-                      NEW
-                    </span>
-                  )}
                 </div>
                 <h3 className="text-sm md:text-base font-bold mb-1 group-hover:text-brand-500 transition-colors"><Phrase>{f.title}</Phrase></h3>
                 <p className="text-gray-500 text-xs md:text-sm leading-relaxed"><Phrase>{f.text}</Phrase></p>
@@ -407,39 +402,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      {/* よくある質問 */}
-      <section id="faq" className="scroll-mt-20 py-14 md:py-20 px-4 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <SectionHeader en="FAQ" title="よくある質問" />
-          <div className="space-y-8">
-            {TOP_FAQ.reduce<{ c: string; items: typeof TOP_FAQ }[]>((groups, f) => {
-              const last = groups[groups.length - 1];
-              if (last && last.c === f.c) last.items.push(f);
-              else groups.push({ c: f.c, items: [f] });
-              return groups;
-            }, []).map((g) => (
-              <div key={g.c}>
-                <p className="text-sm md:text-base font-black text-brand-600 mb-3">{g.c}</p>
-                <div className="space-y-3">
-                  {g.items.map((f) => (
-                    <details key={f.q} className="group rounded-2xl border border-gray-200">
-                      <summary className="flex cursor-pointer list-none items-start gap-3 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
-                        <h3 className="flex-1 font-bold text-brand-900"><Phrase>{"Q. " + f.q}</Phrase></h3>
-                        <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
-                        <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
-                      </summary>
-                      <p className="px-4 pb-4 md:px-5 md:pb-5 -mt-1 text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
-                    </details>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-sm mt-6"><a href="/support" className="text-brand-600 font-bold">ほかの質問はサポートページへ</a></p>
-        </div>
-      </section>
-
+      {/* ダウンロード(料金プランの直後) */}
       <section id="download" className="scroll-mt-16 py-14 md:py-20 px-4 bg-brand-900 text-white relative overflow-hidden">
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-brand-500/30 rounded-full blur-3xl" />
         <div className="relative max-w-3xl mx-auto text-center">
@@ -466,6 +429,38 @@ export default function Home() {
               <svg className="w-5 h-5" viewBox="0 0 24 24"><path fill="#34A853" d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5Z"/><path fill="#4285F4" d="M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12Z"/><path fill="#FBBC04" d="M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81Z"/><path fill="#EA4335" d="M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg> Google Play で公開中
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* よくある質問 */}
+      <section id="faq" className="scroll-mt-20 py-14 md:py-20 px-4 bg-brand-50/60">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeader en="FAQ" title="よくある質問" />
+          <div className="space-y-8">
+            {TOP_FAQ.reduce<{ c: string; items: typeof TOP_FAQ }[]>((groups, f) => {
+              const last = groups[groups.length - 1];
+              if (last && last.c === f.c) last.items.push(f);
+              else groups.push({ c: f.c, items: [f] });
+              return groups;
+            }, []).map((g) => (
+              <div key={g.c}>
+                <p className="text-sm md:text-base font-black text-brand-600 mb-3">{g.c}</p>
+                <div className="space-y-3">
+                  {g.items.map((f) => (
+                    <details key={f.q} className="group rounded-2xl border border-gray-200 bg-white">
+                      <summary className="flex cursor-pointer list-none items-start gap-3 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
+                        <h3 className="flex-1 font-bold text-brand-900"><Phrase>{"Q. " + f.q}</Phrase></h3>
+                        <span aria-hidden="true" className="shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:hidden">＋</span>
+                        <span aria-hidden="true" className="hidden shrink-0 text-xl leading-6 font-bold text-brand-600 group-open:inline">－</span>
+                      </summary>
+                      <p className="px-4 pb-4 md:px-5 md:pb-5 -mt-1 text-sm md:text-base text-gray-600 leading-relaxed"><Phrase>{f.a}</Phrase></p>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-sm mt-6"><a href="/support" className="text-brand-600 font-bold">ほかの質問はサポートページへ</a></p>
         </div>
       </section>
 
