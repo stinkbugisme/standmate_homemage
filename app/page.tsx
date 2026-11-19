@@ -14,7 +14,7 @@ const jsonLd = {
   applicationSubCategory: "SportsApplication",
   operatingSystem: "iOS, Android",
   description:
-    "基本無料の野球ファン向け友達・観戦仲間探しアプリ（有料プランは月額¥1,000）。プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで対応。同じ球団を応援する仲間と一緒に球場へ行くためのアプリです。",
+    "登録者3,000人以上・基本無料の野球ファン向け友達・観戦仲間探しアプリ（有料プランは月額¥1,000）。プロ野球12球団・高校野球・大学野球・社会人野球・独立リーグ・日本代表まで対応。同じ球団を応援する仲間と一緒に球場へ行くためのアプリです。",
   url: "https://standmate.jp",
   image: "https://standmate.jp/icon.png",
   inLanguage: "ja-JP",
@@ -255,7 +255,7 @@ export default function Home() {
               <Phrase>野球観戦仲間を探そう</Phrase>
             </p>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed mb-7 max-w-md mx-auto md:mx-0">
-              <Phrase>同じ球団のファン同士で、観戦仲間・野球友達を探す専用アプリです。基本無料</Phrase><wbr /><span className="whitespace-nowrap">（有料プランは月額¥1,000）。</span>
+              <Phrase>{`野球ファン${USER_COUNT_LABEL}が登録している、観戦仲間・野球友達を探す専用アプリです。同じ球団のファン同士でつながれます。基本無料`}</Phrase><wbr /><span className="whitespace-nowrap">（有料プランは月額¥1,000）。</span>
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
@@ -310,7 +310,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-14 md:py-20 bg-white">
         <div className="max-w-5xl mx-auto">
-          <SectionHeader en="Features" title={<>スタンドメイトで<span className="gradient-text">できること</span></>} />
+          <SectionHeader en="Features" title={<>スタンドメイトで<span className="gradient-text">できること</span></>} lead={`野球ファン${USER_COUNT_LABEL}が、観戦仲間・野球友達探しに使っています。`} />
 
           {/* スマホは横スクロール、PCは4列 */}
           <div className="flex md:grid md:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-px-4 px-4 pb-4 md:pb-0 [scrollbar-width:none]">
